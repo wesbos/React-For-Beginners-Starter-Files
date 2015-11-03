@@ -4,7 +4,7 @@ var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
 var Router  = ReactRouter.Router;
 var Route = ReactRouter.Route;
-var Navigation = ReactRouter.Navigation; // mixin
+var History = ReactRouter.History;
 var createBrowserHistory = require('history/lib/createBrowserHistory');
 
 var h = require('./helpers');
@@ -145,7 +145,7 @@ var StorePicker = React.createClass({
     event.preventDefault();
     // get the data from the input
     var storeId = this.refs.storeId.value;
-    this.transitionTo('/store/' + storeId);
+    this.history.pushState(null, '/store/' + storeId);
   },
   render : function() {
     return (

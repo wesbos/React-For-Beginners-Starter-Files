@@ -4,7 +4,7 @@
 */
 
 import React from 'react';
-import { Navigation } from 'react-router';
+import { History } from 'react-router';
 import h from '../helpers';
 import reactMixin from 'react-mixin';
 import autobind from 'autobind-decorator';
@@ -16,7 +16,7 @@ class StorePicker extends React.Component {
     event.preventDefault();
     // get the data from the input
     var storeId = this.refs.storeId.value;
-    this.transitionTo('/store/' + storeId);
+    this.history.pushState(null, '/store/' + storeId);
   }
 
   render() {

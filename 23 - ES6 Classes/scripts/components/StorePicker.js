@@ -4,7 +4,7 @@
 */
 
 import React from 'react';
-import { Navigation } from 'react-router';
+import { History } from 'react-router';
 import h from '../helpers';
 
 var StorePicker = React.createClass({
@@ -13,7 +13,7 @@ var StorePicker = React.createClass({
     event.preventDefault();
     // get the data from the input
     var storeId = this.refs.storeId.value;
-    this.transitionTo('/store/' + storeId);
+    this.history.pushState(null, '/store/' + storeId);
   },
   render : function() {
     return (

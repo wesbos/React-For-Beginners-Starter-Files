@@ -140,7 +140,7 @@ var Inventory = React.createClass({
 */
 
 var StorePicker = React.createClass({
-  mixins : [Navigation],
+  mixins : [History],
   goToStore : function(event) {
     event.preventDefault();
     // get the data from the input

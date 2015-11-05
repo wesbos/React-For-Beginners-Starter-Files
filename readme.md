@@ -30,6 +30,11 @@ There are a few possible options:
 * Some users have reported restarting works
 * You can try the [JavaScript Next](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax) syntax highlighter instead
 
+## I can't set Babel at the default syntax higher!
+
+Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open! 
+
+
 ## I can't see the React tab in my dev tools
 
 Restart your dev tools or your chrome browser entirely

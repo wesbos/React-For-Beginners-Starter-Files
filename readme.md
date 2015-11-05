@@ -13,7 +13,7 @@ The code in this repo meant to be a reference point for anyone following along w
 
 Each folder contains only the changed files for each video, so if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
 
-You are welcome to submit Pull Requests but I'd like to keep the code at similar as possible to the course content. 
+You are welcome to submit Pull Requests but I'd like to keep the code as similar as possible to the course content.
 
 ### Code Use
 

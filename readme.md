@@ -34,7 +34,6 @@ There are a few possible options:
 
 Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open! 
 
-
 ## I can't see the React tab in my dev tools
 
 Restart your dev tools or your chrome browser entirely
@@ -50,3 +49,6 @@ Restart your dev tools or your chrome browser entirely
 It's ZSH + Cobat2 for iTerm2. I did a whole video series on it → [CommandLinePowerUser.com](http://commandlinepoweruser.com/)
 
 
+## I'm getting a weird error when I try run Gulp
+
+Make sure you have the latest Node and NPM installed. If you run `node -v && npm -v` and get anything less than 4.0 and 3.0 you should download the installer from <http://nodejs.org> to upgrade. 

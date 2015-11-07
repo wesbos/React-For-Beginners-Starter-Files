@@ -1,4 +1,5 @@
 var React = require('react');
+var ReactDOM = require('react-dom');
 
 /*
   App
@@ -83,4 +84,4 @@ var StorePicker = React.createClass({
 
 });
 
-React.render(<App/>, document.querySelector('#main'));
+ReactDOM.render(<App/>, document.querySelector('#main'));

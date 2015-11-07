@@ -5,20 +5,19 @@
   appear Must set transitionAppear={true} on animation component 
 */
 
-
 .order-enter
-  transition .5s
+  transition all 0.3s
   transform translateX(-120%)
   max-height 0
   padding 0 !important
   &.order-enter-active
-    transform translateX(0)
     max-height 60px
     padding 2rem 0 !important
-
+    background white
+    transform translateX(0)
 
 .order-leave
-  transition all 0.5s
+  transition all 0.3s
   transform translateX(0)
   &.order-leave-active
     max-height 0
@@ -26,21 +25,22 @@
     transform translateX(120%)
 
 
-/* Count Animation */
 .count-enter
-  transition all 0.25s
-  transform translateY(100%) // start it just off screen
+  transition all .2s
+  transform translateY(100%)
   &.count-enter-active
+    opacity 1
     transform translateY(0)
     
+    
+  
 .count-leave
-  transition all 0.25s
-  position absolute
+  transition all .2s
   left 0
   bottom 0
-  transform translateY(0)  // start it where it is
+  transform translateY(0)
+  position absolute
   &.count-leave-active
-    transform translateY(-100%)  // start it where it is
-    
+    transform translateY(-100%)
     
   

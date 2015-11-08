@@ -55,4 +55,4 @@ Make sure you have the latest Node and NPM installed. If you run `node -v && npm
 
 ## How do I use npm without sudo?
 
-Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privilages. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.
+Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privileges. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.

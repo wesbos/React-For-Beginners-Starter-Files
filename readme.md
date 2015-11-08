@@ -32,7 +32,7 @@ There are a few possible options:
 
 ## I can't set Babel at the default syntax higher!
 
-Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open! 
+Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open!
 
 ## I can't see the React tab in my dev tools
 
@@ -51,4 +51,8 @@ It's ZSH + Cobat2 for iTerm2. I did a whole video series on it → [CommandLineP
 
 ## I'm getting a weird error when I try run Gulp
 
-Make sure you have the latest Node and NPM installed. If you run `node -v && npm -v` and get anything less than 4.0 and 3.0 you should download the installer from <http://nodejs.org> to upgrade. 
+Make sure you have the latest Node and NPM installed. If you run `node -v && npm -v` and get anything less than 4.0 and 3.0 you should download the installer from <http://nodejs.org> to upgrade.
+
+## How do I use npm without sudo?
+
+Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privileges. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.

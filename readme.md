@@ -56,3 +56,9 @@ Make sure you have the latest Node and NPM installed. If you run `node -v && npm
 ## How do I use npm without sudo?
 
 Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privileges. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.
+
+## The watching isn't working on Ubuntu
+
+This is a known problem with watchify / watching files on Ubuntu. You can switch to polling on Ubuntu for an easy fix. 
+
+Open your `gulpfile.js` and change `watchify(browserify(props))` to `watchify(browserify(props), { poll: true })` .

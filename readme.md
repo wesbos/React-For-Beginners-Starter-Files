@@ -46,7 +46,7 @@ Restart your dev tools or your chrome browser entirely
 
 ## What is your terminal theme?
 
-It's ZSH + Cobat2 for iTerm2. I did a whole video series on it → [CommandLinePowerUser.com](http://commandlinepoweruser.com/)
+It's ZSH + Cobalt2 for iTerm2. I did a whole video series on it → [CommandLinePowerUser.com](http://commandlinepoweruser.com/)
 
 
 ## I'm getting a weird error when I try run Gulp
@@ -59,6 +59,6 @@ Running npm commands with `sudo` may cause security issues. Node and npm works w
 
 ## The watching isn't working on Ubuntu
 
-This is a known problem with watchify / watching files on Ubuntu. You can switch to polling on Ubuntu for an easy fix. 
+This is a known problem with watchify / watching files on Ubuntu. You can switch to polling on Ubuntu for an easy fix.
 
 Open your `gulpfile.js` and change `watchify(browserify(props))` to `watchify(browserify(props), { poll: true })` .

@@ -228,15 +228,15 @@ var Inventory = React.createClass({
     var linkState = this.props.linkState;
     return (
       <div className="fish-edit" key={key}>
-        <input type="text" valueLink={linkState('fishes.'+ key +'.name')}/>
-        <input type="text" valueLink={linkState('fishes.'+ key +'.price')}/>
-        <select valueLink={linkState('fishes.' + key + '.status')}>
+        <input type="text" valueLink={linkState(`fishes.${key}.name`)}/>
+        <input type="text" valueLink={linkState(`fishes.${key}.price`)}/>
+        <select valueLink={linkState(`fishes.${key}.status`)}>
           <option value="unavailable">Sold Out!</option>
           <option value="available">Fresh!</option>
         </select>
 
-        <textarea valueLink={linkState('fishes.' + key + '.desc')}></textarea>
-        <input type="text" valueLink={linkState('fishes.'+ key +'.image')}/>
+        <textarea valueLink={linkState(`fishes.${key}.desc`)}></textarea>
+        <input type="text" valueLink={linkState(`fishes.${key}.image`)}/>
         <button>Remove Fish</button>
         
       </div>
@@ -268,7 +268,7 @@ var StorePicker = React.createClass({
     event.preventDefault();
     // get the data from the input
     var storeId = this.refs.storeId.value;
-    this.history.pushState(null, '/store/' + storeId);
+    this.history.pushState(null, `/store/${storeId}`);
   },
   render : function() {
     return (

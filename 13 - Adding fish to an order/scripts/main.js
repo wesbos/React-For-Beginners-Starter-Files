@@ -172,7 +172,7 @@ var StorePicker = React.createClass({
     event.preventDefault();
     // get the data from the input
     var storeId = this.refs.storeId.value;
-    this.history.pushState(null, '/store/' + storeId);
+    this.history.pushState(null, `/store/${storeId}`);
   },
   render : function() {
     return (

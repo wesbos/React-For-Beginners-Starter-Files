@@ -22,10 +22,10 @@ You are welcome to use this code in your own applications. If you would like to 
 
 # Frequently Asked Questions
 
-## Where are folders `2`, `3`, and `8`? 
+#### :question: Where are folders `2`, `3`, and `8`? 
 Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
 
-## I tried installing the Babel syntax highlighter but it didn't work!
+#### :question: I tried installing the Babel syntax highlighter but it didn't work!
 
 There are a few possible options:
 
@@ -33,34 +33,34 @@ There are a few possible options:
 * Some users have reported restarting works
 * You can try the [JavaScript Next](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax) syntax highlighter instead
 
-## I can't set Babel at the default syntax highlighter!
+#### :question: I can't set Babel as the default syntax highlighter!
 
 Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open!
 
-## I can't see the React tab in my dev tools
+#### :question: I can't see the React tab in my dev tools
 
 Restart your dev tools or your chrome browser entirely
 
-## What Sublime Text Packages are you using?
+#### :question: What Sublime Text Packages are you using?
 
 * Theme + Colour Scheme → [Cobalt 2](https://packagecontrol.io/packages/Theme%20-%20Cobalt2)
 * JS Syntax Highlighting → [Babel](https://packagecontrol.io/packages/Babel)
 * HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet)
 
-## What is your terminal theme?
+#### :question: What is your terminal theme?
 
 It's ZSH + Cobalt2 for iTerm2. I did a whole video series on it → [CommandLinePowerUser.com](http://commandlinepoweruser.com/)
 
 
-## I'm getting a weird error when I try run Gulp or any of it's tasks
+#### :question: I'm getting a weird error when I try run Gulp or any of it's tasks
 
 Make sure you have the latest Node and NPM installed. If you run `node -v && npm -v` and get anything less than 4.0 and 3.0 you should download the installer from <http://nodejs.org> to upgrade.
 
-## How do I use npm without sudo?
+#### :question: How do I use npm without sudo?
 
 Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privileges. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.
 
-## The watching isn't working on Ubuntu
+#### :question: The watching isn't working on Ubuntu
 
 This is a known problem with watchify / watching files on Ubuntu. You can switch to polling on Ubuntu for an easy fix.
 

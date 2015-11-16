@@ -6,7 +6,7 @@ Starter files for the React For Beginners course. Come <a href="https://ReactFor
 
 The code in this repo meant to be a reference point for anyone following along with the video course.
 
-## 👉👉👉👉 To Start 👈👈👈👈 (Read this!)
+## →→→→ To Start ←←←← (Read this!)
 
 1. Copy or the first folder to `catch-of-the-day`
 2. cd into `catch-of-the-day` and follow along with the videos

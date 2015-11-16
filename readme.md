@@ -22,6 +22,9 @@ You are welcome to use this code in your own applications. If you would like to 
 
 # Frequently Asked Questions
 
+## Where are folders `2`, `3`, and `8`? 
+Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
+
 ## I tried installing the Babel syntax highlighter but it didn't work!
 
 There are a few possible options:
@@ -30,7 +33,7 @@ There are a few possible options:
 * Some users have reported restarting works
 * You can try the [JavaScript Next](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax) syntax highlighter instead
 
-## I can't set Babel at the default syntax higher!
+## I can't set Babel at the default syntax highlighter!
 
 Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open!
 
@@ -49,7 +52,7 @@ Restart your dev tools or your chrome browser entirely
 It's ZSH + Cobalt2 for iTerm2. I did a whole video series on it → [CommandLinePowerUser.com](http://commandlinepoweruser.com/)
 
 
-## I'm getting a weird error when I try run Gulp
+## I'm getting a weird error when I try run Gulp or any of it's tasks
 
 Make sure you have the latest Node and NPM installed. If you run `node -v && npm -v` and get anything less than 4.0 and 3.0 you should download the installer from <http://nodejs.org> to upgrade.
 

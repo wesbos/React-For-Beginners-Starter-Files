@@ -6,9 +6,9 @@ Starter files for the React For Beginners course. Come <a href="https://ReactFor
 
 The code in this repo meant to be a reference point for anyone following along with the video course.
 
-## :point_right: :point_right: :point_right: :point_right:  To Start :point_left: :point_left: :point_left: :point_left: 
+## :point_right: :point_right: :point_right: :point_right:  To Start :point_left: :point_left: :point_left: :point_left:
 
-1. Copy or the first folder to `catch-of-the-day`
+1. Copy the first folder to `catch-of-the-day`
 2. cd into `catch-of-the-day` and follow along with the videos
 
 Each folder contains **only the changed files** for each video, so if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
@@ -22,7 +22,7 @@ You are welcome to use this code in your own applications. If you would like to 
 
 # Frequently Asked Questions
 
-#### :question: Where are folders `2`, `3`, and `8`? 
+#### :question: Where are folders `2`, `3`, and `8`?
 Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
 
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!

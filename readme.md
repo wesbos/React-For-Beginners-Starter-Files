@@ -45,7 +45,7 @@ Restart your dev tools or your chrome browser entirely. They will only show up w
 
 * Theme + Colour Scheme → [Cobalt 2](https://packagecontrol.io/packages/Theme%20-%20Cobalt2)
 * JS Syntax Highlighting → [Babel](https://packagecontrol.io/packages/Babel)
-* HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet)
+* HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet) — You can [get emmet working with JSX here](http://wesbos.com/emmet-react-jsx-sublime/)
 
 #### :question: What is your terminal theme?
 

@@ -39,7 +39,7 @@ Make sure you are in a file with the extension of `.js` before you do this step 
 
 #### :question: I can't see the React tab in my dev tools
 
-Restart your dev tools or your chrome browser entirely
+Restart your dev tools or your chrome browser entirely. They will only show up when you are viewing a React app - so make sure you test it on Facebook or another website that is running React. It won't work on your empty `main.js` file until you `var React = require('react')` 
 
 #### :question: What Sublime Text Packages are you using?
 

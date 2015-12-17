@@ -68,6 +68,8 @@ function buildScript(file, watch) {
   var props = {
     entries: ['./scripts/' + file],
     debug : true,
+    cache: {},
+    packageCache: {},
     transform:  [babelify.configure({stage : 0 })]
   };
 

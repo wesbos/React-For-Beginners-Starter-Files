@@ -60,8 +60,8 @@ Make sure you have the latest Node and NPM installed. If you run `node -v && npm
 
 Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privileges. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.
 
-#### :question: The watching isn't working!
+#### :question: The watching isn't working or stops after 2-3 saves
 
-This is a known problem with watchify / watching files. It happens mostly on Ubuntu, but can happen on some macs as well. You can switch to polling for an easy fix.
+This is a known problem with watchify / watching files. It happens mostly on Ubuntu, but can happen on osx and windows as well. You can switch to polling for an easy fix.
 
 Open your `gulpfile.js` and change `watchify(browserify(props))` to `watchify(browserify(props), { poll: true })` .

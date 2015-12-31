@@ -6,7 +6,7 @@
 */
 
 .order-enter
-  transition all 0.3s
+  transition all 0.5s
   transform translateX(-120%)
   max-height 0
   padding 0 !important
@@ -17,7 +17,7 @@
     transform translateX(0)
 
 .order-leave
-  transition all 0.3s
+  transition all 0.5s
   transform translateX(0)
   &.order-leave-active
     max-height 0
@@ -26,7 +26,7 @@
 
 
 .count-enter
-  transition all .2s
+  transition all 0.25s
   transform translateY(100%)
   &.count-enter-active
     opacity 1
@@ -35,7 +35,7 @@
     
   
 .count-leave
-  transition all .2s
+  transition all 0.25s
   left 0
   bottom 0
   transform translateY(0)

@@ -7,7 +7,7 @@
 
 
 .order-enter
-  transition .5s
+  transition all 0.5s
   transform translateX(-120%)
   max-height 0
   padding 0 !important
@@ -35,10 +35,10 @@
     
 .count-leave
   transition all 0.25s
-  position absolute
   left 0
   bottom 0
   transform translateY(0)  // start it where it is
+  position absolute !important
   &.count-leave-active
     transform translateY(-100%)  // start it where it is
     

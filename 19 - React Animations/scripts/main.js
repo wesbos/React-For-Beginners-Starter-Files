@@ -12,7 +12,7 @@ var h = require('./helpers');
 
 // Firebase
 var Rebase = require('re-base');
-var base = Rebase.createClass('https://catch-of-the-day.firebaseio.com/');
+var base = Rebase.createClass('https://blazing-fire-2574.firebaseio.com/');
 
 var Catalyst = require('react-catalyst');
 
@@ -201,7 +201,10 @@ var Order = React.createClass({
     return (
       <li key={key}>
         <span>
-          <CSSTransitionGroup component="span" transitionName="count" transitionLeaveTimeout={250} transitionEnterTimeout={250} className="count">
+          <CSSTransitionGroup component="span" transitionName="count"
+                              transitionLeaveTimeout={250}
+                              transitionEnterTimeout={250}
+                              className="count">
             <span key={count}>{count}</span>
           </CSSTransitionGroup>
 

@@ -6,6 +6,12 @@
 */
 
 
+//.order-enter
+//  background: red
+//  transition all 5s
+//  &.order-enter-active
+//    background: orange
+
 .order-enter
   transition all 0.5s
   transform translateX(-120%)
@@ -19,11 +25,11 @@
 
 .order-leave
   transition all 0.5s
-  transform translateX(0)
+  transform rotate(0) scale(1)
   &.order-leave-active
     max-height 0
     padding 0
-    transform translateX(120%)
+    transform rotate(2000deg) scale(0)
 
 
 /* Count Animation */

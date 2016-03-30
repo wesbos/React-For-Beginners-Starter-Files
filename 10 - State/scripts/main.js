@@ -4,10 +4,11 @@ var ReactDOM = require('react-dom');
 var ReactRouter = require('react-router');
 var Router  = ReactRouter.Router;
 var Route = ReactRouter.Route;
-var History = ReactRouter.History;
-var createBrowserHistory = require('history/lib/createBrowserHistory');
 
 var h = require('./helpers');
+
+import { browserHistory } from 'react-router'
+
 /*
   App
 */
@@ -78,12 +79,11 @@ var Inventory = React.createClass({
 */
 
 var StorePicker = React.createClass({
-  mixins : [History],
   goToStore : function(event) {
     event.preventDefault();
     // get the data from the input
     var storeId = this.refs.storeId.value;
-    this.history.pushState(null, '/store/' + storeId);
+    browserHistory.push('/store/' + storeId);
   },
   render : function() {
     return (
@@ -113,7 +113,7 @@ var NotFound = React.createClass({
 */
 
 var routes = (
-  <Router history={createBrowserHistory()}>
+  <Router history={browserHistory}>
     <Route path="/" component={StorePicker}/>
     <Route path="/store/:storeId" component={App}/>
     <Route path="*" component={NotFound}/>

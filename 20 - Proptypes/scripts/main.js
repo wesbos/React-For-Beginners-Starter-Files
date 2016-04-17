@@ -11,7 +11,7 @@ var h = require('./helpers');
 
 // Firebase
 var Rebase = require('re-base');
-var base = Rebase.createClass('https://catch-of-the-day.firebaseio.com/');
+var base = Rebase.createClass('https://blazing-fire-2574.firebaseio.com/');
 
 var Catalyst = require('react-catalyst');
 
@@ -83,13 +83,19 @@ var App = React.createClass({
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="Fresh Seafood Market" />
+          <Header tagline="Fresh Seafood Market"/>
           <ul className="list-of-fishes">
             {Object.keys(this.state.fishes).map(this.renderFish)}
           </ul>
         </div>  
-        <Order fishes={this.state.fishes} order={this.state.order} removeFromOrder={this.removeFromOrder} />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} fishes={this.state.fishes} linkState={this.linkState} removeFish={this.removeFish} />
+        <Order fishes={this.state.fishes}
+               order={this.state.order}
+               removeFromOrder={this.removeFromOrder} />
+        <Inventory addFish={this.addFish}
+                   loadSamples={this.loadSamples}
+                   fishes={this.state.fishes}
+                   linkState={this.linkState}
+                   removeFish={this.removeFish} />
       </div>
     )
   }
@@ -180,14 +186,22 @@ var Header = React.createClass({
         <h3 className="tagline"><span>{this.props.tagline}</span></h3> 
       </header>
     )
+  },
+  propTypes: {
+    tagline: React.PropTypes.string.isRequired
   }
-})
+});
 
 /*
   Order
   <Order/>
 */
 var Order = React.createClass({
+  propTypes: {
+    fishes: React.PropTypes.object.isRequired,
+    order: React.PropTypes.object.isRequired,
+    removeFromOrder: React.PropTypes.func.isRequired
+  },
   renderOrder : function(key) {
     var fish = this.props.fishes[key];
     var count = this.props.order[key];
@@ -240,6 +254,13 @@ var Order = React.createClass({
   <Inventory/>
 */
 var Inventory = React.createClass({
+  propTypes: {
+    addFish: React.PropTypes.func.isRequired,
+    loadSamples: React.PropTypes.func.isRequired,
+    fishes: React.PropTypes.object.isRequired,
+    linkState: React.PropTypes.func.isRequired,
+    removeFish: React.PropTypes.func.isRequired
+  },
   renderInventory : function(key) {
     var linkState = this.props.linkState;
     return (

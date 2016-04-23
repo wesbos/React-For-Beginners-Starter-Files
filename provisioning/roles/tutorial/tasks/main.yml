@@ -1,0 +1,4 @@
+---
+- name: Install gulp
+  shell: npm install gulp -g
+  sudo: yes

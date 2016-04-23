@@ -1,0 +1,4 @@
+---
+nginx_worker_connections: 1024
+
+remote_user: vagrant

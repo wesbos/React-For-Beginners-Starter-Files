@@ -1,0 +1,20 @@
+---
+- name: Install packages
+  apt: pkg={{ item }} update_cache=yes state=latest
+  sudo: yes
+  with_items:
+    - curl
+    - htop
+    - git
+
+- name: Check out bash it repository
+  git: repo=https://github.com/Bash-it/bash-it.git dest=/home/{{ remote_user }}/.bash_it
+  sudo: no
+
+- name: Install bash it
+  shell: yes | /home/{{ remote_user }}/.bash_it/install.sh
+  sudo: no
+
+- name: Select bash it theme
+  shell: export BASH_IT_THEME='bobby' chdir=/home/{{ remote_user }}/.bash_it/themes
+  sudo: no

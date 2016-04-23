@@ -9,3 +9,4 @@
     - { role: geerlingguy.firewall, tags: [firewall] }
     - { role: geerlingguy.nginx, tags: [nginx] }
     - { role: geerlingguy.nodejs, tags: [node] }
+    - { role: tutorial, tags: [tutorial] }

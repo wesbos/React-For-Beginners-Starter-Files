@@ -2,3 +2,8 @@
 nginx_worker_connections: 1024
 
 remote_user: vagrant
+
+firewall_allowed_tcp_ports:
+  - "22"
+  - "80"
+  - "3000"

@@ -14,7 +14,7 @@ var buffer = require('vinyl-buffer');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
-var historyApiFallback = require('connect-history-api-fallback')
+var historyApiFallback = require('connect-history-api-fallback');
 
 
 /*
@@ -25,7 +25,7 @@ gulp.task('styles',function() {
   // move over fonts
 
   gulp.src('css/fonts/**.*')
-    .pipe(gulp.dest('build/css/fonts'))
+    .pipe(gulp.dest('build/css/fonts'));
 
   // Compiles CSS
   gulp.src('css/style.styl')
@@ -51,7 +51,7 @@ gulp.task('browser-sync', function() {
         // we need to disable clicks and forms for when we test multiple rooms
         server : {},
         middleware : [ historyApiFallback() ],
-        ghostMode: false
+        ghostMode: false,
     });
 });
 
@@ -74,7 +74,7 @@ function buildScript(file, watch) {
   };
 
   // watchify() if watch requested, otherwise run browserify() once 
-  var bundler = watch ? watchify(browserify(props)) : browserify(props);
+  var bundler = watch ? watchify(browserify(props), { poll: true }) : browserify(props);
 
   function rebundle() {
     var stream = bundler.bundle();

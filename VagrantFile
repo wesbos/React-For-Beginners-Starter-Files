@@ -20,6 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.network :private_network, ip: "192.168.33.35"
+#  config.vm.network :forwarded_port, guest: 3000, host: 3000, auto_correct: true
+#  config.vm.network :forwarded_port, guest: 3001, host: 3001, auto_correct: true
 
   config.vm.synced_folder ".", "/vagrant",
       :nfs => true,
@@ -32,6 +34,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.limit = "vagrant.react-tutorial"
     ansible.verbose = 'v'
     ansible.sudo = true
+    ansible.tags = ["firewall"]
   end
 
 end

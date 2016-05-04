@@ -18,6 +18,20 @@ var App = React.createClass({
       order : {}
     }
   },
+  componentDidMount : function () {
+    this.loadSamples();
+
+    var localStorageRef = localStorage.getItem('order-' + this.props.params.storeId)
+    if(localStorageRef) {
+      var order = JSON.parse(localStorageRef);
+      this.setState({
+        order : order
+      });
+    }
+  },
+  componentWillUpdate : function(nextProps, nextState) {
+    localStorage.setItem('order-' + this.props.params.storeId, JSON.stringify(nextState.order));
+  },
   addToOrder : function(key) {
     this.state.order[key] = this.state.order[key] + 1 || 1;
     this.setState({ order : this.state.order });
@@ -42,7 +56,7 @@ var App = React.createClass({
             {Object.keys(this.state.fishes).map(this.renderFish)}
           </ul>
         </div>
-        <Order/>
+        <Order fishes={this.state.fishes} order={this.state.order}/>
         <Inventory addFish={this.addFish} loadSamples={this.loadSamples}/>
       </div>
     )
@@ -129,9 +143,46 @@ var Header = React.createClass({
  <Order/>
  */
 var Order = React.createClass({
-  render: function () {
+  renderOrder : function (key) {
+    var fish = this.props.fishes[key];
+    var count = this.props.order[key];
+
+    if (!fish) {
+      return <li key={key}>Sorry, fish is no longer available</li>
+    }
+
     return (
-      <p>Order</p>
+     <li key={key}>
+       <span>{count}lbs</span>
+       <span>{fish.name}</span>
+       <span className="price">{h.formatPrice(count * fish.price)}</span>
+     </li>
+    )
+  },
+  render: function () {
+    var orderIds = Object.keys(this.props.order);
+    var total = orderIds.reduce((prevTotal, key)=> {
+      var fish = this.props.fishes[key];
+      var count = this.props.order[key];
+      var isAvailable = fish && fish.status === 'available';
+
+      if (fish && isAvailable) {
+        return prevTotal + (count * parseInt(fish.price) || 0);
+      }
+
+      return prevTotal;
+    }, 0);
+    return (
+      <div className="order-wrap">
+        <h2 className="order-title">Your Order</h2>
+        <ul className="order">
+          {orderIds.map(this.renderOrder)}
+          <li className="total">
+            <strong>Total:</strong>
+            {h.formatPrice(total)}
+          </li>
+        </ul>
+      </div>
     )
   }
 });

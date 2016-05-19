@@ -1,3 +1,5 @@
+require("../css/style.styl");
+
 var React = require('react');
 var ReactDOM = require('react-dom');
 

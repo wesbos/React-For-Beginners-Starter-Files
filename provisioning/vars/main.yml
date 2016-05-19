@@ -8,4 +8,5 @@ firewall_allowed_tcp_ports:
   - "80"
   - "3000"
   - "3001"
+  - "8080"
 

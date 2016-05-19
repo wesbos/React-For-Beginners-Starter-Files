@@ -2,3 +2,11 @@
 - name: Install gulp
   shell: npm install gulp -g
   sudo: yes
+
+- shell: npm install webpack -g
+  sudo: yes
+
+- shell: npm install webpack-dev-server -g
+  sudo: yes
+
+- shell: npm install stylus-loader stylus --save-dev

@@ -25,6 +25,19 @@ You are welcome to use this code in your own applications. If you would like to 
 #### :question: Where are folders `2`, `3`, and `8`?
 Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
 
+#### :question: Firebase updated — does it still work with this tutorial?
+
+Yep! 100%. The only change is that Firebase DBs aren't open by default anymore. To change this, click on the **rules** tab and set your security settings to the set below. We go over securing it in the last video. 
+
+```js
+{
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+```
+
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!
 
 There are a few possible options:

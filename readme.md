@@ -8,7 +8,7 @@ The code in this repo meant to be a reference point for anyone following along w
 
 ## :point_right: :point_right: :point_right: :point_right:  To Start :point_left: :point_left: :point_left: :point_left:
 
-1. Copy the first folder to `catch-of-the-day`
+1. Rename the first folder to `catch-of-the-day`
 2. cd into `catch-of-the-day` and follow along with the videos
 
 Each folder contains **only the changed files** for each video, so if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
@@ -22,7 +22,7 @@ You are welcome to use this code in your own applications. If you would like to 
 
 # Frequently Asked Questions
 
-#### :question: Where are folders `2`, `3`, and `8`?
+#### :question: Where are folders `2`, `3`, and `5`?
 Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
 
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!
@@ -41,27 +41,9 @@ Make sure you are in a file with the extension of `.js` before you do this step 
 
 Restart your dev tools or your chrome browser entirely. They will only show up when you are viewing a React app - so make sure you test it on Facebook or another website that is running React. It won't work on your empty `main.js` file until you `var React = require('react')` 
 
-#### :question: What Sublime Text Packages are you using?
+#### :question: What Sublime Text Packages are you using? What Terminal Theme?
 
+* I've written indepth over at [WesBos.com/uses](http://wesbos.com/uses)
 * Theme + Colour Scheme → [Cobalt 2](https://packagecontrol.io/packages/Theme%20-%20Cobalt2)
 * JS Syntax Highlighting → [Babel](https://packagecontrol.io/packages/Babel)
 * HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet) — You can [get emmet working with JSX here](http://wesbos.com/emmet-react-jsx-sublime/)
-
-#### :question: What is your terminal theme?
-
-It's ZSH + Cobalt2 for iTerm2. I did a whole video series on it → [CommandLinePowerUser.com](http://commandlinepoweruser.com/)
-
-
-#### :question: I'm getting a weird error when I try run Gulp or any of it's tasks
-
-Make sure you have the latest Node and NPM installed. If you run `node -v && npm -v` and get anything less than 4.0 and 3.0 you should download the installer from <http://nodejs.org> to upgrade.
-
-#### :question: How do I use npm without sudo?
-
-Running npm commands with `sudo` may cause security issues. Node and npm works well without super user privileges. Fortunately there is a very easy fix. Please follow the steps on [this article by Pawel Grzybek](http://studiorgb.uk/fix-priviliges-and-never-again-use-sudo-with-npm/). Enjoy using npm without 'sudo' now.
-
-#### :question: The watching isn't working or stops after 2-3 saves
-
-This is a known problem with watchify / watching files. It happens mostly on Ubuntu, but can happen on osx and windows as well. You can switch to polling for an easy fix.
-
-Open your `gulpfile.js` and change `watchify(browserify(props))` to `watchify(browserify(props), { poll: true })` .

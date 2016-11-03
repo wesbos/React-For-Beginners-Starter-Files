@@ -40,6 +40,12 @@ Make sure you are in a file with the extension of `.js` before you do this step 
 
 Restart your dev tools or your chrome browser entirely. They will only show up when you are viewing a React app - so make sure you test it on Facebook or another website that is running React. It won't work on your empty `main.js` file until you `import React from 'react'`.
 
+#### :question: `npm start` doesn't update the app on file save, or doesn't run correctly.
+
+There may be a few different causes for this:
+ - Webpack currently can't handle folder/file names that contain parentheses.
+ - Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
+
 #### :question: What Sublime Text Packages are you using? What Terminal Theme?
 
 * I've written indepth over at [WesBos.com/uses](http://wesbos.com/uses)

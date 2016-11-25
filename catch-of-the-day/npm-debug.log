@@ -1,0 +1,32 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'start' ]
+2 info using npm@3.10.8
+3 info using node@v6.9.1
+4 verbose stack Error: Failed to parse json
+4 verbose stack Unexpected token '/' at 27:4
+4 verbose stack   // ,
+4 verbose stack    ^
+4 verbose stack     at parseError (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:390:11)
+4 verbose stack     at parseJson (/usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:79:23)
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-package-json/read-json.js:48:5
+4 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/graceful-fs.js:78:16
+4 verbose stack     at tryToString (fs.js:455:3)
+4 verbose stack     at FSReqWrap.readFileAfterClose [as oncomplete] (fs.js:442:12)
+5 verbose cwd /Users/changez.shaikh/GitHub/React-For-Beginners-Starter-Files/catch-of-the-day
+6 error Darwin 15.6.0
+7 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
+8 error node v6.9.1
+9 error npm  v3.10.8
+10 error file /Users/changez.shaikh/GitHub/React-For-Beginners-Starter-Files/catch-of-the-day/package.json
+11 error code EJSONPARSE
+12 error Failed to parse json
+12 error Unexpected token '/' at 27:4
+12 error   // ,
+12 error    ^
+13 error File: /Users/changez.shaikh/GitHub/React-For-Beginners-Starter-Files/catch-of-the-day/package.json
+14 error Failed to parse package.json data.
+14 error package.json must be actual JSON, not just JavaScript.
+14 error
+14 error This is not a bug in npm.
+14 error Tell the package author to fix their package.json file. JSON.parse
+15 verbose exit [ 1, true ]

@@ -26,6 +26,6 @@
     "deploy": "ns ./build --cmd 'list ./content -s'"
   },
   "eslintConfig": {
-    "extends": "./node_modules/react-scripts/config/eslint.js"
+    "extends": "react-app"
   }
 }

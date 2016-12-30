@@ -1,0 +1,12 @@
+---
+- hosts: all
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - { role: common, tags: [common] }
+    - { role: geerlingguy.firewall, tags: [firewall] }
+    - { role: geerlingguy.nginx, tags: [nginx] }
+    - { role: geerlingguy.nodejs, tags: [node] }
+    - { role: tutorial, tags: [tutorial] }

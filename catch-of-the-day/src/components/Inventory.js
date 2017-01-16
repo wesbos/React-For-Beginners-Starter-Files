@@ -7,6 +7,7 @@ class Inventory extends React.Component {
       <div>
         <p>Inventory</p>
         <AddFishForm addFish={this.props.addFish}></AddFishForm>
+        <button onClick={this.props.loadSamples}>Load Inventory</button>
       </div>
     )
   }

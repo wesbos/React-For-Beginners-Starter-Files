@@ -1,18 +1,18 @@
 // This is just some sample data so you don't have to think of your own!
 module.exports = {
   fish1: {
-    name: 'Pacific Halibut',
-    image: 'http://i.istockimg.com/file_thumbview_approve/36248396/5/stock-photo-36248396-blackened-cajun-sea-bass.jpg',
-    desc: 'Everyones favorite white fish. We will cut it to the size you need and ship it.',
-    price: 1724,
+    name: 'Chanterelle',
+    image: 'http://4.bp.blogspot.com/-muO3Nw3aZ-Y/VhBy_QOljWI/AAAAAAAACOg/54XVBKAVzuc/s1600/shroom%2Btoasts-4.jpg',
+    desc: 'The flavor is nutty, with an aroma of apricots or peaches',
+    price: 3999,
     status: 'available'
   },
 
   fish2: {
-    name: 'Lobster',
-    image: 'http://i.istockimg.com/file_thumbview_approve/32135274/5/stock-photo-32135274-cooked-lobster.jpg',
-    desc: 'These tender, mouth-watering beauties are a fantastic hit at any dinner party.',
-    price: 3200,
+    name: 'Morel',
+    image: 'http://www.indianaoutside.com/wp/wp-content/uploads/2014/03/Depositphotos_2866268_m.jpg',
+    desc: 'Whether fried or cooked these young morels have a aromatic and nutty flavor.',
+    price: 4999,
     status: 'available'
   },
 

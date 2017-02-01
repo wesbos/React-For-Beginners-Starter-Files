@@ -104,7 +104,7 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header tagline="Wild Picked Bushrooms"/>
+          <Header tagline="Wild Picked Mushrooms"/>
         <ul className="list-of-fishes">
           {
             Object

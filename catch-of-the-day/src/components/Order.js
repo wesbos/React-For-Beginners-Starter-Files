@@ -40,10 +40,10 @@ class Order extends React.Component {
 
         <CSSTransitionGroup
           className="order"
-          property="ul"
+          component="ul"
           transitionName="order"
-          transitionEnterTimeOut={500}
-          transitionLeaveTimeOut={500}>
+          transitionEnterTimeOut={5000}
+          transitionLeaveTimeOut={5000}>
           {orderIds.map(this.renderOrder)}
           <li className="total">
             <strong>Total:</strong>

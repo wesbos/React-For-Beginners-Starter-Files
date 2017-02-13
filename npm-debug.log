@@ -5,7 +5,7 @@
 4 verbose config Skipping project config: /Users/Ben/.npmrc. (matches userconfig)
 5 verbose stack Error: ENOENT: no such file or directory, open '/Users/Ben/package.json'
 6 verbose cwd /Users/Ben/mangosteen/react/React-For-Beginners-Starter-Files
-7 error Darwin 16.3.0
+7 error Darwin 16.4.0
 8 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 9 error node v7.4.0
 10 error npm  v4.0.5

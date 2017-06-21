@@ -8,7 +8,7 @@ class StorePicker extends React.Component {
   super(); creates a react component && extends the storepicker component by adding our methods
   this.goToStore = this.goToStore.bind(this);
   goToStore method and sets itself to its own self and then binds it to this which in the
-  constructor is the StorePicker component. 
+  constructor is the StorePicker component.
 
 }
   */
@@ -32,6 +32,7 @@ class StorePicker extends React.Component {
         <button type="Submit">Visit Store </button>
       </form>
     )
+    //comments
   }
 
 }

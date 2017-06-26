@@ -46,7 +46,7 @@ class StorePicker extends React.Component {
 /* component name + contextTypes = object && within this object we specify the
 elements we want the component 2 have access to (in this case the router)
 other elements can be added to it
-SUrface the router from the parent with contextTypes. 
+SUrface the router from the parent with contextTypes.
 */
 StorePicker.contextTypes = {
   router: React.PropTypes.object

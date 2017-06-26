@@ -13,7 +13,7 @@ class AddFishForm extends React.Component {
       image: this.image.value,
     }
     this.props.addFish(fish);
-    this.fishForm.reset
+    this.fishForm.reset();
   }
   render() {
     return(

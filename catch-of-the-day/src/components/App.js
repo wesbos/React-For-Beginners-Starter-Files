@@ -13,6 +13,10 @@ class App extends React.Component {
     this.addFish = this.addFish.bind(this);
     this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
+    this.updateFish = this.updateFish.bind(this);
+    this.removeFish = this.removeFish.bind(this);
+    this.removeFromOrder = this.removeFromOrder.bind(this);
+
 
     this.state = {
       fishes: {},
@@ -64,6 +68,33 @@ class App extends React.Component {
     this.setState({ fishes });
   }
 
+  updateFish(key, updatedFish) {
+    //Copy the current state
+    const fishes = { ...this.state.fishes };
+    //Overwrite the one fish that has been updated.
+    fishes[key] = updatedFish;
+    //Set State
+    this.setState({ fishes });
+  }
+
+  removeFish(key) {
+    //Copy the current state
+    const fishes = {...this.state.fishes };
+    //Delete the specific fish. Note: use null as this is required by Firebase
+    fishes[key] = null;
+    //Set the State
+    this.setState({ fishes });
+  }
+
+  removeFromOrder(key) {
+    //Copy the current state
+    const order = {...this.state.order };
+    //Delete the specific fish. Note: no need to use null as this is stored in localStorage
+    delete order[key];
+    //Set the State
+    this.setState({ order });
+  }
+
   addToOrder(key) {
     //Copy the current state
     const order = { ...this.state.order };
@@ -99,8 +130,15 @@ class App extends React.Component {
           fishes={this.state.fishes}
           order={this.state.order}
           params={this.props.params}
+          removeFromOrder={this.removeFromOrder}
         />
-        <Inventory addFish={this.addFish} loadSamples={this.loadSamples} />
+        <Inventory
+          addFish={this.addFish}
+          loadSamples={this.loadSamples}
+          fishes={this.state.fishes}
+          updateFish={this.updateFish}
+          removeFish={this.removeFish}
+        />
       </div>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { formatPrice } from '../helpers'
+import { formatPrice } from '../helpers';
 
 class Order extends React.Component {
   constructor() {
@@ -10,9 +10,10 @@ class Order extends React.Component {
   renderOrder(key) {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
+    const removeButton = <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
 
     if(!fish || fish.status === "unavailable") {
-      return <li key={key}>Sorry, {fish ? fish.name : "fish" } is no longer available.</li>
+      return <li key={key}>Sorry, {fish ? fish.name : "fish" } is no longer available. {removeButton}</li>
     }
 
     return(

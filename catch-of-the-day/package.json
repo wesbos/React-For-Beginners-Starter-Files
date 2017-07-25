@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "history": "4.2.0",
+    "lodash.memoize": "^4.1.2",
     "re-base": "2.2.0",
     "react": "15.3.2",
     "react-addons-css-transition-group": "15.3.2",

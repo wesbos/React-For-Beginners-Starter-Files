@@ -5,3 +5,35 @@
   appear Must set transitionAppear={true} on animation component
 */
 
+.order-enter
+  transition all 0.5s
+  transform translateX(-120%)
+  max-height 0
+  padding 0 !important
+  &.order-enter-active
+    max-height 60px
+    padding 2rem 0 !important
+    transform translateX(0%)
+
+.order-leave
+  transition all 0.5s
+  transform translateX(0)
+  &.order-leave-active
+    transform translateX(120%)
+    max-height 0
+    padding 0
+
+.count-enter
+  transition all 0.25s
+  transform translateY(100%) //Start off screen
+  &.count-enter-active
+    transform translateY(0) //End in the normal resting location
+
+.count-leave
+  transition all 0.25s
+  position absolute //Ensure it stays vertically aligned with the new count coming in
+  left 0
+  bottom 0
+  transform translateY(0) //Start in the resting location
+  &.count-leave-active
+    transform translateY(-100%) //End off screen

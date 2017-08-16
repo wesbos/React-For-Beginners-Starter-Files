@@ -1,31 +1,28 @@
 .order-enter {
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  transition: all 0.05s;
   -webkit-transform: translateX(-120%);
           transform: translateX(-120%);
-  max-height: 0;
+  max-height: 60px;
   padding: 0 !important;
 }
 .order-enter.order-enter-active {
-  -webkit-transform: translateX(0);
-          transform: translateX(0);
   max-height: 60px;
   padding: 2rem 0 !important;
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
 .order-leave {
-  -webkit-transition: all 0.5s;
   transition: all 0.5s;
   -webkit-transform: translateX(0);
           transform: translateX(0);
 }
 .order-leave.order-leave-active {
-  max-height: 0;
-  padding: 0;
   -webkit-transform: translateX(120%);
           transform: translateX(120%);
+  max-height: 0;
+  padding: 0;
 }
 .count-enter {
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   -webkit-transform: translateY(100%);
           transform: translateY(100%);
@@ -35,7 +32,6 @@
           transform: translateY(0);
 }
 .count-leave {
-  -webkit-transition: all 0.25s;
   transition: all 0.25s;
   position: absolute;
   left: 0;
@@ -323,7 +319,8 @@ header.top h3:after {
   display: flex;
   height: 90vh;
   max-width: 1500px;
-  margin: 5vh auto 0;
+  margin: 0 auto;
+  margin-top: 5vh;
   -webkit-perspective: 1000px;
           perspective: 1000px;
   -webkit-transform-style: preserve-3d;
@@ -337,7 +334,6 @@ header.top h3:after {
   border: 1rem double #1a1a1a;
   position: relative;
   background: #fff;
-  -webkit-transition: all 0.3s;
   transition: all 0.3s;
   box-shadow: 0 5px 5px rgba(0,0,0,0.1);
   overflow: scroll;
@@ -533,7 +529,6 @@ input[type=submit] {
   font-weight: 600;
   font-size: 1.5rem;
   font-family: 'Open Sans';
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
   position: relative;
   z-index: 2;
@@ -566,7 +561,6 @@ input[type=submit]:after {
   height: 0;
   left: 0;
   top: 0;
-  -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 button:hover,

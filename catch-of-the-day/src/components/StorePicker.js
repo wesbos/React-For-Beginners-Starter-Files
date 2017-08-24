@@ -13,4 +13,4 @@ class StorePicker extends React.Component {
   }
 }
 
-export default StorePicker
+export default StorePicker;

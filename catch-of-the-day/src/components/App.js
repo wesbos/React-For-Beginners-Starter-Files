@@ -17,7 +17,7 @@ class App extends React.Component {
 
   addFish(fish) {
     const fishes = {...this.state.fishes};
-    const timestamp = Date.Now();
+    const timestamp = Date.now();
     fishes[`fish-${timestamp}`] = fish;
     this.setState({fishes});
     // nope. this is less performant.

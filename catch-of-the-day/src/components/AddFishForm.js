@@ -3,7 +3,6 @@ import React from 'react';
 class AddFishForm extends React.Component{
     createFish(e){
         e.preventDefault();
-        console.log(this)
         const fish = {
             name: this.name.value,
             price: this.price.value,

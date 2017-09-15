@@ -1,8 +1,9 @@
-import React from 'react'
-import Header from './Header'
-import Inventory from './Inventory'
-import Order from './Order'
-import SampleFishes from '../sample-fishes.js'
+import React from 'react';
+import Header from './Header';
+import Inventory from './Inventory';
+import Order from './Order';
+import SampleFishes from '../sample-fishes.js';
+import Fish from './Fish.js';
 
 
 class App extends React.Component{
@@ -10,6 +11,7 @@ class App extends React.Component{
         super();
         this.addFish = this.addFish.bind(this);
         this.loadSample = this.loadSample.bind(this);
+        this.addToOrder = this.addToOrder.bind(this); 
         this.state ={
             fishes: {},
             order: {}
@@ -18,15 +20,19 @@ class App extends React.Component{
 
     addFish(fish){
         const fishes = {...this.state.fishes}
-        console.log(fishes)
         const timestamp = Date.now();
         fishes[`fish-${timestamp}`] = fish;
         this.setState({fishes: fishes});
     }
 
     loadSample(){
-        console.log('hello')
-        this.setState({fishes: SampleFishes})
+        this.setState({fishes: SampleFishes});
+    }
+
+    addToOrder(key){
+        const order = {...this.state.order};
+        order[key] = order[key] + 1 || 1;
+        this.setState({ order });
     }
 
     render(){
@@ -34,6 +40,15 @@ class App extends React.Component{
             <div className="catch-of-the-day">
                 <div className="menu">
                     <Header tagline="Fresh Seafood Market"/>
+                    <ul className="list-of-fishes">
+                        {
+                            Object
+                                .keys(this.state.fishes)
+                                .map(fish => <Fish 
+                                key={fish} index={fish} details={this.state.fishes[fish]} addToOrder={this.addToOrder}
+                                />)
+                        }
+                    </ul> 
                 </div>
                 <Order />
                 <Inventory addFish={this.addFish} loadSample={this.loadSample} />

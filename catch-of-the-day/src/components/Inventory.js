@@ -29,7 +29,7 @@ class Inventory extends React.Component{
             </select>
             <textarea name="desc" type="text" value={fish.desc} placeholder="Fish Desc" onChange={(e)=>this.handleChange(e, key)}></textarea>
             <input  name="image" type="text" value={fish.image} placeholder="Fish Image" onChange={(e)=>this.handleChange(e, key)}/>
-            <button type="submit">- Remove Item</button>
+            <button type="submit" onClick={() => this.props.removeFish(key)}>Remove Item</button>
         </div>
         
         )
@@ -39,7 +39,7 @@ class Inventory extends React.Component{
     render(){
       return(
       <div>
-        <h1>The Inventory</h1>
+        <h2>Inventory</h2>
         {Object.keys(this.props.fishes).map(this.renderInventory)}
         <input type="text"/>
         <AddFishForm addFish={this.props.addFish} />

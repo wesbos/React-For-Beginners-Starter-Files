@@ -1,5 +1,5 @@
 // This is just some sample data so you don't have to think of your own!
-module.exports = {
+const fishes = {
   fish1: {
     name: 'Pacific Halibut',
     image: 'https://i.istockimg.com/file_thumbview_approve/36248396/5/stock-photo-36248396-blackened-cajun-sea-bass.jpg',
@@ -72,3 +72,5 @@ module.exports = {
     status: 'available'
   }
 };
+
+export default fishes;

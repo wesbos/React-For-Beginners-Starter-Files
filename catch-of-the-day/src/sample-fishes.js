@@ -2,7 +2,7 @@
 const fishes = {
   fish1: {
     name: 'Pacific Halibut',
-    image: 'https://i.istockimg.com/file_thumbview_approve/36248396/5/stock-photo-36248396-blackened-cajun-sea-bass.jpg',
+    image: 'https://media.istockphoto.com/photos/grilled-halibut-with-spinach-leeks-and-pine-nuts-picture-id503337620?k=6&m=503337620&s=612x612&w=0&h=C2RuTj4IDKvEvkC0J2i_7x2rnMlspq8CTcVVtdqd5u8=',
     desc: 'Everyones favorite white fish. We will cut it to the size you need and ship it.',
     price: 1724,
     status: 'available'
@@ -18,7 +18,7 @@ const fishes = {
 
   fish3: {
     name: 'Sea Scallops',
-    image: 'https://i.istockimg.com/file_thumbview_approve/58624176/5/stock-photo-58624176-scallops-on-black-stone-plate.jpg',
+    image: 'https://media.istockphoto.com/photos/seared-scallop-picture-id533292475?k=6&m=533292475&s=612x612&w=0&h=kqpWf3BxavUmDyT8O-c3UK-TD5qC5Y1_j4IeFl5mXf0=',
     desc: 'Big, sweet and tender. True dry-pack scallops from the icey waters of Alaska. About 8-10 per pound',
     price: 1684,
     status: 'unavailable'
@@ -34,7 +34,7 @@ const fishes = {
 
   fish5: {
     name: 'King Crab',
-    image: 'https://i.istockimg.com/file_thumbview_approve/18294110/5/stock-photo-18294110-king-crab-legs.jpg',
+    image: 'https://media.istockphoto.com/photos/cooked-organic-alaskan-king-crab-legs-picture-id501882496?k=6&m=501882496&s=612x612&w=0&h=eoazPxDMjdb37qPEq6xpwCwwM6f__35S7lNglIflryY=',
     desc: 'Crack these open and enjoy them plain or with one of our cocktail sauces',
     price: 4234,
     status: 'available'

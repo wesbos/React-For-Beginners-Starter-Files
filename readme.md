@@ -52,3 +52,12 @@ There may be a few different causes for this:
 * Theme + Colour Scheme → [Cobalt 2](https://packagecontrol.io/packages/Theme%20-%20Cobalt2)
 * JS Syntax Highlighting → [Babel](https://packagecontrol.io/packages/Babel)
 * HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet) — You can [get emmet working with JSX here](http://wesbos.com/emmet-react-jsx-sublime/)
+
+
+## Changes
+
+* Upgrade to React Router 4 Final
+* Move to external PropTypes Package
+* Use withRouter() instead of context to access router
+* Remove all use of constructors and supeer()
+* Moved from React-addons-css-transition-group to react-transition-group and upgraded from 1.x to 2.x

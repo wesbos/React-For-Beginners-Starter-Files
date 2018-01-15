@@ -7,20 +7,16 @@ import App from './components/App';
 import StorePicker from './components/StorePicker';
 import NotFound from './components/NotFound';
 
-// const repo = `/${window.location.pathname.split('/')[1]}`;
+const Root = () => (
+  <BrowserRouter>
+    <div>
+      <Switch>
+        <Route exact path="/" component={StorePicker} />
+        <Route path="/store/:storeId" component={App} />
+        <Route component={NotFound} />
+      </Switch>
+    </div>
+  </BrowserRouter>
+)
 
-const Root = () => {
-  return (
-    <BrowserRouter>
-      <div>
-        <Switch>
-          <Route exact path="/" component={StorePicker} />
-          <Route path="/store/:storeId" component={App} />
-          <Route component={NotFound} />
-        </Switch>
-      </div>
-    </BrowserRouter>
-  )
-}
-
-render(<Root/>, document.querySelector('#main'));
+render(<Root />, document.querySelector('#main'));

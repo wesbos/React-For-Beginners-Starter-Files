@@ -18,9 +18,6 @@ class App extends React.Component {
     console.log(this);
 
     this.addFish = this.addFish.bind(this);
-    // this.removeFish = this.removeFish.bind(this);
-    // this.updateFish = this.updateFish.bind(this);
-    // this.loadSamples = this.loadSamples.bind(this);
     this.addToOrder = this.addToOrder.bind(this);
     this.removeFromOrder = this.removeFromOrder.bind(this);
   }

@@ -1,19 +1,20 @@
 {
   "name": "cotd",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "private": true,
   "devDependencies": {
     "autoprefixer-stylus": "0.14.0",
     "babel-eslint": "^8.2.1",
     "concurrently": "3.5.1",
-    "eslint": "^4.15.0",
-    "eslint-plugin-flowtype": "^2.41.0",
-    "eslint-plugin-jsx-a11y": "^6.0.3",
-    "eslint-plugin-react": "^7.5.1",
-    "react-scripts": "1.0.17",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-prettier": "^2.4.0",
+    "prettier": "^1.10.2",
+    "react-scripts": "1.1.0",
     "stylus": "0.54.5"
   },
   "dependencies": {
+    "firebase": "^4.8.2",
     "history": "4.7.2",
     "prop-types": "^15.6.0",
     "re-base": "3.2.1",
@@ -29,8 +30,5 @@
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
     "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css"
-  },
-  "eslintConfig": {
-    "extends": "./node_modules/react-scripts/.eslintrc"
   }
 }

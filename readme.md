@@ -18,10 +18,10 @@ You are welcome to submit Pull Requests but I'd like to keep the code as similar
 
 You are welcome to use this code in your own applications. If you would like to use it for training purposes, please shoot me a message first to make sure it's okay.
 
-
 # Frequently Asked Questions
 
 #### :question: Where are folders `2`, `3`, and `5`?
+
 Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
 
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!
@@ -43,8 +43,9 @@ Restart your dev tools or your chrome browser entirely. They will only show up w
 #### :question: `npm start` doesn't update the app on file save, or doesn't run correctly.
 
 There may be a few different causes for this:
- - Webpack currently can't handle folder/file names that contain parentheses.
- - Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
+
+* Webpack currently can't handle folder/file names that contain parentheses.
+* Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
 
 #### :question: What Sublime Text Packages are you using? What Terminal Theme?
 
@@ -52,7 +53,6 @@ There may be a few different causes for this:
 * Theme + Colour Scheme → [Cobalt 2](https://packagecontrol.io/packages/Theme%20-%20Cobalt2)
 * JS Syntax Highlighting → [Babel](https://packagecontrol.io/packages/Babel)
 * HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet) — You can [get emmet working with JSX here](http://wesbos.com/emmet-react-jsx-sublime/)
-
 
 ## Changes
 

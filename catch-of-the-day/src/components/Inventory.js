@@ -1,14 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
-import firebase from "firebase";
-import AddFishForm from "./AddFishForm";
-import base from "../base";
-import { firebaseApp } from "../base";
+import React from 'react';
+import PropTypes from 'prop-types';
+import firebase from 'firebase';
+import AddFishForm from './AddFishForm';
+import base, { firebaseApp } from '../base';
 
 class Inventory extends React.Component {
   state = {
     uid: null,
-    owner: null
+    owner: null,
   };
 
   // TODO Make this async?
@@ -25,14 +24,14 @@ class Inventory extends React.Component {
     // take a copy of that fish and update it with the new data
     const updatedFish = {
       ...fish,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     };
     this.props.updateFish(key, updatedFish);
   };
 
   authenticate = provider => {
     console.log(`Trying to log in with ${provider}`);
-    var authProvider = new firebase.auth[`${provider}AuthProvider`]();
+    const authProvider = new firebase.auth[`${provider}AuthProvider`]();
     firebaseApp
       .auth()
       .signInWithPopup(authProvider)
@@ -50,39 +49,31 @@ class Inventory extends React.Component {
     // claim it as our own if there is no owner already
     if (!store.owner) {
       await base.post(`${this.props.storeId}/owner`, {
-        data: authData.user.uid
+        data: authData.user.uid,
       });
     }
 
     this.setState({
       uid: authData.user.uid,
-      owner: store.owner || authData.user.uid
+      owner: store.owner || authData.user.uid,
     });
   };
 
-  renderLogin = () => {
-    return (
-      <nav className="login">
-        <h2>Inventory</h2>
-        <p>Sign in to manage your store's inventory</p>
-        <button className="github" onClick={() => this.authenticate("Github")}>
-          Log In with Github
-        </button>
-        <button
-          className="facebook"
-          onClick={() => this.authenticate("Facebook")}
-        >
-          Log In with Facebook
-        </button>
-        <button
-          className="twitter"
-          onClick={() => this.authenticate("Twitter")}
-        >
-          Log In with Twitter
-        </button>
-      </nav>
-    );
-  };
+  renderLogin = () => (
+    <nav className="login">
+      <h2>Inventory</h2>
+      <p>Sign in to manage your store's inventory</p>
+      <button className="github" onClick={() => this.authenticate('Github')}>
+        Log In with Github
+      </button>
+      <button className="facebook" onClick={() => this.authenticate('Facebook')}>
+        Log In with Facebook
+      </button>
+      <button className="twitter" onClick={() => this.authenticate('Twitter')}>
+        Log In with Twitter
+      </button>
+    </nav>
+  );
 
   renderInventory = key => {
     const fish = this.props.fishes[key];
@@ -168,7 +159,7 @@ class Inventory extends React.Component {
     removeFish: PropTypes.func.isRequired,
     addFish: PropTypes.func.isRequired,
     loadSamples: PropTypes.func.isRequired,
-    storeId: PropTypes.string.isRequired
+    storeId: PropTypes.string.isRequired,
   };
 }
 

@@ -1,16 +1,16 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Header from "./Header";
-import Order from "./Order";
-import Inventory from "./Inventory";
-import Fish from "./Fish";
-import sampleFishes from "../sample-fishes";
-import base from "../base";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Header from './Header';
+import Order from './Order';
+import Inventory from './Inventory';
+import Fish from './Fish';
+import sampleFishes from '../sample-fishes';
+import base from '../base';
 
 class App extends React.Component {
   static propTypes = {
     // TODO Shape this
-    match: PropTypes.object.isRequired
+    match: PropTypes.object.isRequired,
   };
 
   constructor() {
@@ -24,7 +24,7 @@ class App extends React.Component {
 
   state = {
     fishes: {},
-    order: {}
+    order: {},
   };
 
   // TODO: Did Mount?
@@ -33,7 +33,7 @@ class App extends React.Component {
     // this runs right before the <App> is rendered
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
-      state: "fishes"
+      state: 'fishes',
     });
 
     // check if there is any order in localStorage
@@ -42,7 +42,7 @@ class App extends React.Component {
     if (localStorageRef) {
       // update our App component's order state
       this.setState({
-        order: JSON.parse(localStorageRef)
+        order: JSON.parse(localStorageRef),
       });
     }
   }
@@ -52,10 +52,7 @@ class App extends React.Component {
   }
 
   componentWillUpdate(nextProps, nextState) {
-    localStorage.setItem(
-      `order-${this.props.match.params.storeId}`,
-      JSON.stringify(nextState.order)
-    );
+    localStorage.setItem(`order-${this.props.match.params.storeId}`, JSON.stringify(nextState.order));
   }
 
   addFish(fish) {
@@ -82,7 +79,7 @@ class App extends React.Component {
 
   loadSamples = () => {
     this.setState({
-      fishes: sampleFishes
+      fishes: sampleFishes,
     });
   };
 
@@ -108,12 +105,7 @@ class App extends React.Component {
           <Header tagline="Fresh Seafood Market" />
           <ul className="list-of-fishes">
             {Object.keys(this.state.fishes).map(key => (
-              <Fish
-                key={key}
-                index={key}
-                details={this.state.fishes[key]}
-                addToOrder={this.addToOrder}
-              />
+              <Fish key={key} index={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} />
             ))}
           </ul>
         </div>

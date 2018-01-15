@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { getFunName } from "../helpers";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { getFunName } from '../helpers';
 
 class StorePicker extends React.Component {
   static propTypes = {
-    history: PropTypes.object.isRequired
+    history: PropTypes.object.isRequired,
   };
 
   goToStore(event) {
     event.preventDefault();
-    console.log("You Changed the URL");
+    console.log('You Changed the URL');
     // first grab the text from the box
     const storeId = this.storeInput.value;
     // second we're going to transition from / to /store/:storeId

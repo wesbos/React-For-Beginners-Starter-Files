@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Transition } from 'react-transition-group';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 import { formatPrice } from '../helpers';
 
 class Order extends React.Component {
@@ -23,17 +23,15 @@ class Order extends React.Component {
     return (
       <li key={key}>
         <span>
-          <Transition
-            component="span"
-            className="count"
-            transitionName="count"
-            timeout={2000}
-            in={true}
-          >
-            {(state) => (
-              <span key={count}>{count} {state}</span>
-            )}
-          </Transition>
+          <TransitionGroup component="span" className="count">
+            <CSSTransition
+              key={count}
+              classNames="count"
+              timeout={{ enter: 250, exit: 250 }}
+              >
+              <span>{count}</span>
+            </CSSTransition>
+          </TransitionGroup>
 
           lbs {fish.name} {removeButton}
         </span>
@@ -58,19 +56,23 @@ class Order extends React.Component {
       <div className="order-wrap">
         <h2>Your Order</h2>
 
-        <ul
-          className="order"
-          component="ul"
-          transitionName="order"
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={500}
-        >
-          {orderIds.map(this.renderOrder)}
-          <li className="total">
-            <strong>Total:</strong>
-            {formatPrice(total)}
-          </li>
-        </ul>
+        <TransitionGroup component="ul" className="order">
+
+          {orderIds.map((key) => (
+                            <CSSTransition
+                            classNames="order"
+                            key={key}
+                            timeout={{ enter: 250, exit: 250 }}
+                          >
+            {this.renderOrder(key)}
+            </CSSTransition>
+          ))}
+        </TransitionGroup>
+
+        <div className="total">
+          <strong>Total:</strong>
+          {formatPrice(total)}
+        </div>
 
       </div>
     )

@@ -1,7 +1,7 @@
 /*
   Possible Animations:
   enter
-  leave
+  exit
   appear Must set transitionAppear={true} on animation component
 */
 
@@ -16,10 +16,10 @@
     transform translateX(0)
 
 
-.order-leave
+.order-exit
   transition all 0.5s
   transform translateX(0)
-  &.order-leave-active
+  &.order-exit-active
     transform translateX(120%)
     max-height 0
     padding 0
@@ -30,11 +30,11 @@
   &.count-enter-active
     transform translateY(0) // put it in it's normal resting spot
 
-.count-leave
+.count-exit
   transition all .25s
   position absolute
   left 0
   bottom 0
   transform translateY(0) // start it where it is
-  &.count-leave-active
+  &.count-exit-active
     transform translateY(-100%) // start it where it is

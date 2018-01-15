@@ -56,8 +56,9 @@ There may be a few different causes for this:
 
 ## Changes
 
-* Upgrade to React Router 4 Final
+* Upgrade to React Router 4 Final API
 * Move to external PropTypes Package
-* Use withRouter() instead of context to access router
-* Remove all use of constructors and supeer()
+* Remove all use of constructors and super() - use class properties instead
 * Moved from React-addons-css-transition-group to react-transition-group and upgraded from 1.x to 2.x
+* Use official Firebase package for Auth as re-base is now only for data binding
+* Move promise based code to async/await

@@ -2,7 +2,6 @@ import React from "react";
 
 class StorePicker extends React.Component {
   render() {
-    console.log(this);
     return (
       <form className="store-selector">
         <h2>Please Enter A Store</h2>

@@ -13,22 +13,12 @@ class App extends React.Component {
     match: PropTypes.object.isRequired,
   };
 
-  constructor() {
-    super();
-    console.log(this);
-
-    this.addFish = this.addFish.bind(this);
-    this.addToOrder = this.addToOrder.bind(this);
-    this.removeFromOrder = this.removeFromOrder.bind(this);
-  }
-
   state = {
     fishes: {},
     order: {},
   };
 
-  // TODO: Did Mount?
-  componentWillMount() {
+  componentDidMount() {
     const { params } = this.props.match;
     // this runs right before the <App> is rendered
     this.ref = base.syncState(`${params.storeId}/fishes`, {
@@ -47,15 +37,15 @@ class App extends React.Component {
     }
   }
 
-  componentWillUnmount() {
-    base.removeBinding(this.ref);
-  }
-
   componentWillUpdate(nextProps, nextState) {
     localStorage.setItem(`order-${this.props.match.params.storeId}`, JSON.stringify(nextState.order));
   }
 
-  addFish(fish) {
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
+
+  addFish = fish => {
     // update our state
     const fishes = { ...this.state.fishes };
     // add in our new fish
@@ -63,7 +53,7 @@ class App extends React.Component {
     fishes[`fish-${timestamp}`] = fish;
     // set state
     this.setState({ fishes });
-  }
+  };
 
   updateFish = (key, updatedFish) => {
     const fishes = { ...this.state.fishes };
@@ -83,20 +73,20 @@ class App extends React.Component {
     });
   };
 
-  addToOrder(key) {
+  addToOrder = key => {
     // take a copy of our state
     const order = { ...this.state.order };
     // update or add the new number of fish ordered
     order[key] = order[key] + 1 || 1;
     // update our state
     this.setState({ order });
-  }
+  };
 
-  removeFromOrder(key) {
+  removeFromOrder = key => {
     const order = { ...this.state.order };
     delete order[key];
     this.setState({ order });
-  }
+  };
 
   render() {
     return (

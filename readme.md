@@ -62,6 +62,6 @@ There may be a few different causes for this:
 * Moved from React-addons-css-transition-group to react-transition-group and upgraded from 1.x to 2.x
 * Use official Firebase package for Auth as re-base is now only for data binding
 * Move promise based code to async/await
-* Added an example showing how to return multiple elements
+* Show how to return multiple elements with React.Fragment
 *
 

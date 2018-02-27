@@ -68,8 +68,12 @@ There may be a few different causes for this:
 
 ## htaccess
 
+Here is the .htaccess file we use in the apache deployment video
+
+```
 RewriteBase /
 RewriteRule ^index\.html$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+```

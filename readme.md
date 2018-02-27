@@ -59,9 +59,17 @@ There may be a few different causes for this:
 * Upgrade to React Router 4 Final API
 * Move to external PropTypes Package
 * Remove all use of constructors and super() - use class properties instead
+* Better explain binding, use of `this` and component instances
 * Moved from React-addons-css-transition-group to react-transition-group and upgraded from 1.x to 2.x
 * Use official Firebase package for Auth as re-base is now only for data binding
 * Move promise based code to async/await
 * Show how to return multiple elements with React.Fragment
-*
 
+
+## htaccess
+
+RewriteBase /
+RewriteRule ^index\.html$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]

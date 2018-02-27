@@ -20,10 +20,6 @@ You are welcome to use this code in your own applications. If you would like to 
 
 # Frequently Asked Questions
 
-#### :question: Where are folders `2`, `3`, and `5`?
-
-Not all the videos have significant enough code changes to warrant an entire folder. Although you should be coding them all yourself, the code is available in the next video's folder.
-
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!
 
 There are a few possible options:
@@ -47,24 +43,20 @@ There may be a few different causes for this:
 * Webpack currently can't handle folder/file names that contain parentheses.
 * Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
 
-#### :question: What Sublime Text Packages are you using? What Terminal Theme?
+## Changes In the 2018 RE-Record
 
-* I've written indepth over at [WesBos.com/uses](http://wesbos.com/uses)
-* Theme + Colour Scheme → [Cobalt 2](https://packagecontrol.io/packages/Theme%20-%20Cobalt2)
-* JS Syntax Highlighting → [Babel](https://packagecontrol.io/packages/Babel)
-* HTML + CSS Shortcuts → [Emmet](https://packagecontrol.io/packages/Emmet) — You can [get emmet working with JSX here](http://wesbos.com/emmet-react-jsx-sublime/)
-
-## Changes
+In March 2018 I re-reocrded this course. Here are the things that I've updated.
 
 * Upgrade to React Router 4 Final API
+* Use React 16.3
 * Move to external PropTypes Package
+* Use React's new Refs API, remove function refs
 * Remove all use of constructors and super() - use class properties instead
 * Better explain binding, use of `this` and component instances
 * Moved from React-addons-css-transition-group to react-transition-group and upgraded from 1.x to 2.x
 * Use official Firebase package for Auth as re-base is now only for data binding
 * Move promise based code to async/await
 * Show how to return multiple elements with React.Fragment
-
 
 ## htaccess
 

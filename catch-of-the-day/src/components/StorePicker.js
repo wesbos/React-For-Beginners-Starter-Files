@@ -4,7 +4,7 @@ import { Fragment } from 'react';
 class StorePicker extends React.Component {
     render() {
         return (
-            <Fragment>`
+            <Fragment>
             <p>Heyyyy</p>
             <div>What up!?</div>
             </Fragment>

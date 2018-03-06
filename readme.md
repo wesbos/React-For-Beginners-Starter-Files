@@ -8,9 +8,9 @@ The code in this repo meant to be a reference point for anyone following along w
 
 ## To Start
 
-1. cd into `catch-of-the-day` and follow along with the videos
+`cd` into `catch-of-the-day` and follow along with the videos
 
-The `stepped-solutions` Each folder contains the files for the beginning of each video should you need them. So, if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
+Each numbered folder in `stepped-solutions` contains the files for the beginning of each correspondingly numbered video, should you need them. So, if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
 
 You are welcome to submit Pull Requests but I'd like to keep the code as similar as possible to the course content.
 

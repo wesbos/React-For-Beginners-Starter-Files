@@ -22,7 +22,7 @@ class AddFishForm extends React.Component {
     };
     // Update props.
     this.props.addFish(fish);
-    // Refresh the form.
+    // Reset the form.
     event.currentTarget.reset();
   };
 

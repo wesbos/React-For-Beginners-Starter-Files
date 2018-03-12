@@ -45,7 +45,7 @@ There may be a few different causes for this:
 
 ## Changes In the 2018 RE-Record
 
-In March 2018 I re-reocrded this course. Here are the things that I've updated.
+In March 2018 I re-recorded this course. Here are the things that I've updated.
 
 * Upgrade to React Router 4 Final API
 * Use React 16.3

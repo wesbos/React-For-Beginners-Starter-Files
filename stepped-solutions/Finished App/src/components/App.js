@@ -17,7 +17,7 @@ class App extends React.Component {
     match: PropTypes.object
   };
 
-  componentDidMount() {
+  componentWillMount() {
     const { params } = this.props.match;
     // first reinstate our localStorage
     const localStorageRef = localStorage.getItem(params.storeId);

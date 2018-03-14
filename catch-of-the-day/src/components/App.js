@@ -4,6 +4,7 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
+import base from "../base";
 
 class App extends React.Component {
   // Set initial state.
@@ -11,6 +12,20 @@ class App extends React.Component {
     fishes: {},
     order: {}
   };
+
+  // Sync data with Firebase when user loads app.
+  componentDidMount() {
+    const params = this.props.match.params;
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes"
+    });
+  }
+
+  // Clean up Firebase when user leaves app.
+  componentWillUnmount() {
+    base.removeBinding(this.ref);
+  }
 
   // Update fishes state.
   addFish = fish => {

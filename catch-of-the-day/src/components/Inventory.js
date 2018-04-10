@@ -8,6 +8,7 @@ class Inventory extends Component {
       <div className="inventory">
         <h2>Inventory</h2>
         <AddFishForm addFish={this.props.addFish} />
+        <button onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
       </div>
     );
   }
@@ -15,6 +16,7 @@ class Inventory extends Component {
 
 Inventory.propTypes = {
   addFish: PropTypes.func.isRequired,
+  loadSampleFishes: PropTypes.func.isRequired,
 };
 
 export default Inventory;

@@ -12,11 +12,16 @@ class App extends Component {
 
     this.state = {
       fishes: {},
-      // order: {},
+      order: {},
     };
 
-    this.addFish = this.addFish.bind(this);
     this.loadSampleFishes = this.loadSampleFishes.bind(this);
+    this.addFish = this.addFish.bind(this);
+    this.addToOrder = this.addToOrder.bind(this);
+  }
+
+  loadSampleFishes() {
+    this.setState({ fishes: sampleFishes });
   }
 
   addFish(fish) {
@@ -26,8 +31,11 @@ class App extends Component {
     this.setState({ fishes });
   }
 
-  loadSampleFishes() {
-    this.setState({ fishes: sampleFishes });
+  addToOrder(key) {
+    const order = { ...this.state.order };
+    order[key] = order[key] + 1 || 1;
+
+    this.setState({ order });
   }
 
   render() {
@@ -36,7 +44,9 @@ class App extends Component {
         <div className="menu">
           <Header tagline="Fresh Seafood Market" />
           <ul className="fishes">
-            {Object.keys(this.state.fishes).map(key => <Fish key={key} details={this.state.fishes[key]} />)}
+            {Object.keys(this.state.fishes).map(key => (
+              <Fish key={key} orderId={key} details={this.state.fishes[key]} addToOrder={this.addToOrder} />
+            ))}
           </ul>
         </div>
         <Order />

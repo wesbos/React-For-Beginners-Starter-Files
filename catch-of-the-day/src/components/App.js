@@ -22,12 +22,26 @@ class App extends Component {
     this.addToOrder = this.addToOrder.bind(this);
   }
 
+  componentWillMount() {
+    const { params } = this.props.match;
+
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+  }
+
   componentDidMount() {
     const { params } = this.props.match;
+
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: 'fishes',
     });
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem(this.props.match.params.storeId, JSON.stringify(this.state.order));
   }
 
   componentWillUnmount() {

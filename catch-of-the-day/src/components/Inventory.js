@@ -9,7 +9,13 @@ class Inventory extends Component {
       <div className="inventory">
         <h2>Inventory</h2>
         {Object.keys(this.props.fishes).map(key => (
-          <EditFishForm key={key} editFishId={key} fish={this.props.fishes[key]} updateFish={this.props.updateFish} />
+          <EditFishForm
+            key={key}
+            editFishId={key}
+            fish={this.props.fishes[key]}
+            updateFish={this.props.updateFish}
+            deleteFish={this.props.deleteFish}
+          />
         ))}
         <AddFishForm addFish={this.props.addFish} />
         <button onClick={this.props.loadSampleFishes}>Load Sample Fishes</button>
@@ -23,6 +29,11 @@ Inventory.propTypes = {
   loadSampleFishes: PropTypes.func.isRequired,
   fishes: PropTypes.object.isRequired,
   updateFish: PropTypes.func.isRequired,
+  deleteFish: PropTypes.func,
+};
+
+Inventory.defaultProps = {
+  deleteFish: () => {},
 };
 
 export default Inventory;

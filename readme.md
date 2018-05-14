@@ -6,9 +6,9 @@ Starter files for the React For Beginners course. Come <a href="https://ReactFor
 
 The code in this repo meant to be a reference point for anyone following along with the video course.
 
-## To Start
+## To Starta adsf asdf asdf asdf vasd
 
-1. cd into `catch-of-the-day` and follow along with the videos
+1.  cd into `catch-of-the-day` and follow along with the videos
 
 The `stepped-solutions` Each folder contains the files for the beginning of each video should you need them. So, if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
 

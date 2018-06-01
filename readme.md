@@ -8,6 +8,8 @@ The code in this repo meant to be a reference point for anyone following along w
 
 ## To Start
 
+**Note** - one of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then. 
+
 `cd` into `catch-of-the-day` and follow along with the videos
 
 Each numbered folder in `stepped-solutions` contains the files for the beginning of each correspondingly numbered video, should you need them. So, if you need any code, pull the appropriate file into your `catch-of-the-day` folder.
@@ -19,6 +21,10 @@ You are welcome to submit Pull Requests but I'd like to keep the code as similar
 You are welcome to use this code in your own applications. If you would like to use it for training purposes, please shoot me a message first to make sure it's okay.
 
 # Frequently Asked Questions
+
+#### :question: I'm getting error "Pre-built binaries not found for grpc@1.10.1 and node@10.3.0" and "Tried to download(403): https://storage.googleapis.com....."
+
+One of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then. Don't sweat this as it's just build tooling and isn't related to the version of react you are using. 
 
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!
 

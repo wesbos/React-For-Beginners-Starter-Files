@@ -49,6 +49,10 @@ There may be a few different causes for this:
 * Webpack currently can't handle folder/file names that contain parentheses.
 * Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
 
+#### :question: I get `permission_denied` warnings in my console when setting up Firebase
+
+Be sure to select "Realtime database" as as your database type inside Firebase. If you created your database as a Cloud Firestore type, you can change it in the Database tab.
+
 ## Changes In the 2018 RE-Record
 
 In March 2018 I re-recorded this course. Here are the things that I've updated.

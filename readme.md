@@ -75,3 +75,4 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
 ```
+If you use Sublime Text 2, try using Sublime Text 3.

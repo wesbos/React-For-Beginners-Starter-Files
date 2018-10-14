@@ -49,6 +49,10 @@ There may be a few different causes for this:
 * Webpack currently can't handle folder/file names that contain parentheses.
 * Webpack also has problems running inside folders for Dropbox/Google Drive type services. Git is recommended for keeping your files in sync across multiple computers.
 
+#### :question: I can't log in to the store after I deployed to Netlify/Apache
+
+Firebase by default only allows logins from localhost or the Firebase website. You'll need to add your deploy URL to the Authorized Domains in the Sign-in method area of your Firebase console.
+
 ## Changes In the 2018 RE-Record
 
 In March 2018 I re-recorded this course. Here are the things that I've updated.

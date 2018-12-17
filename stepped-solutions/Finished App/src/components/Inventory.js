@@ -11,7 +11,8 @@ class Inventory extends React.Component {
     fishes: PropTypes.object,
     updateFish: PropTypes.func,
     deleteFish: PropTypes.func,
-    loadSampleFishes: PropTypes.func
+    loadSampleFishes: PropTypes.func,
+    addFish: PropTypes.func
   };
 
   state = {

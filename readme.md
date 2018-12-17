@@ -8,7 +8,7 @@ The code in this repo meant to be a reference point for anyone following along w
 
 ## To Start
 
-**Note** - one of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then. 
+**Note** - one of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then.
 
 `cd` into `catch-of-the-day` and follow along with the videos
 
@@ -24,7 +24,7 @@ You are welcome to use this code in your own applications. If you would like to 
 
 #### :question: I'm getting error "Pre-built binaries not found for grpc@1.10.1 and node@10.3.0" and "Tried to download(403): https://storage.googleapis.com....."
 
-One of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then. Don't sweat this as it's just build tooling and isn't related to the version of react you are using. 
+One of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then. Don't sweat this as it's just build tooling and isn't related to the version of react you are using.
 
 #### :question: I tried installing the Babel syntax highlighter but it didn't work!
 
@@ -52,6 +52,10 @@ There may be a few different causes for this:
 #### :question: I get `permission_denied` warnings in my console when setting up Firebase
 
 Be sure to select "Realtime database" as as your database type inside Firebase. If you created your database as a Cloud Firestore type, you can change it in the Database tab.
+
+#### :question: I can't log in to the store after I deployed to Netlify/Apache
+
+Firebase by default only allows logins from localhost or the Firebase website. You'll need to add your deploy URL to the Authorized Domains in the Sign-in method area of your Firebase console.
 
 ## Changes In the 2018 RE-Record
 

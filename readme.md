@@ -22,22 +22,6 @@ You are welcome to use this code in your own applications. If you would like to 
 
 # Frequently Asked Questions
 
-#### :question: I'm getting error "Pre-built binaries not found for grpc@1.10.1 and node@10.3.0" and "Tried to download(403): https://storage.googleapis.com....."
-
-One of the dependencies is currently not working with Node.js 10.3, please use [version 9.11.1](https://nodejs.org/download/release/v9.11.1/) (or around that, 8.x and 9.x should work fine) until then. Don't sweat this as it's just build tooling and isn't related to the version of react you are using.
-
-#### :question: I tried installing the Babel syntax highlighter but it didn't work!
-
-There are a few possible options:
-
-* If you are on Sublime Text 2, you should Upgrade to Sublime Text 3.
-* Some users have reported restarting works
-* You can try the [JavaScript Next](https://packagecontrol.io/packages/JavaScriptNext%20-%20ES6%20Syntax) syntax highlighter instead
-
-#### :question: I can't set Babel as the default syntax highlighter!
-
-Make sure you are in a file with the extension of `.js` before you do this step - you can't set the default for a file without having a file open!
-
 #### :question: I can't see the React tab in my dev tools
 
 Restart your dev tools or your chrome browser entirely. They will only show up when you are viewing a React app - so make sure you test it on Facebook or another website that is running React. It won't work on your empty `main.js` file until you `import React from 'react'`.

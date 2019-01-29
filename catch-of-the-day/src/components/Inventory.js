@@ -1,8 +1,15 @@
 import React from 'react'
+import { AddFishForm } from './AddFishForm.js'
 
 class Inventory extends React.Component {
   render () {
-    return <div className='inventory'>I am the inventory</div>
+    const { addFish } = this.props
+    return (
+      <div className='inventory'>
+        <h2>Inventory</h2>
+        <AddFishForm addFish={addFish} />
+      </div>
+    )
   }
 }
 

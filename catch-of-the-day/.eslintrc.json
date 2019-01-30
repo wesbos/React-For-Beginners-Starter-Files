@@ -1,0 +1,16 @@
+{
+  "extends": [
+    "standard",
+    "prettier",
+    "prettier/babel",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": [
+    "babel",
+    "prettier",
+    "react",
+    "standard"
+  ],
+  "parser": "babel-eslint"
+}

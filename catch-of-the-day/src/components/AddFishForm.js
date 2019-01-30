@@ -3,7 +3,7 @@ import React from 'react'
 class AddFishForm extends React.Component {
   nameRef = React.createRef()
   priceRef = React.createRef()
-  statusRef = React.createRef()
+  isAvailableRef = React.createRef()
   descRef = React.createRef()
   imageRef = React.createRef()
 
@@ -13,7 +13,7 @@ class AddFishForm extends React.Component {
     addFish({
       name: this.nameRef.current.value,
       price: parseFloat(this.priceRef.current.value),
-      status: this.statusRef.current.value,
+      isAvailable: this.isAvailableRef.current.value,
       desc: this.descRef.current.value,
       image: this.imageRef.current.value
     })
@@ -30,7 +30,7 @@ class AddFishForm extends React.Component {
           type='text'
           placeholder='Price'
         />
-        <select name='status' ref={this.statusRef}>
+        <select name='isAvailable' ref={this.isAvailableRef}>
           <option value='available'>Fresh</option>
           <option value='unavailable'>Sold Out</option>
         </select>

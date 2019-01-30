@@ -4,11 +4,23 @@ import { Inventory } from './Inventory.js'
 import { Order } from './Order.js'
 import { Fish } from './Fish.js'
 import sampleFishes from '../sample-fishes.js'
+import base from '../base.js'
 
 class App extends React.Component {
   state = {
     fishes: {},
     order: {}
+  }
+
+  componentDidMount() {
+    const { match: { params: { storeId } } } = this.props
+    this.ref = base.syncState(`${storeId}/fishes/`, {
+      context: this,
+      state: `fishes`
+    })
+  }
+  componentWillUnmount() {
+    base.removeBinding(this.ref)
   }
 
   addFish = fish => {
@@ -27,7 +39,7 @@ class App extends React.Component {
     this.setState({ order })
   }
 
-  render () {
+  render() {
     const { fishes, order } = this.state
     return (
       <div className='catch-of-the-day'>

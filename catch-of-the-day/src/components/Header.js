@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 const Header = ({ tagline }) => (
   <header className='top'>
     <h1>
-      swiggity
+      swig
       <span className='ofThe'>
         <span className='of'>dat</span>
-        <span className='the'>booty</span>
+        <span className='the'>boo</span>
       </span>
-      swooty
+      swoo
     </h1>
     <h3 className='tagline'>
       <span>{tagline}</span>

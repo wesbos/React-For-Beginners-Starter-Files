@@ -48,6 +48,24 @@ class App extends React.Component {
     this.setState({ fishes })
   }
 
+  deleteFish = index => {
+    const fishes = { ...this.state.fishes }
+    fishes[index] = null // we do this because of firebase
+    this.setState({ fishes })
+  }
+
+  deleteFishFromOrder = index => {
+    const order = { ...this.state.order }
+    delete order[index] // TODO: check against localStorage?
+    this.setState({ order })
+  }
+
+  updateFish = (index, fish) => {
+    const fishes = { ...this.state.fishes }
+    fishes[index] = fish
+    this.setState({ fishes })
+  }
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes })
   }
@@ -58,7 +76,7 @@ class App extends React.Component {
     this.setState({ order })
   }
 
-  render() {
+  render () {
     const { fishes, order } = this.state
     return (
       <div className='catch-of-the-day'>
@@ -75,10 +93,17 @@ class App extends React.Component {
             ))}
           </ul>
         </div>
-        <Order fishes={fishes} order={order} />
+        <Order
+          fishes={fishes}
+          order={order}
+          deleteFishFromOrder={this.deleteFishFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           loadSampleFishes={this.loadSampleFishes}
+          fishes={fishes}
+          updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
         />
       </div>
     )

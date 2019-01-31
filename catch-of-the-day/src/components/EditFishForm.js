@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+import { Fish } from './Fish.js'
 import { formatPrice, parsePrice } from '../helpers.js'
 
 class EditFishForm extends React.Component {
@@ -66,6 +68,13 @@ class EditFishForm extends React.Component {
       </form>
     )
   }
+}
+
+EditFishForm.propTypes = {
+  index: PropTypes.string,
+  fish: PropTypes.shape(Fish.propTypes),
+  updateFish: PropTypes.func,
+  deleteFish: PropTypes.func
 }
 
 export { EditFishForm }

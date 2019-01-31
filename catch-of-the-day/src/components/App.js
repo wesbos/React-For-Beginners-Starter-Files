@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Header } from './Header.js'
 import { Inventory } from './Inventory.js'
 import { Order } from './Order.js'
@@ -26,7 +27,7 @@ class App extends React.Component {
     const order = localStorage.getItem(storeId)
     if (order) this.setState({ order: JSON.parse(order) })
 
-    this.ref = base.syncState(`${storeId}/fishes/`, {
+    this.baseRef = base.syncState(`${storeId}/fishes/`, {
       context: this,
       state: `fishes`
     })
@@ -39,7 +40,7 @@ class App extends React.Component {
   }
 
   componentWillUnmount () {
-    base.removeBinding(this.ref)
+    base.removeBinding(this.baseRef)
   }
 
   addFish = fish => {
@@ -52,12 +53,6 @@ class App extends React.Component {
     const fishes = { ...this.state.fishes }
     fishes[index] = null // we do this because of firebase
     this.setState({ fishes })
-  }
-
-  deleteFishFromOrder = index => {
-    const order = { ...this.state.order }
-    delete order[index] // TODO: check against localStorage?
-    this.setState({ order })
   }
 
   updateFish = (index, fish) => {
@@ -73,6 +68,12 @@ class App extends React.Component {
   addToOrder = ({ key }) => {
     const { order } = this.state
     order[key] = order[key] + 1 || 1
+    this.setState({ order })
+  }
+
+  removeFromOrder = index => {
+    const order = { ...this.state.order }
+    delete order[index] // TODO: check against localStorage?
     this.setState({ order })
   }
 
@@ -96,18 +97,26 @@ class App extends React.Component {
         <Order
           fishes={fishes}
           order={order}
-          deleteFishFromOrder={this.deleteFishFromOrder}
+          removeFromOrder={this.removeFromOrder}
         />
         <Inventory
-          addFish={this.addFish}
-          loadSampleFishes={this.loadSampleFishes}
           fishes={fishes}
+          addFish={this.addFish}
           updateFish={this.updateFish}
           deleteFish={this.deleteFish}
+          loadSampleFishes={this.loadSampleFishes}
         />
       </div>
     )
   }
+}
+
+App.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      storeId: PropTypes.string.isRequired
+    })
+  })
 }
 
 export { App }

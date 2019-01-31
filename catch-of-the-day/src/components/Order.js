@@ -1,22 +1,46 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { formatPrice } from '../helpers.js'
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
 class Order extends React.Component {
   renderOrder = key => {
     const { fishes } = this.props
-    const { deleteFishFromOrder } = this.props
+    const { removeFromOrder } = this.props
     if (!(key in fishes)) return null
     const { name, price, isAvailable } = fishes[key]
-    if (!isAvailable) {
-      return <li key={key}>Sorry, {name || 'fish'} is no longer available!</li>
+    const transitionOptions = {
+      key,
+      classNames: 'order',
+      timeout: { enter: 500, exit: 500 }
     }
-    const amount = this.props.order[key]
+    if (!isAvailable) {
+      return (
+        <CSSTransition {...transitionOptions}>
+          <li key={key}>Sorry, {name || 'fish'} is no longer available!</li>
+        </CSSTransition>
+      )
+    }
+    const count = this.props.order[key]
     return (
-      <li key={key}>
-        {amount} lbs {name}
-        {formatPrice(amount * price)}
-        <button onClick={() => deleteFishFromOrder(key)}>🗑</button>
-      </li>
+      <CSSTransition {...transitionOptions}>
+        <li key={key}>
+          <span>
+            <TransitionGroup component='span' className='count'>
+              <CSSTransition
+                classNames='count'
+                key={count}
+                timeout={{ enter: 500, exit: 500 }}
+              >
+                <span>{count}</span>
+              </CSSTransition>
+            </TransitionGroup>
+            lbs {name}
+            {formatPrice(count * price)}
+            <button onClick={() => removeFromOrder(key)}>✘</button>
+          </span>
+        </li>
+      </CSSTransition>
     )
   }
 
@@ -26,8 +50,8 @@ class Order extends React.Component {
     return orderIds.reduce((total, orderId) => {
       if (!(orderId in fishes)) return total
       const { price, isAvailable } = fishes[orderId]
-      const amount = order[orderId]
-      const subtotal = (isAvailable ? amount : 0) * price
+      const count = order[orderId]
+      const subtotal = (isAvailable ? count : 0) * price
       return total + subtotal
     }, 0)
   }
@@ -39,7 +63,9 @@ class Order extends React.Component {
     return (
       <div className='order-wrap'>
         <h2>Order</h2>
-        <ul className='order'>{orderIds.map(this.renderOrder)}</ul>
+        <TransitionGroup component='ul' className='order'>
+          {orderIds.map(this.renderOrder)}
+        </TransitionGroup>
         <div className='total'>
           Total:
           <strong>{formatPrice(this.total())}</strong>
@@ -47,6 +73,12 @@ class Order extends React.Component {
       </div>
     )
   }
+}
+
+Order.propTypes = {
+  order: PropTypes.object,
+  fishes: PropTypes.object,
+  removeFromOrder: PropTypes.func
 }
 
 export { Order }

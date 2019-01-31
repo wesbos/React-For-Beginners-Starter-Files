@@ -30,13 +30,13 @@ class Order extends React.Component {
               <CSSTransition
                 classNames='count'
                 key={count}
-                timeout={{ enter: 500, exit: 500 }}
+                timeout={transitionOptions.timeout}
               >
                 <span>{count}</span>
               </CSSTransition>
             </TransitionGroup>
             lbs {name}
-            {formatPrice(count * price)}
+            <span className='price'>{formatPrice(count * price)}</span>
             <button onClick={() => removeFromOrder(key)}>✘</button>
           </span>
         </li>

@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-// import { Fish } from './Fish.js'
+import { Fish } from './Fish.js'
 import { AddFishForm } from './AddFishForm.js'
 import { EditFishForm } from './EditFishForm.js'
 
@@ -28,7 +28,7 @@ class Inventory extends React.Component {
 }
 
 Inventory.propTypes = {
-  fishes: PropTypes.object, // PropTypes.shape({ [PropTypes.string]: Fish.propTypes }),
+  fishes: PropTypes.objectOf(PropTypes.shape(Fish.propTypes)),
   addFish: PropTypes.func,
   updateFish: PropTypes.func,
   deleteFish: PropTypes.func,

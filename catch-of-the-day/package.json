@@ -17,7 +17,7 @@
     "react-scripts": "^2.1.1"
   },
   "dependencies": {
-    "autoprefixer-stylus": "0.14.0",
+    "autoprefixer-stylus": "^0.14.0",
     "firebase": "^5.7.0",
     "prop-types": "^15.6.0",
     "re-base": "4.0.0",

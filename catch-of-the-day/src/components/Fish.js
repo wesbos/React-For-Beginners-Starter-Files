@@ -2,30 +2,25 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { formatPrice } from '../helpers.js'
 
-class Fish extends React.Component {
-  addToOrder = () => {
-    const { index } = this.props
-    const { addToOrder } = this.props
-    addToOrder({ key: index })
-  }
+const Fish = props => {
+  const { name, image, desc, price, isAvailable, index } = props
 
-  render () {
-    const { name, image, desc, price, isAvailable } = this.props
-
-    return (
-      <li className='menu-fish'>
-        <img src={image} alt={name} />
-        <h3 className='fish-name'>
-          {name}
-          <span className='price'>{formatPrice(price)}</span>
-        </h3>
-        <p>{desc}</p>
-        <button disabled={!isAvailable} onClick={this.addToOrder}>
-          {isAvailable ? 'Add to Order' : 'Sold Out!'}
-        </button>
-      </li>
-    )
-  }
+  return (
+    <li className='menu-fish'>
+      <img src={image} alt={name} />
+      <h3 className='fish-name'>
+        {name}
+        <span className='price'>{formatPrice(price)}</span>
+      </h3>
+      <p>{desc}</p>
+      <button
+        disabled={!isAvailable}
+        onClick={() => props.addToOrder({ key: index })}
+      >
+        {isAvailable ? 'Add to Order' : 'Sold Out!'}
+      </button>
+    </li>
+  )
 }
 
 Fish.propTypes = {

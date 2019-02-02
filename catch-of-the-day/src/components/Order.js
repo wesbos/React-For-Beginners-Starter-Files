@@ -1,12 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { formatPrice } from '../helpers.js'
 import { TransitionGroup, CSSTransition } from 'react-transition-group'
 
-class Order extends React.Component {
-  renderOrder = key => {
-    const { fishes } = this.props
-    const { removeFromOrder } = this.props
+const Order = props => {
+  const [total, setTotal] = useState(0)
+  const { order, fishes } = props
+  const orderIds = Object.keys(order)
+
+  // Update total price. passing [order, fishes] doesn't work but thats ok
+  useEffect(() => {
+    setTotal(
+      orderIds.reduce((total, orderId) => {
+        if (!(orderId in fishes)) return total
+        const { price, isAvailable } = fishes[orderId]
+        const count = order[orderId]
+        const subtotal = (isAvailable ? count : 0) * price
+        return total + subtotal
+      }, 0)
+    )
+  })
+
+  const renderOrder = key => {
+    const { removeFromOrder } = props
     if (!(key in fishes)) return null
     const { name, price, isAvailable } = fishes[key]
     const transitionOptions = {
@@ -21,7 +37,7 @@ class Order extends React.Component {
         </CSSTransition>
       )
     }
-    const count = this.props.order[key]
+    const count = props.order[key]
     return (
       <CSSTransition {...transitionOptions}>
         <li key={key}>
@@ -44,35 +60,18 @@ class Order extends React.Component {
     )
   }
 
-  total () {
-    const { order, fishes } = this.props
-    const orderIds = Object.keys(order)
-    return orderIds.reduce((total, orderId) => {
-      if (!(orderId in fishes)) return total
-      const { price, isAvailable } = fishes[orderId]
-      const count = order[orderId]
-      const subtotal = (isAvailable ? count : 0) * price
-      return total + subtotal
-    }, 0)
-  }
-
-  render () {
-    const { order } = this.props
-    const orderIds = Object.keys(order)
-
-    return (
-      <div className='order-wrap'>
-        <h2>Order</h2>
-        <TransitionGroup component='ul' className='order'>
-          {orderIds.map(this.renderOrder)}
-        </TransitionGroup>
-        <div className='total'>
-          Total:
-          <strong>{formatPrice(this.total())}</strong>
-        </div>
+  return (
+    <div className='order-wrap'>
+      <h2>Order</h2>
+      <TransitionGroup component='ul' className='order'>
+        {orderIds.map(renderOrder)}
+      </TransitionGroup>
+      <div className='total'>
+        Total:
+        <strong>{formatPrice(total)}</strong>
       </div>
-    )
-  }
+    </div>
+  )
 }
 
 Order.propTypes = {

@@ -1,24 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useAuth } from '../hooks/useAuth.js'
+import { useOwner, AUTH } from '../hooks/useOwner.js'
 
 const Login = props => {
   const { storeId, children } = props
-  const [{ uid, owner }, { authenticate, logout }] = useAuth(storeId)
+  const [{ status }, { login, logout }] = useOwner(storeId)
 
-  if (!uid) {
+  if (status === AUTH.IsLoggedOut) {
     return (
       <nav className='login'>
-        <h2>Inventory Login</h2>
-        <p> sign in to manage your store inventory </p>
-        <button className='github' onClick={() => authenticate('Github')}>
+        <p> Please sign in to manage your store inventory </p>
+        <button className='github' onClick={() => login('Github')}>
           Login with Github
         </button>
       </nav>
     )
   }
 
-  if (uid !== owner) {
+  if (status !== AUTH.IsOwner) {
     return (
       <div>
         <h2>You have no power here!</h2>

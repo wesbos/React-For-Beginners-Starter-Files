@@ -10,7 +10,7 @@ const useAuth = storeId => {
   // We have authenticated
   const authHandler = async auth => {
     if (!auth) return
-    const { uid } = auth.user
+    const uid = auth.user ? auth.user.uid : null
 
     const store = await base.fetch(storeId, { context: this }) // TODO ????
 
@@ -23,7 +23,7 @@ const useAuth = storeId => {
   // Try to auth on first mount silently, in case of refresh
   useEffect(() => firebase.auth().onAuthStateChanged(authHandler), [])
 
-  const authenticate = provider => {
+  const login = provider => {
     const authProvider = (() => {
       switch (provider) {
         case 'Github':
@@ -44,7 +44,7 @@ const useAuth = storeId => {
     setUid({ uid: null })
   }
 
-  return [{ uid, owner }, { authenticate, logout }]
+  return [{ uid, owner }, { login, logout }]
 }
 
 export { useAuth }

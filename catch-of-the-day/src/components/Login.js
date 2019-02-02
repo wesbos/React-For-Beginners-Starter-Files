@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useOwner, AUTH } from '../hooks/useOwner.js'
+import { useAuth, AUTH } from '../hooks/useAuth.js'
 
 const Login = props => {
   const { storeId, children } = props
-  const [{ status }, { login, logout }] = useOwner(storeId)
+  const [{ status }, { login, logout }] = useAuth(storeId)
 
   if (status === AUTH.IsLoggedOut) {
     return (

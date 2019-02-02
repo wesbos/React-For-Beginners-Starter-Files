@@ -2,7 +2,13 @@ import firebase from 'firebase'
 import base, { firebaseApp } from '../base.js'
 import { useState, useEffect } from 'react'
 
-/// useAuth takes a storeId, and returns the uid and owner of that store
+const AUTH = Object.freeze({
+  IsLoggedOut: Symbol('IsLoggedOut'),
+  IsUser: Symbol('IsUser'),
+  IsOwner: Symbol('IsOwner')
+})
+
+/// useAuth takes a storeId, and returns the status of that user
 const useAuth = storeId => {
   const [uid, setUid] = useState(null)
   const [owner, setOwner] = useState(null)
@@ -44,7 +50,12 @@ const useAuth = storeId => {
     setUid({ uid: null })
   }
 
-  return [{ uid, owner }, { login, logout }]
+  let status = AUTH.IsLoggedOut
+  if (uid) {
+    status = uid === owner ? AUTH.IsOwner : AUTH.IsUser
+  }
+
+  return [{ status }, { login, logout }]
 }
 
-export { useAuth }
+export { useAuth, AUTH }

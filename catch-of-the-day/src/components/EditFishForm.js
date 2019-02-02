@@ -1,13 +1,19 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import PropTypes from 'prop-types'
 import { Fish } from './Fish.js'
 import { formatPrice, parsePrice } from '../helpers.js'
 
-class EditFishForm extends React.Component {
-  handleChange = event => {
+const EditFishForm = props => {
+  const nameRef = useRef()
+  const priceRef = useRef()
+  const isAvailableRef = useRef()
+  const descRef = useRef()
+  const imageRef = useRef()
+
+  const handleChange = event => {
     const { name, value } = event.currentTarget
-    const { fish, index } = this.props
-    const { updateFish } = this.props
+    const { fish, index } = props
+    const { updateFish } = props
 
     const updatedFish = {
       ...fish,
@@ -15,59 +21,58 @@ class EditFishForm extends React.Component {
     }
     updateFish(index, updatedFish)
   }
-  render () {
-    const {
-      index,
-      fish: { name, price, isAvailable, desc, image }
-    } = this.props
-    const { deleteFish } = this.props
-    return (
-      <form className='fish-edit'>
-        <input
-          name='name'
-          ref={this.nameRef}
-          type='text'
-          placeholder='Name'
-          value={name}
-          onChange={this.handleChange}
-        />
-        <input
-          name='price'
-          ref={this.priceRef}
-          type='text'
-          placeholder='Price'
-          value={formatPrice(price)}
-          onChange={this.handleChange}
-        />
-        <select
-          name='isAvailable'
-          ref={this.isAvailableRef}
-          value={isAvailable ? 'available' : 'unavailable'}
-          onChange={this.handleChange}
-        >
-          <option value='available'>Fresh</option>
-          <option value='unavailable'>Sold Out</option>
-        </select>
-        <textarea
-          name='desc'
-          ref={this.descRef}
-          type='text'
-          placeholder='Description'
-          value={desc}
-          onChange={this.handleChange}
-        />
-        <input
-          name='image'
-          ref={this.imageRef}
-          type='text'
-          placeholder='Image'
-          value={image}
-          onChange={this.handleChange}
-        />
-        <button onClick={() => deleteFish(index)}>Remove Fish</button>
-      </form>
-    )
-  }
+
+  const {
+    index,
+    fish: { name, price, isAvailable, desc, image }
+  } = props
+  const { deleteFish } = props
+  return (
+    <form className='fish-edit'>
+      <input
+        name='name'
+        ref={nameRef}
+        type='text'
+        placeholder='Name'
+        value={name}
+        onChange={handleChange}
+      />
+      <input
+        name='price'
+        ref={priceRef}
+        type='text'
+        placeholder='Price'
+        value={formatPrice(price)}
+        onChange={handleChange}
+      />
+      <select
+        name='isAvailable'
+        ref={isAvailableRef}
+        value={isAvailable ? 'available' : 'unavailable'}
+        onChange={handleChange}
+      >
+        <option value='available'>Fresh</option>
+        <option value='unavailable'>Sold Out</option>
+      </select>
+      <textarea
+        name='desc'
+        ref={descRef}
+        type='text'
+        placeholder='Description'
+        value={desc}
+        onChange={handleChange}
+      />
+      <input
+        name='image'
+        ref={imageRef}
+        type='text'
+        placeholder='Image'
+        value={image}
+        onChange={handleChange}
+      />
+      <button onClick={() => deleteFish(index)}>Remove Fish</button>
+    </form>
+  )
 }
 
 EditFishForm.propTypes = {

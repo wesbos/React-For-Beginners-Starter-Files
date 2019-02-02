@@ -79,6 +79,7 @@ class App extends React.Component {
 
   render () {
     const { fishes, order } = this.state
+    const { storeId } = this.props.match.params
     return (
       <div className='catch-of-the-day'>
         <div className='menu'>
@@ -101,6 +102,7 @@ class App extends React.Component {
         />
         <Inventory
           fishes={fishes}
+          storeId={storeId}
           addFish={this.addFish}
           updateFish={this.updateFish}
           deleteFish={this.deleteFish}

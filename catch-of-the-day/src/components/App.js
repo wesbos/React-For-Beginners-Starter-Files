@@ -1,116 +1,97 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
+// Components
 import { Header } from './Header.js'
 import { Inventory } from './Inventory.js'
 import { Order } from './Order.js'
 import { Fish } from './Fish.js'
+// Hooks
+import { useLocalStorage } from '../hooks/useLocalStorage.js'
+import { useFirebase } from '../hooks/useFirebase.js'
+// Config
 import sampleFishes from '../sample-fishes.js'
-import base from '../base.js'
+// Database
+import firebase from 'firebase'
+import { firebaseOptions } from '../firebaseOptions.js'
 
-class App extends React.Component {
-  state = {
-    fishes: {},
-    order: {}
-  }
+const App = props => {
+  const { storeId } = props.match.params
+  let firebaseApp
+  try {
+    firebaseApp = firebase.initializeApp(firebaseOptions)
+  } catch (e) {}
 
-  storeId () {
-    const {
-      match: {
-        params: { storeId }
-      }
-    } = this.props
-    return storeId
-  }
+  useEffect(() => {
+    return () => firebaseApp.delete()
+  })
 
-  componentDidMount () {
-    const storeId = this.storeId()
-    const order = localStorage.getItem(storeId)
-    if (order) this.setState({ order: JSON.parse(order) })
+  const [order, setOrder] = useLocalStorage(storeId, {})
+  const [fishes, setFishes] = useFirebase(firebase, `${storeId}/fishes`, {})
 
-    this.baseRef = base.syncState(`${storeId}/fishes/`, {
-      context: this,
-      state: `fishes`
+  const addFish = fish => {
+    setFishes({
+      ...fishes,
+      [`fish${Date.now()}`]: fish
     })
   }
 
-  componentDidUpdate () {
-    const storeId = this.storeId()
-    const { order } = this.state
-    localStorage.setItem(storeId, JSON.stringify(order))
+  const deleteFish = index => {
+    setFishes({
+      ...fishes,
+      [`fish${Date.now()}`]: null
+    })
   }
 
-  componentWillUnmount () {
-    base.removeBinding(this.baseRef)
+  const updateFish = (index, fish) => {
+    setFishes({
+      ...fishes,
+      [index]: fish
+    })
   }
 
-  addFish = fish => {
-    const fishes = { ...this.state.fishes }
-    fishes[`fish${Date.now()}`] = fish
-    this.setState({ fishes })
+  const loadSampleFishes = () => {
+    setFishes({ fishes: sampleFishes })
   }
 
-  deleteFish = index => {
-    const fishes = { ...this.state.fishes }
-    fishes[index] = null // we do this because of firebase
-    this.setState({ fishes })
+  const addToOrder = ({ key }) => {
+    setOrder({
+      ...order,
+      [key]: order[key] + 1 || 1
+    })
   }
 
-  updateFish = (index, fish) => {
-    const fishes = { ...this.state.fishes }
-    fishes[index] = fish
-    this.setState({ fishes })
+  const removeFromOrder = index => {
+    delete order[index]
+    setOrder({ order })
   }
 
-  loadSampleFishes = () => {
-    this.setState({ fishes: sampleFishes })
-  }
-
-  addToOrder = ({ key }) => {
-    const { order } = this.state
-    order[key] = order[key] + 1 || 1
-    this.setState({ order })
-  }
-
-  removeFromOrder = index => {
-    const order = { ...this.state.order }
-    delete order[index] // TODO: check against localStorage?
-    this.setState({ order })
-  }
-
-  render () {
-    const { fishes, order } = this.state
-    const { storeId } = this.props.match.params
-    return (
-      <div className='catch-of-the-day'>
-        <div className='menu'>
-          <Header tagline='probably safe to eat' />
-          <ul className='fishes'>
-            {Object.keys(fishes).map(name => (
-              <Fish
-                key={name}
-                index={name}
-                addToOrder={this.addToOrder}
-                {...fishes[name]}
-              />
-            ))}
-          </ul>
-        </div>
-        <Order
-          fishes={fishes}
-          order={order}
-          removeFromOrder={this.removeFromOrder}
-        />
-        <Inventory
-          fishes={fishes}
-          storeId={storeId}
-          addFish={this.addFish}
-          updateFish={this.updateFish}
-          deleteFish={this.deleteFish}
-          loadSampleFishes={this.loadSampleFishes}
-        />
+  return (
+    <div className='catch-of-the-day'>
+      <div className='menu'>
+        <Header tagline='probably safe to eat' />
+        <ul className='fishes'>
+          {Object.keys(fishes).map(name => (
+            <Fish
+              key={name}
+              index={name}
+              addToOrder={addToOrder}
+              {...fishes[name]}
+            />
+          ))}
+        </ul>
       </div>
-    )
-  }
+      <Order fishes={fishes} order={order} removeFromOrder={removeFromOrder} />
+      <Inventory
+        fishes={fishes}
+        storeId={storeId}
+        addFish={addFish}
+        updateFish={updateFish}
+        deleteFish={deleteFish}
+        loadSampleFishes={loadSampleFishes}
+        firebase={firebase}
+      />
+    </div>
+  )
 }
 
 App.propTypes = {

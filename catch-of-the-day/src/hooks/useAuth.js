@@ -1,6 +1,5 @@
-import firebase from 'firebase'
-import base, { firebaseApp } from '../base.js'
-import { useState, useEffect } from 'react'
+import { useAuthState } from 'react-firebase-hooks/auth'
+import { useObject } from 'react-firebase-hooks/database'
 
 const AUTH = Object.freeze({
   IsLoggedOut: Symbol('IsLoggedOut'),
@@ -9,50 +8,22 @@ const AUTH = Object.freeze({
 })
 
 /// useAuth takes a storeId, and returns the status of that user
-const useAuth = storeId => {
-  const [uid, setUid] = useState(null)
-  const [owner, setOwner] = useState(null)
+const useAuth = (firebase, storeId) => {
+  const authProvider = new firebase.auth.GithubAuthProvider()
+  const { initialising, user } = useAuthState(firebase.auth())
 
-  // We have authenticated
-  const authHandler = async auth => {
-    if (!auth) return
-    const uid = auth.user ? auth.user.uid : null
+  const ownerRef = firebase.database().ref(`${storeId}/owner`)
+  const { error, loading, value: owner } = useObject(ownerRef)
+  if (!error && !loading && !owner) ownerRef.set(user)
 
-    const store = await base.fetch(storeId, { context: this }) // TODO ????
+  const login = () => firebase.auth().signInWithPopup(authProvider)
+  const logout = () => firebase.auth().signOut()
 
-    if (!store.owner) await base.post(`${storeId}/owner`, { data: uid })
-
-    setUid(uid)
-    setOwner(store.owner || uid)
-  }
-
-  // Try to auth on first mount silently, in case of refresh
-  useEffect(() => firebase.auth().onAuthStateChanged(authHandler), [])
-
-  const login = provider => {
-    const authProvider = (() => {
-      switch (provider) {
-        case 'Github':
-          return new firebase.auth.GithubAuthProvider()
-        default:
-          return Error(`unknown auth provider '${provider}'`)
-      }
-    })()
-
-    firebaseApp
-      .auth()
-      .signInWithPopup(authProvider)
-      .then(authHandler)
-  }
-
-  const logout = async () => {
-    await firebase.auth().signOut()
-    setUid({ uid: null })
-  }
+  login()
 
   let status = AUTH.IsLoggedOut
-  if (uid) {
-    status = uid === owner ? AUTH.IsOwner : AUTH.IsUser
+  if (!initialising && user) {
+    status = user === owner ? AUTH.IsOwner : AUTH.IsUser
   }
 
   return [{ status }, { login, logout }]

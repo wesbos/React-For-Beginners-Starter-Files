@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { useAuth, AUTH } from '../hooks/useAuth.js'
 
 const Login = props => {
-  const { storeId, children } = props
-  const [{ status }, { login, logout }] = useAuth(storeId)
+  const { children, firebase, storeId } = props
+  const [{ status }, { login, logout }] = useAuth(firebase, storeId)
 
   if (status === AUTH.IsLoggedOut) {
     return (
@@ -17,7 +17,7 @@ const Login = props => {
     )
   }
 
-  if (status !== AUTH.IsOwner) {
+  if (status === AUTH.isUser) {
     return (
       <div>
         <h2>You have no power here!</h2>

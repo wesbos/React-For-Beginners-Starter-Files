@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import firebase from 'firebase'
-import { credentials: { firebase: credentials } } from '../credentials.js'
+import { credentials } from '../credentials.js'
 
 // Requires a handle to a firebaseApp
 const useFirebase = (key, initialState) => {
@@ -10,8 +10,8 @@ const useFirebase = (key, initialState) => {
   let firebaseApp
 
   useEffect(() => {
-    if (!firebase.apps.length) firebase.initializeApp(credentials, `auth`)
-    firebaseApp = firebase.apps.find(app => app.name === `auth`)
+    if (!firebase.apps.length) firebase.initializeApp(credentials.firebase, key)
+    firebaseApp = firebase.apps.find(app => app.name === key)
     firebaseRef.current = firebase.database().ref(key)
     firebaseRef.current.set(initialState)
 

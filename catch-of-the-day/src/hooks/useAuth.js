@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import firebase from 'firebase'
-import { credentials: { firebase: credentials } } from '../credentials.js'
+import { credentials } from '../credentials.js'
 
 const AUTH = Object.freeze({
   IsLoggedOut: Symbol('IsLoggedOut'),
@@ -14,7 +14,7 @@ const useAuth = storeId => {
   const [owner, setOwner] = useState()
 
   useEffect(() => {
-    firebase.initializeApp(credentials, `myapp`)
+    firebase.initializeApp(credentials.firebase, `myapp`)
     if (!owner) setOwner(firebase.database().ref(`${storeId}/owner`))
 
     firebase.auth().onAuthStateChanged(user => setUid(user.uid))

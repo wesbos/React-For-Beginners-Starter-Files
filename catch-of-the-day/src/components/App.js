@@ -39,7 +39,7 @@ const App = props => {
   }
 
   const loadSampleFishes = () => {
-    setFishes({ fishes: sampleFishes })
+    setFishes(sampleFishes)
   }
 
   const addToOrder = ({ key }) => {

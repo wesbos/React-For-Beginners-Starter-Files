@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 // Components
 import { Header } from './Header.js'
@@ -77,7 +77,6 @@ const App = props => {
         updateFish={updateFish}
         deleteFish={deleteFish}
         loadSampleFishes={loadSampleFishes}
-        firebase={firebase}
       />
     </div>
   )

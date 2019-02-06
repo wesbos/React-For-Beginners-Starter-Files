@@ -6,13 +6,13 @@ import { EditFishForm } from './EditFishForm.js'
 import { Login } from './Login.js'
 
 const Inventory = props => {
-  const { fishes, storeId, firebase } = props
+  const { fishes, storeId } = props
   const { addFish, updateFish, deleteFish, loadSampleFishes } = props
 
   return (
     <div className='inventory'>
       <h2>Inventory</h2>
-      <Login storeId={storeId} firebase={firebase}>
+      <Login storeId={storeId}>
         {Object.keys(fishes).map(key => (
           <EditFishForm
             fish={fishes[key]}

@@ -23,7 +23,7 @@ const useAuth = storeId => {
 
   const authProvider = firebase.auth.GithubAuthProvider()
   const login = () => firebase.auth().signInWithPopup(authProvider)
-  const logout = () => firebase.initializeApp(firebaseOptions, `myapp`)
+  const logout = () => firebase.auth().signOut()
 
   let status = AUTH.IsLoggedOut
   if (uid) {

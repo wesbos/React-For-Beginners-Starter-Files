@@ -12,18 +12,21 @@ const AUTH = Object.freeze({
 const useAuth = storeId => {
   const [uid, setUid] = useState()
   const [owner, setOwner] = useState()
+  let firebaseApp
 
   useEffect(() => {
-    firebase.initializeApp(credentials.firebase, `myapp`)
-    if (!owner) setOwner(firebase.database().ref(`${storeId}/owner`))
+    firebaseApp = firebase.apps.length
+      ? firebase.apps[0]
+      : firebase.initializeApp(credentials.firebase)
+    if (!owner) setOwner(firebaseApp.database().ref(`${storeId}/owner`))
 
-    firebase.auth().onAuthStateChanged(user => setUid(user.uid))
-    return () => firebase.auth().onAuthStateChanged()
+    firebase.auth(firebaseApp).onAuthStateChanged(user => setUid(user.uid))
+    return () => firebase.auth(firebaseApp).onAuthStateChanged()
   }, [])
 
   const authProvider = firebase.auth.GithubAuthProvider()
-  const login = () => firebase.auth().signInWithPopup(authProvider)
-  const logout = () => firebase.auth().signOut()
+  const login = () => firebase.auth(firebaseApp).signInWithPopup(authProvider)
+  const logout = () => firebase.auth(firebaseApp).signOut()
 
   let status = AUTH.IsLoggedOut
   if (uid) {

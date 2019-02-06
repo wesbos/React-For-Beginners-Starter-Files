@@ -1,15 +1,18 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const useLocalStorage = (id, initialState) => {
-  const [state, setState] = useState(initialState)
-  // On mount, get state from localstorage
-  useEffect(() => {
-    const state = localStorage.getItem(id)
-    if (state) setState(JSON.parse(state))
-  }, [])
+  const [state, setInnerState] = useState(() => {
+    try {
+      return localStorage.getItem(id) ? localStorage.getItem(id) : initialState
+    } catch (e) {
+      return initialState
+    }
+  })
 
-  // When updating, save state to localstorage
-  useEffect(() => localStorage.setItem(id, JSON.stringify(state)))
+  const setState = state => {
+    setInnerState(state)
+    localStorage.setItem(id, JSON.stringify(state))
+  }
 
   return [state, setState]
 }

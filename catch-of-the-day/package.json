@@ -14,11 +14,11 @@
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^4.0.0",
-    "react-scripts": "^2.1.1"
+    "react-scripts": "^2.1.3"
   },
   "dependencies": {
     "autoprefixer-stylus": "^0.14.0",
-    "firebase": "^5.7.0",
+    "firebase": "^5.8.0",
     "prop-types": "^15.6.0",
     "re-base": "^4.0.0",
     "react": "^16.8.0-alpha.1",

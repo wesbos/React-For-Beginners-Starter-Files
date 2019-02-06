@@ -3,8 +3,8 @@ import PropTypes from 'prop-types'
 import { useAuth, AUTH } from '../hooks/useAuth.js'
 
 const Login = props => {
-  const { children, firebase, storeId } = props
-  const [{ status }, { login, logout }] = useAuth(firebase, storeId)
+  const { children, storeId } = props
+  const [{ status }, { login, logout }] = useAuth(storeId)
 
   if (status === AUTH.IsLoggedOut) {
     return (

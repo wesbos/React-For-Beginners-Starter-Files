@@ -10,23 +10,12 @@ import { useLocalStorage } from '../hooks/useLocalStorage.js'
 import { useFirebase } from '../hooks/useFirebase.js'
 // Config
 import sampleFishes from '../sample-fishes.js'
-// Database
-import firebase from 'firebase'
-import { firebaseOptions } from '../firebaseOptions.js'
 
 const App = props => {
   const { storeId } = props.match.params
-  let firebaseApp
-  try {
-    firebaseApp = firebase.initializeApp(firebaseOptions)
-  } catch (e) {}
-
-  useEffect(() => {
-    return () => firebaseApp.delete()
-  })
 
   const [order, setOrder] = useLocalStorage(storeId, {})
-  const [fishes, setFishes] = useFirebase(firebase, `${storeId}/fishes`, {})
+  const [fishes, setFishes] = useFirebase(`${storeId}/fishes`, {})
 
   const addFish = fish => {
     setFishes({

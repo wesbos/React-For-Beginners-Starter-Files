@@ -1,5 +1,6 @@
-import { useAuthState } from 'react-firebase-hooks/auth'
-import { useObject } from 'react-firebase-hooks/database'
+import { useState, useEffect } from 'react'
+import firebase from 'firebase'
+import { credentials: { firebase: credentials } } from '../credentials.js'
 
 const AUTH = Object.freeze({
   IsLoggedOut: Symbol('IsLoggedOut'),
@@ -8,22 +9,25 @@ const AUTH = Object.freeze({
 })
 
 /// useAuth takes a storeId, and returns the status of that user
-const useAuth = (firebase, storeId) => {
-  const authProvider = new firebase.auth.GithubAuthProvider()
-  const { initialising, user } = useAuthState(firebase.auth())
+const useAuth = storeId => {
+  const [uid, setUid] = useState()
+  const [owner, setOwner] = useState()
 
-  const ownerRef = firebase.database().ref(`${storeId}/owner`)
-  const { error, loading, value: owner } = useObject(ownerRef)
-  if (!error && !loading && !owner) ownerRef.set(user)
+  useEffect(() => {
+    firebase.initializeApp(credentials, `myapp`)
+    if (!owner) setOwner(firebase.database().ref(`${storeId}/owner`))
 
+    firebase.auth().onAuthStateChanged(user => setUid(user.uid))
+    return () => firebase.auth().onAuthStateChanged()
+  }, [])
+
+  const authProvider = firebase.auth.GithubAuthProvider()
   const login = () => firebase.auth().signInWithPopup(authProvider)
-  const logout = () => firebase.auth().signOut()
-
-  login()
+  const logout = () => firebase.initializeApp(firebaseOptions, `myapp`)
 
   let status = AUTH.IsLoggedOut
-  if (!initialising && user) {
-    status = user === owner ? AUTH.IsOwner : AUTH.IsUser
+  if (uid) {
+    status = uid === owner ? AUTH.IsOwner : AUTH.IsUser
   }
 
   return [{ status }, { login, logout }]

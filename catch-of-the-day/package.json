@@ -17,10 +17,11 @@
     "react-scripts": "^2.1.3"
   },
   "dependencies": {
+    "@use-firebase/app": "^0.2.0",
+    "@use-firebase/auth": "^0.1.0",
+    "@use-firebase/database": "^0.2.1",
     "autoprefixer-stylus": "^0.14.0",
-    "firebase": "^5.8.0",
     "prop-types": "^15.6.0",
-    "re-base": "^4.0.0",
     "react": "^16.8.0-alpha.1",
     "react-dom": "^16.8.0",
     "react-router-dom": "^4.3.0",

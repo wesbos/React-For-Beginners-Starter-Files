@@ -1,23 +1,36 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useAuth, AUTH } from '../hooks/useAuth.js'
+import { useAuth, AuthProvider, createAuthProvider, signInWithPopup, signOut } from '@use-firebase/auth'
+import { useFirebase } from '@use-firebase/app'
+import { useValue } from '@use-firebase/database'
+import { credentials } from '../credentials.js'
 
 const Login = props => {
   const { children, storeId } = props
-  const [{ status }, { login, logout }] = useAuth(storeId)
+  const firebase = useFirebase(credentials)
 
-  if (status === AUTH.IsLoggedOut) {
+  const auth = useAuth(firebase)
+  const { isSignedIn, user } = auth
+  const [owner, setOwner] = useValue(firebase, `${storeId}/owner`, 'value', user && user.uid)
+
+  // create login and logout
+  const login = () => signInWithPopup(firebase, createAuthProvider(firebase, AuthProvider.GITHUB))
+  const logout = () => signOut(firebase)
+
+  if (!isSignedIn || !(user && user.uid)) {
     return (
       <nav className='login'>
         <p> Please sign in to manage your store inventory </p>
-        <button className='github' onClick={() => login('Github')}>
+        <button className='github' onClick={login}>
           Login with Github
         </button>
       </nav>
     )
   }
 
-  if (status === AUTH.isUser) {
+  if (!owner) setOwner(user.uid)
+
+  if (owner !== user.uid) {
     return (
       <div>
         <h2>You have no power here!</h2>

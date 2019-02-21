@@ -3,7 +3,8 @@ import { useState } from 'react'
 const useLocalStorage = (id, initialState) => {
   const [state, setInnerState] = useState(() => {
     try {
-      return localStorage.getItem(id) ? localStorage.getItem(id) : initialState
+      const existingState = localStorage.getItem(id)
+      return existingState ? JSON.parse(existingState) : initialState
     } catch (e) {
       return initialState
     }

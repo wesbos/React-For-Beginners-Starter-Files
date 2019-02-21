@@ -7,15 +7,20 @@ import { Order } from './Order.js'
 import { Fish } from './Fish.js'
 // Hooks
 import { useLocalStorage } from '../hooks/useLocalStorage.js'
-import { useFirebase } from '../hooks/useFirebase.js'
+import { useFirebase } from '@use-firebase/app'
+import { useValue } from '@use-firebase/database'
+import { credentials } from '../credentials.js'
+
 // Config
 import sampleFishes from '../sample-fishes.js'
 
 const App = props => {
   const { storeId } = props.match.params
+  const firebase = useFirebase(credentials)
 
   const [order, setOrder] = useLocalStorage(storeId, {})
-  const [fishes, setFishes] = useFirebase(`${storeId}/fishes`, {})
+  const [fishes, setFishes] = useValue(firebase, `${storeId}/fishes`, 'value', {})
+  const loadedFishes = fishes || {} // because we might get null on first try
 
   const addFish = fish => {
     setFishes({
@@ -59,7 +64,7 @@ const App = props => {
       <div className='menu'>
         <Header tagline='probably safe to eat' />
         <ul className='fishes'>
-          {Object.keys(fishes).map(name => (
+          {Object.keys(loadedFishes).map(name => (
             <Fish
               key={name}
               index={name}
@@ -69,9 +74,9 @@ const App = props => {
           ))}
         </ul>
       </div>
-      <Order fishes={fishes} order={order} removeFromOrder={removeFromOrder} />
+      <Order fishes={loadedFishes} order={order} removeFromOrder={removeFromOrder} />
       <Inventory
-        fishes={fishes}
+        fishes={loadedFishes}
         storeId={storeId}
         addFish={addFish}
         updateFish={updateFish}

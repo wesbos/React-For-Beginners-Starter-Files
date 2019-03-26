@@ -25,8 +25,8 @@
     "build": "react-scripts build",
     "eject": "react-scripts eject",
     "styles": "stylus -u autoprefixer-stylus ./src/css/style.styl -o ./src/css/style.css",
-    "styles:watch": "stylus -u autoprefixer-stylus -w ./src/css/style.styl -o ./src/css/style.css",
-    "now-build": "npm run build && mv build dist"
+    "now-build": "npm run build && mv build dist",
+    "styles:watch": "npm run styles -- -w"
   },
   "browserslist": [
     ">0.2%",

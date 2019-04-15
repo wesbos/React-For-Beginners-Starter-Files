@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import StorePicker from './components/storepicker';
 import App from './components/App';
 import './css/style.css';
+import Router from './components/Router';
 
 
 ReactDOM.render(
-  <App />,
+  <Router />,
   document.querySelector('#main')
 );

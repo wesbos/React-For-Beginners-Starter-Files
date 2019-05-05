@@ -1,6 +1,5 @@
 import React from 'react';
 import { getFunName } from '../helpers';
-import {Redirect} from 'react-router-dom';
 
 export default class StorePicker extends React.Component{
   myInput = React.createRef();

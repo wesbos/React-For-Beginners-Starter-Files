@@ -1,0 +1,19 @@
+{
+  "name": "react-for-beginners-starter-files",
+  "version": "1.0.0",
+  "description": "![](https://wes.io/dgAQ/content)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/danwventura/React-For-Beginners-Starter-Files.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danwventura/React-For-Beginners-Starter-Files/issues"
+  },
+  "homepage": "https://github.com/danwventura/React-For-Beginners-Starter-Files#readme"
+}

@@ -5,7 +5,7 @@ import App from "./App";
 import NotFound from "./NotFound";
 
 
-
+//stateless functional component
 const Router = () => (
 	<BrowserRouter>
 		<Switch>

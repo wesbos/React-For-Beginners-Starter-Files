@@ -60,10 +60,23 @@ export default class App extends React.Component{
     this.setState({order});
   };
 
+  removeFromOrder = (key) => {
+    const order = {...this.state.order};
+    delete order[key];
+    this.setState({order});
+  }
+
   updateFish = (key, updatedFish) => {
     const fishes = {...this.state.fishes};
     fishes[key] = updatedFish;
     this.setState({fishes:fishes});
+  };
+
+  deleteFish = (key) => {
+    //1. copy of state
+    const fishes = {...this.state.fishes};
+    fishes[key] = null; //or else firebase won't delete it
+    this.setState({fishes});
   };
 
   render(){
@@ -77,8 +90,8 @@ export default class App extends React.Component{
             )}
           </ul>
         </div>
-        <Order fishes={this.state.fishes} order={this.state.order}/>
-        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes} fishes={this.state.fishes} updateFish={this.updateFish} />
+        <Order fishes={this.state.fishes} order={this.state.order} removeFromOrder={this.removeFromOrder}/>
+        <Inventory addFish={this.addFish} loadSampleFishes={this.loadSampleFishes} fishes={this.state.fishes} updateFish={this.updateFish} deleteFish={this.deleteFish}/>
       </div>
 
     )

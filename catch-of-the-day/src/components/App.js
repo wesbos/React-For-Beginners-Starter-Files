@@ -21,7 +21,7 @@ export default class App extends React.Component{
       const {params} = this.props.match;
       //re-instate local storage
       const localStorageRef = localStorage.getItem(params.storeId);
-      console.log(localStorageRef);
+      //console.log(localStorageRef);
       if(localStorageRef){
         //console.log(JSON.parse(localStorageRef));
         this.setState({order:JSON.parse(localStorageRef)});

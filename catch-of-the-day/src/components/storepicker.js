@@ -1,5 +1,6 @@
 import React from 'react';
 import { getFunName } from '../helpers';
+import PropTypes from 'prop-types';
 
 export default class StorePicker extends React.Component{
   myInput = React.createRef();

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class AddFishForm extends React.Component{
   nameRef = React.createRef();
@@ -38,4 +39,8 @@ export default class AddFishForm extends React.Component{
       </div>
     );
   }
+}
+
+AddFishForm.propTypes = {
+  addFish:PropTypes.func
 }

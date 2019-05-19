@@ -4,6 +4,10 @@ import { getFunName } from '../helpers';
 export default class StorePicker extends React.Component{
   myInput = React.createRef();
 
+  static propTypes = {
+    history:PropTypes.object
+  };
+
   goToStore = event => {
     //stop the form from submiting
     event.preventDefault();

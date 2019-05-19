@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export default class EditFishForm extends React.Component {
   handleChange = (e) => {
@@ -27,3 +28,15 @@ export default class EditFishForm extends React.Component {
     );
   }
 };
+
+EditFishForm.propTypes = {
+  index:PropTypes.string,
+  fish:PropTypes.shape({
+    image:PropTypes.string,
+    name:PropTypes.string,
+    desc:PropTypes.string,
+    status:PropTypes.string,
+    price:PropTypes.number
+  }),
+  updateFish:PropTypes.func
+}

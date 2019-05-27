@@ -4,6 +4,8 @@ import Order from "./Order";
 import Inventory from "./Inventory";
 import sampleFishes from "../sample-fishes";
 import Fish from "./Fish";
+import firebase from "../base";
+import base from "../base";
 
 
 class App extends React.Component{
@@ -12,6 +14,17 @@ class App extends React.Component{
 		order:{}
 	};
 
+componentDidMount (){
+	const {params} = this.props.match;
+	this.ref = firebase.syncState(`${params.storeId}/fishes`, {
+		context: this,
+		state: "fishes"
+	});
+}
+
+componentWillUnmount (){
+	base.removeBinding(this.ref);
+}
 
 	addFish = (fish) => {
 		//always update state with these steps

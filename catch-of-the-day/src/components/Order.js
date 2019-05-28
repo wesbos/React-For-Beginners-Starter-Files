@@ -7,7 +7,9 @@ renderOrder = (key) =>{
 
 	const fish = this.props.fishes[key];
 	const count = this.props.order[key];
-	const isAvailable = fish.status === "available";
+	const isAvailable = fish && fish.status === "available";
+	//make sure fish is loaded from local storage before we continue
+	if (!fish) {return null;}
 	if (!isAvailable) {
 		return <li> Sorry {fish ? fish.name : "fish"} is no longer available</li>
 	}

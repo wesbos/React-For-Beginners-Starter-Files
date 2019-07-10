@@ -2,9 +2,11 @@ import React, {Fragment} from 'react';
 import { formatPrice} from '../helpers';
 
 class Fish extends React.Component {
+
   render() {
     // ESX Destructuring! Will be this.props.details.XXX
     const {image, name, desc, price, status} = this.props.details;
+    const isAvailable = status === 'available';
 
     return (
       <Fragment>
@@ -14,7 +16,7 @@ class Fish extends React.Component {
             <span className="price">{formatPrice(price)}</span>
           </h3>
           <p>{desc}</p>
-          <button>Add to Cart</button>
+          <button disabled={!isAvailable} onClick={() => this.props.addToOrder(this.props.index)}>{isAvailable ? 'Add to Cart' : 'Sold Out'}</button>
         </li>
       </Fragment>
     );

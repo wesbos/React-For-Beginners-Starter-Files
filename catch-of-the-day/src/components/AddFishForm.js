@@ -1,4 +1,5 @@
 import React from 'react';
+import StatusOptions from './StatusOptions';
 
 class AddFishForm extends React.Component {
   nameRef = React.createRef();
@@ -31,8 +32,7 @@ class AddFishForm extends React.Component {
         <input name="name" ref={this.nameRef} type="text" placeholder="Name"/>
         <input name="price" ref={this.priceRef} type="text" placeholder="Price"/>
         <select name="status" ref={this.statusRef} defaultValue="Fresh">
-          <option value="available">Fresh</option>
-          <option value="unavailable">Sold Out!</option>
+          <StatusOptions/>
         </select>
         <textarea name="desc" ref={this.descRef} placeholder="Description"></textarea>
         <input name="image" ref={this.imageRef} type="text" placeholder="Add image"/>

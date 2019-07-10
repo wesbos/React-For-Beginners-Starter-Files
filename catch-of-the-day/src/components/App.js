@@ -84,11 +84,12 @@ class App extends React.Component {
   };
 
   removeFromOrder = key => {
-    //1. Take copy of state
-
-    //2. update state
-
-    //3. call setState
+    // 1 take copy of state
+    const order = { ...this.state.order };
+    // 2 remove item from order
+    delete order[key];
+    // call setState
+    this.setState({ order });
 
   }
 

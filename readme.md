@@ -13,6 +13,8 @@ The code in this repo meant to be a reference point for anyone following along w
 2. Delete the "node_modules" folder located within the "catch-of-the-day" folder.
 3. Execute `npm install` once more.
 
+**Note 2** - One dependency is gprc-node, which has to be &gt;= version 1.20.2 to use node version 12+; The grpc-node version used in this tutorial, however, is 1.16.1. Therefore, you must use a node major version 11 or earlier to set up and work with the catch-of-the-day project. We recommend using <a href="https://github.com/nvm-sh/nvm">nvm</a> to manage your node versions. On OSX, you also can `brew install node@10` instead of installing the latest version of node.
+
 `cd` into `catch-of-the-day` and follow along with the videos
 
 Each numbered folder in `stepped-solutions` contains the files for the beginning of each correspondingly numbered video, should you need them. So, if you need any code, pull the appropriate file into your `catch-of-the-day` folder.

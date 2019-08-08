@@ -1,6 +1,6 @@
 .order-enter {
   -webkit-transform: translateX(-120%);
-  transform: translateX(-120%);
+          transform: translateX(-120%);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   max-height: 0;
@@ -9,18 +9,18 @@
 .order-enter.order-enter-active {
   max-height: 60px;
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
   padding: 2rem 0 !important;
 }
 .order-exit {
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-transform: translateX(0);
-  transform: translateX(0);
+          transform: translateX(0);
 }
 .order-exit.order-exit-active {
   -webkit-transform: translateX(120%);
-  transform: translateX(120%);
+          transform: translateX(120%);
   padding: 0;
 }
 .count-enter {
@@ -28,17 +28,17 @@
   -webkit-transition: 0.5s;
   transition: 0.5s;
   -webkit-transform: translateY(100%);
-  transform: translateY(100%);
+          transform: translateY(100%);
 }
 .count-enter.count-enter-active {
   background: #ff0;
   -webkit-transform: translateY(0);
-  transform: translateY(0);
+          transform: translateY(0);
 }
 .count-exit {
   background: #000;
   -webkit-transform: translateY(0);
-  transform: translateY(0);
+          transform: translateY(0);
   -webkit-transition: 0.5s;
   transition: 0.5s;
   position: absolute;
@@ -48,27 +48,19 @@
 .count-exit.count-exit-active {
   background: #008000;
   -webkit-transform: translateY(-100%) scale(3);
-  transform: translateY(-100%) scale(3);
+          transform: translateY(-100%) scale(3);
 }
 @font-face {
   font-family: "haymakerregular";
   src: url("./fonts/haymaker-webfont.eot");
-  src: url("./fonts/haymaker-webfont.eot?#iefix") format("embedded-opentype"),
-    url("./fonts/haymaker-webfont.woff") format("woff"),
-    url("./fonts/haymaker-webfont.ttf") format("truetype"),
-    url("./fonts/haymaker-webfont.svg#haymakerregular") format("svg");
+  src: url("./fonts/haymaker-webfont.eot?#iefix") format("embedded-opentype"), url("./fonts/haymaker-webfont.woff") format("woff"), url("./fonts/haymaker-webfont.ttf") format("truetype"), url("./fonts/haymaker-webfont.svg#haymakerregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "blanchcaps_inline";
+  font-family: 'blanchcaps_inline';
   src: url("./fonts/blanch_caps_inline-webfont.eot");
-  src: url("./fonts/blanch_caps_inline-webfont.eot?#iefix")
-      format("embedded-opentype"),
-    url("./fonts/blanch_caps_inline-webfont.woff") format("woff"),
-    url("./fonts/blanch_caps_inline-webfont.ttf") format("truetype"),
-    url("./fonts/blanch_caps_inline-webfont.svg#blanchcaps_inline")
-      format("svg");
+  src: url("./fonts/blanch_caps_inline-webfont.eot?#iefix") format('embedded-opentype'), url("./fonts/blanch_caps_inline-webfont.woff") format('woff'), url("./fonts/blanch_caps_inline-webfont.ttf") format('truetype'), url("./fonts/blanch_caps_inline-webfont.svg#blanchcaps_inline") format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -138,7 +130,7 @@ pre {
   word-wrap: break-word;
 }
 q {
-  quotes: 2 1c 2 1d 2 18 2 19;
+  quotes: 2 1C 2 1D 2 18 2 19;
 }
 small {
   font-size: 80%;
@@ -180,9 +172,9 @@ input {
   line-height: normal;
 }
 button,
-html input[type="button"],
-input[type="reset"],
-input[type="submit"] {
+html input[type=button],
+input[type=reset],
+input[type=submit] {
   -webkit-appearance: button;
   cursor: pointer;
 }
@@ -190,17 +182,17 @@ button[disabled],
 input[disabled] {
   cursor: default;
 }
-input[type="checkbox"],
-input[type="radio"] {
+input[type=checkbox],
+input[type=radio] {
   box-sizing: border-box;
   padding: 0;
 }
-input[type="search"] {
+input[type=search] {
   -webkit-appearance: textfield;
   box-sizing: content-box;
 }
-input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+input[type=search]::-webkit-search-cancel-button,
+input[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 textarea {
@@ -239,11 +231,11 @@ body {
   background: #d4d4d4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
 }
 h1 {
-  font-family: "blanchcaps_inline", sans-serif;
+  font-family: 'blanchcaps_inline', sans-serif;
   text-align: center;
   font-weight: normal;
   margin: 0;
@@ -254,7 +246,7 @@ h4,
 h5,
 h6 {
   font-weight: normal;
-  font-family: "haymakerregular", sans-serif;
+  font-family: 'haymakerregular', sans-serif;
 }
 h2 {
   text-align: center;
@@ -273,7 +265,7 @@ header.top h1 {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-  justify-content: center;
+          justify-content: center;
 }
 header.top h1 .ofThe {
   display: -webkit-box;
@@ -281,9 +273,9 @@ header.top h1 .ofThe {
   font-size: 3rem;
   color: #f5a623;
   -webkit-box-pack: center;
-  justify-content: center;
+          justify-content: center;
   -webkit-box-align: center;
-  align-items: center;
+          align-items: center;
   background: url("images/anchor.svg") center no-repeat;
   background-size: cover;
   padding: 0 1rem;
@@ -315,7 +307,7 @@ header.top h3:after {
   position: absolute;
   width: 130%;
   height: 1px;
-  content: "";
+  content: '';
   top: 5px;
   margin-left: -15%;
 }
@@ -331,31 +323,31 @@ header.top h3:after {
   margin: 0 auto;
   margin-top: 5vh;
   -webkit-perspective: 1000px;
-  perspective: 1000px;
+          perspective: 1000px;
   -webkit-transform-style: preserve-3d;
-  transform-style: preserve-3d;
+          transform-style: preserve-3d;
 }
 .catch-of-the-day > * {
   -webkit-box-flex: 1;
-  flex: 1 4 auto;
+          flex: 1 4 auto;
   padding: 2rem;
   border: 1rem double #1a1a1a;
   position: relative;
   background: #fff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
   overflow: scroll;
 }
 .catch-of-the-day > *:first-child {
   flex-shrink: 1;
   flex-basis: 50%;
   -webkit-transform: translateX(50%) rotateY(6deg) translateX(-50%);
-  transform: translateX(50%) rotateY(6deg) translateX(-50%);
+          transform: translateX(50%) rotateY(6deg) translateX(-50%);
 }
 .catch-of-the-day > *:nth-child(2) {
   -webkit-transform: translateX(-50%) rotateY(-14deg) translateX(50%);
-  transform: translateX(-50%) rotateY(-14deg) translateX(50%);
+          transform: translateX(-50%) rotateY(-14deg) translateX(50%);
   border-left: 0;
   border-right: 0;
   min-width: 300px;
@@ -363,14 +355,12 @@ header.top h3:after {
 .catch-of-the-day > *:last-child {
   flex-shrink: 1;
   flex-basis: 50%;
-  -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08)
-    translateX(24px);
-  transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08)
-    translateX(24px);
+  -webkit-transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
+          transform: translateX(-50%) rotateY(10deg) translateX(50%) scale(1.08) translateX(24px);
 }
 input#fold:not(:checked) ~ #main .catch-of-the-day > * {
   -webkit-transform: none;
-  transform: none;
+          transform: none;
 }
 label[for="fold"] {
   position: absolute;
@@ -403,9 +393,9 @@ ul.order li {
   display: flex;
   font-size: 1.4rem;
   -webkit-box-pack: justify;
-  justify-content: space-between;
+          justify-content: space-between;
   -webkit-box-align: center;
-  align-items: center;
+          align-items: center;
 }
 ul.order li:hover button {
   display: inline;
@@ -462,8 +452,8 @@ ul.order li span.count span {
   border-bottom: 1px solid #000;
   border-right: 1px solid #000;
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   border-radius: 0;
   background: #fff;
 }
@@ -489,7 +479,7 @@ ul.order li span.count span {
   padding-top: 5px;
   margin-top: 2rem;
   -webkit-transform: translateZ(0);
-  transform: translateZ(0);
+          transform: translateZ(0);
 }
 .menu-fish {
   border-bottom: 2px solid #000;
@@ -509,14 +499,14 @@ ul.order li span.count span {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-  justify-content: space-between;
+          justify-content: space-between;
   -webkit-box-align: center;
-  align-items: center;
+          align-items: center;
 }
 .menu-fish .price {
   font-size: 1.4rem;
   -webkit-box-pack: end;
-  justify-content: flex-end;
+          justify-content: flex-end;
 }
 .menu-fish img {
   float: left;
@@ -524,38 +514,38 @@ ul.order li span.count span {
   margin-right: 1rem;
 }
 button,
-input[type="submit"] {
+input[type=submit] {
   text-transform: uppercase;
   background: none;
   border: 1px solid #000;
   font-weight: 600;
   font-size: 1.5rem;
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
   position: relative;
   z-index: 2;
 }
 button[disabled],
-input[type="submit"][disabled] {
+input[type=submit][disabled] {
   color: #d12028;
   background: #fff;
   border-color: #d12028;
   -webkit-transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
-  transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
+          transform: rotate(-10deg) scale(2) translateX(50%) translateY(-50%);
 }
 button[disabled]:hover,
-input[type="submit"][disabled]:hover {
+input[type=submit][disabled]:hover {
   color: #d12028;
   cursor: not-allowed;
 }
 button[disabled]:after,
-input[type="submit"][disabled]:after {
+input[type=submit][disabled]:after {
   display: none;
 }
 button:after,
-input[type="submit"]:after {
-  content: "";
+input[type=submit]:after {
+  content: '';
   z-index: -1;
   display: block;
   background: #000;
@@ -568,32 +558,32 @@ input[type="submit"]:after {
   transition: all 0.2s;
 }
 button:hover,
-input[type="submit"]:hover,
+input[type=submit]:hover,
 button:focus,
-input[type="submit"]:focus {
+input[type=submit]:focus {
   color: #fff;
   outline: 0;
 }
 button:hover:after,
-input[type="submit"]:hover:after,
+input[type=submit]:hover:after,
 button:focus:after,
-input[type="submit"]:focus:after {
+input[type=submit]:focus:after {
   height: 100%;
 }
 button.warning:after,
-input[type="submit"].warning:after {
+input[type=submit].warning:after {
   background: #d12028;
 }
 button.success:after,
-input[type="submit"].success:after {
+input[type=submit].success:after {
   background: #2dc22d;
 }
 button.github,
-input[type="submit"].github,
+input[type=submit].github,
 button.facebook,
-input[type="submit"].facebook,
+input[type=submit].facebook,
 button.twitter,
-input[type="submit"].twitter {
+input[type=submit].twitter {
   border: 0;
   display: block;
   margin-bottom: 2rem;
@@ -602,27 +592,27 @@ input[type="submit"].twitter {
   padding: 2rem;
 }
 button.github,
-input[type="submit"].github {
+input[type=submit].github {
   background: #82d465;
 }
 button.github:after,
-input[type="submit"].github:after {
+input[type=submit].github:after {
   background: #5cc437;
 }
 button.facebook,
-input[type="submit"].facebook {
+input[type=submit].facebook {
   background: #3864a3;
 }
 button.facebook:after,
-input[type="submit"].facebook:after {
+input[type=submit].facebook:after {
   background: #2d5082;
 }
 button.twitter,
-input[type="submit"].twitter {
+input[type=submit].twitter {
   background: #5ea9dd;
 }
 button.twitter:after,
-input[type="submit"].twitter:after {
+input[type=submit].twitter:after {
   background: #2c8dd0;
 }
 .store-selector {

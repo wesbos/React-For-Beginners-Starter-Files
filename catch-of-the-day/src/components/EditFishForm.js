@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class EditFishForm extends Component {
   static propTypes = {

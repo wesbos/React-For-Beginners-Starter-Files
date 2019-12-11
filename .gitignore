@@ -4,3 +4,4 @@ node_modules/
 .idea
 notes.md
 catch-of-the-day/build/
+catch-of-the-day/src/base.js

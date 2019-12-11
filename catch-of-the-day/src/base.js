@@ -2,7 +2,7 @@ import Rebase from "re-base";
 import firebase from "firebase";
 
 const firebaseApp = firebase.initializeApp({
-  apiKey: "",
+  apiKey: "AIzaSyBv0F8bT0VgREvj5p7njzbjEjgObIGy_FE",
   authDomain: "cath-of-the-day-mm2.firebaseapp.com",
   databaseURL: "https://cath-of-the-day-mm2.firebaseio.com"
 });

@@ -7,6 +7,10 @@ class AddFishForm extends Component {
   descRef = React.createRef();
   imageRef = React.createRef();
 
+  static propTypes = {
+    addFish: PropTypes.func
+  };
+
   createFish = event => {
     event.preventDefault();
     const fish = {

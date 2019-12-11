@@ -53,6 +53,13 @@ class App extends Component {
     this.setState({ fishes });
   };
 
+  deleteFish = key => {
+    // 1. take a copy of state
+    const fishes = { ...this.state.fishes };
+    fishes[key] = null;
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     this.setState({ fishes: sampleFishes });
   };
@@ -63,6 +70,12 @@ class App extends Component {
     // 2. add or update order
     order[key] = order[key] + 1 || 1;
     // 3. call setState to update state object
+    this.setState({ order });
+  };
+
+  removeFromOrder = key => {
+    const order = { ...this.state.order };
+    delete order[key];
     this.setState({ order });
   };
 
@@ -83,10 +96,15 @@ class App extends Component {
           </ul>
         </div>
         {/* <Order {...this.state} /> // summarize different props to one general prop you can pass in everything */}
-        <Order fishes={this.state.fishes} order={this.state.order} />
+        <Order
+          fishes={this.state.fishes}
+          order={this.state.order}
+          removeFromOrder={this.removeFromOrder}
+        />
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />

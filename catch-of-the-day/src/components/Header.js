@@ -10,7 +10,7 @@ class Header extends React.Component {
                         <span className="the">The</span>
                     </span>
                     <h3 className="tagline">
-                        <span>Fresh Seafood Market</span>
+                        <span>{this.props.tagline}</span>
                     </h3>
                 </h1>
             </Header>

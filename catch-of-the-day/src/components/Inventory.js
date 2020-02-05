@@ -4,7 +4,7 @@ class Inventory extends React.Component {
     render() {
         return(
             <div className="inventory">
-                Inventory!!!
+                <span>{this.props.itag}</span>
             </div>
         );
     }

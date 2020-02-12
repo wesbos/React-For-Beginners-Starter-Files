@@ -1,10 +1,12 @@
 import React from 'react';
+import AddFishForm from './AddFishForm';
 
 class Inventory extends React.Component {
     render() {
         return(
             <div className="inventory">
-                <span>{this.props.itag}</span>
+                <h2>Inventory</h2>
+                <AddFishForm addFish={this.props.addFish}/>
             </div>
         );
     }

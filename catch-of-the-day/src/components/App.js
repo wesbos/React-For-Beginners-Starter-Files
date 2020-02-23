@@ -1,7 +1,7 @@
-import React from 'react'
-import Header from './Header';
-import Order from './Order';
-import Inventory from './Inventory';
+import React from "react";
+import Header from "./Header";
+import Order from "./Order";
+import Inventory from "./Inventory";
 
 class App extends React.Component {
   state = {
@@ -9,9 +9,12 @@ class App extends React.Component {
     order: {}
   };
   addFish = fish => {
-   const fishes = { ...this.state.fishes };
-   fishes[`fish${Date.now()}`] = fish;
-   this.setState({ fishes });
+    // 1. Take a copy of the existing state
+    const fishes = { ...this.state.fishes };
+    // 2. Add our new fish to that fishes variable
+    fishes[`fish${Date.now()}`] = fish;
+    // 3. Set the new fishes object to state
+    this.setState({ fishes });
   };
   render() {
     return (

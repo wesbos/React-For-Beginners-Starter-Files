@@ -12,6 +12,8 @@ class StorePicker extends React.Component {
             <form className="store-selector">
                 { /* this is how you escape JSX and insert some javascript like this comment */}
                 <h2>Select a Store</h2>
+                <input type="text" required placeholder="Store name" />
+                <button type="submit">Visit store</button>
             </form>
             )
     }

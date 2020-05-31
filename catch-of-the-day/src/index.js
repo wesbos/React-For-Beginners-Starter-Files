@@ -1,6 +1,6 @@
 import React from "react";
 import { render } from "react-dom"; // we only need this one method from this ... library?
-import StorePicker from "./components/storepicker"; //needs relative path to where that components file is
+import StorePicker from "./components/Storepicker"; //needs relative path to where that components file is
 import App from "./components/App";
 import "./css/style.css"; // webpack is part of rcreate-react app and is handling this
 

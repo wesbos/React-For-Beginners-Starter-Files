@@ -8,7 +8,8 @@ class App extends React.Component {
     return (
       <div className="catch-of-the-day">
         <div className="menu">
-          <Header />
+          <Header tagline="derpaderp" quantity={400} cool="true" />
+          {/* props being passed in, note that number props need curly braces */}
         </div>
         <Order />
         <Inventory />

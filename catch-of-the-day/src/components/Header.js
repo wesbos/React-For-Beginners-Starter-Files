@@ -13,7 +13,8 @@ class Header extends React.Component {
           day
         </h1>
         <h3 className="tagline">
-          <span>Fresh Seafood Market</span>
+          <span>{this.props.tagline}</span>
+          {/* this component instance, its properties, the property tagline. Props are like the args passed into a function. */}
         </h3>
       </header>
     );

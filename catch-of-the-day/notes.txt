@@ -1,0 +1,17 @@
+Lesson 7
+---------
+
+sprops = args passed in to the component
+
+$0 = in chrome etc dev tools - always the thing that's selected
+(you can type these in the console to select what's selected by the browser)
+$1 = next element 
+$n etc.
+
+$r = all the props that area available to the object (component) = all the args that've been passed to it   
+
+Lesson 8
+---------
+
+state = 
+

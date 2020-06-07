@@ -13,5 +13,10 @@ $r = all the props that area available to the object (component) = all the args 
 Lesson 8
 ---------
 
-state = 
+stateless functional components = if your component just has a render method and prop types, it doesn't need to really *do* stuff it's just using templating kinda. this is vs. full components that have their own built-in methods etc.
+
+
+
+
+
 

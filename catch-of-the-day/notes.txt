@@ -16,6 +16,11 @@ Lesson 8
 stateless functional components = if your component just has a render method and prop types, it doesn't need to really *do* stuff it's just using templating kinda. this is vs. full components that have their own built-in methods etc.
 
 
+Lesson 9
+-------------
+
+Routes - a separate, not part of default package like in node routing
+-in routing we defined the URL schema where storeId is now a param inside that react component, so suddenly something can get passed from the browser URL into the app as a variable (See App > props > match > params > storeId)
 
 
 

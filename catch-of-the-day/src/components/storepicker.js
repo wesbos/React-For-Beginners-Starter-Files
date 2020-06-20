@@ -1,4 +1,5 @@
 import React from "react";
+import { getFunName } from "../helpers";
 
 // JSX means we can do this stuff inline and not make react spoit things out with things like createelement
 // these comments can use the // format because this is technically Javscript not JSX rn
@@ -12,7 +13,13 @@ class StorePicker extends React.Component {
       <form className="store-selector">
         {/* this is how you escape JSX and insert some javascript like this comment */}
         <h2>Select a Store</h2>
-        <input type="text" required placeholder="Store name" />
+        <input
+          type="text"
+          required
+          placeholder="Store name"
+          defaultValue={getFunName()}
+        />
+        {/* in react need to use defaultValue  */}
         <button type="submit">Visit store</button>
       </form>
     );

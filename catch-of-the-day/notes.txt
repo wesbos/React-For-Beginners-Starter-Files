@@ -23,5 +23,16 @@ Routes - a separate, not part of default package like in node routing
 -in routing we defined the URL schema where storeId is now a param inside that react component, so suddenly something can get passed from the browser URL into the app as a variable (See App > props > match > params > storeId)
 
 
+Lesson 10
+-------------
+
+named exports:
+import { specific funciton } from './FilePath';
+which we can now use in our current file 
+(ths is an alternative to importing the whole file and every function into it)
+
+So methodology:
+put helper functions in helpers.js and do that.
+(Is it a react only thing or a JS thing that we're doing this?)
 
 

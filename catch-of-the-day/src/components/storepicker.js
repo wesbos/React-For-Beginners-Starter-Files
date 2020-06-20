@@ -5,16 +5,28 @@ import { getFunName } from "../helpers";
 // these comments can use the // format because this is technically Javscript not JSX rn
 
 class StorePicker extends React.Component {
+  myInput = React.createRef();
+
+  goToStore = (event) => {
+    event.preventDefault();
+    //  prevent form from submitting and reloading the page
+    console.log(this);
+    //  get input text
+    // change the page to store/storeID
+  };
+
   render() {
     return (
       //this can only return one element with however many children, but not multiple child elements
       //or you can use <React.Fragment> and now spit out as many siblings as you want inside that
 
-      <form className="store-selector">
+      <form className="store-selector" onSubmit={this.goToStore}>
         {/* this is how you escape JSX and insert some javascript like this comment */}
         <h2>Select a Store</h2>
+
         <input
           type="text"
+          ref={this.myInput}
           required
           placeholder="Store name"
           defaultValue={getFunName()}

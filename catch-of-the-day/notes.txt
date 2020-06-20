@@ -23,5 +23,68 @@ Routes - a separate, not part of default package like in node routing
 -in routing we defined the URL schema where storeId is now a param inside that react component, so suddenly something can get passed from the browser URL into the app as a variable (See App > props > match > params > storeId)
 
 
+Lesson 10
+-------------
 
+named exports:
+import { specific funciton } from './FilePath';
+which we can now use in our current file 
+(ths is an alternative to importing the whole file and every function into it)
+
+So methodology:
+put helper functions in helpers.js and do that.
+(Is it a react only thing or a JS thing that we're doing this?)
+
+
+Lesson 11
+----------
+
+React event listeners happen •inline•
+onClick={this.handleClick}
+and then in the component (outside the render function)
+  handleClick() {
+    alert("clicked!");
+  }
+  (note that when you call it you're not doing onClick={handleClick() - even though you're calling a function})
+  
+  Golden rule in react: Don't touch the DOM. It's what your app spits out, but the things happening in your app should live in the blob of the app itself. You're not supposed to be messing with the car while it's already in the customer's garage, do that on the assembly line.
+
+  Instead! Use *refs* to grab the value outta dom elemnet user is interacting with. Refs reference dom nodes.
+
+  To make this work! Need to unnastand *binding* in React:
+  
+  React has *lifecycle events*. Things like componentDidMount()
+  You can do componentDidMount() {do some stuff} similar to how you do JQuery events after the document's loaded.
+
+So in order to reference a component from within itself, you can't just use this like with normal Javascript.
+
+To access this, we can use a consructor function. Don't fully unnastand super() but seems like 'run a cable from inside the box to outside the box and into the plugs on the outside of the box.' (Really it's just reconciling the order all these things are loaded in):
+
+constructor() {
+    super(); 
+    this.goToStore = this.goToStore.bind(this);
+}
+
+Which makes 'this' into a reference to 'this,' the instance of storepicker we're in. 
+
+HOWEVER if you have a buncha methods you're trynta use it gets messy real fast with binding a whole lotta things. 
+
+INSTEAD
+
+we make that method we want to use into a *property* of the component, and we pass it the event. This means the property is bound to the instance of this component. 
+
+  goToStore = (event) => {
+    event.preventDefault();
+    //  prevent form from submitting and reloading the page
+    console.log(this);
+    //  get input text
+    // change the page to store/storeID
+  };
+
+  and then 
+
+        <form className="store-selector" onSubmit={this.goToStore}>
+etc.
+
+So we're creating methods inside our component then passing those methods as props to our own component so they can be called and work properly at the right moment in time and in the right context. This is making me think of the helper bots that come out of the big robot and deploy after big robot deploys.
 

@@ -8,11 +8,16 @@ class StorePicker extends React.Component {
   myInput = React.createRef();
 
   goToStore = (event) => {
-    event.preventDefault();
     //  prevent form from submitting and reloading the page
-    console.log(this);
-    //  get input text
-    // change the page to store/storeID
+    event.preventDefault();
+    //  get input text (this was myInput.value but new version of react it's current.value)
+
+    const storeName = this.myInput.current.value;
+    // console.log(this.myInput.current.value);
+
+    // change the page URL to store/storeID
+    this.props.history.push(`/store/${storeName}`);
+    // so we're not really changing pages, we're still the same app, we're just telling react to load some new components, so it's *fassst*
   };
 
   render() {

@@ -88,3 +88,23 @@ etc.
 
 So we're creating methods inside our component then passing those methods as props to our own component so they can be called and work properly at the right moment in time and in the right context. This is making me think of the helper bots that come out of the big robot and deploy after big robot deploys.
 
+Lesson 12
+--------------
+setting a reference - like an event listener:
+
+  a variable to hold the value (inside our component):
+    myInput = React.createRef();
+
+  a thing to attach that value to:
+            <input 
+            type="text"
+            ref={this.myInput} /> 
+
+  and then we can use that value somewhere:
+      console.log(this.myInput.current.value);
+
+ then we set an input somewhere to attach to that reference.
+Now that reference (in this case myInput)
+
+Question for exploration:
+- when I console log this at this point, I get the storepicker component back with a bunch of props that arent' found in the react tools components browser plugin. Is it the difference between the component's default state and the state when it's been rendered in the browser and come back with a buncha extra stuff?

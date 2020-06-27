@@ -108,3 +108,19 @@ Now that reference (in this case myInput)
 
 Question for exploration:
 - when I console log this at this point, I get the storepicker component back with a bunch of props that arent' found in the react tools components browser plugin. Is it the difference between the component's default state and the state when it's been rendered in the browser and come back with a buncha extra stuff?
+
+Lesson 13
+--------------
+
+State! an object that lives inside a component that holds all the data the component and its children need
+
+In react, we want a single source of truth that then the components pull from
+
+In the exercise, it's all the fish that are available at the store. When I update something in the state, react REACTS and updates all the components using that state. (Instead of event listeners or passing data around functions or all the other stuff you'd do in vanilla JS) So single source of truth that gets used in a buncha places.
+
+Making this form a component so it's reusable 
+
+Q: Ways to decide what's a component and what's part of a larger component?
+
+
+

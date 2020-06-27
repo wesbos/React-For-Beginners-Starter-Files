@@ -8,10 +8,10 @@ class StorePicker extends React.Component {
   myInput = React.createRef();
 
   goToStore = (event) => {
-    event.preventDefault();
     //  prevent form from submitting and reloading the page
-    console.log(this);
+    event.preventDefault();
     //  get input text
+    console.log(this.myInput.current.value);
     // change the page to store/storeID
   };
 

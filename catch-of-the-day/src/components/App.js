@@ -1,9 +1,17 @@
-import React from "react";
+import React, { Component } from "react";
 import Header from "./Header";
 import Inventory from "./Inventory";
 import Order from "./Order";
 
 class App extends React.Component {
+  // state to get data from the the form Component
+  state = {
+    fishes: {},
+    order: {},
+  };
+  addFish = (fish) => {
+    console.log("adding a fish");
+  };
   render() {
     return (
       <div className="catch-of-the-day">
@@ -12,7 +20,7 @@ class App extends React.Component {
           {/* props being passed in, note that number props need curly braces */}
         </div>
         <Order />
-        <Inventory />
+        <Inventory addFish={this.addFish} />
       </div>
     );
   }

@@ -112,7 +112,7 @@ Question for exploration:
 Lesson 13
 --------------
 
-State! an object that lives inside a component that holds all the data the component and its children need
+State! an object that lives inside a component and holds all the data the component and its children need
 
 In react, we want a single source of truth that then the components pull from
 
@@ -122,5 +122,18 @@ Making this form a component so it's reusable
 
 Q: Ways to decide what's a component and what's part of a larger component?
 
+after we takee some input and geet it into a variablee, how does it get outta that component into state so accessible to other things.
 
+To do this you need to put in a higher component. Data cannot get automatically passed up, only down.
 
+So need to get foorm data and push into state (in App.js)
+
+The methods that update state and the state need to live in the same component. So App.js needs a thing that's going to get the form data, you don't push the form data from the form itself.
+
+So for this to work, we make the addFish method in App.js, and we have to pass this method down the hierarchy of components as a prop. (remember props are kinda like arguments passed into functions)
+
+So now in App.js, we can pass addFish to Inventory, and its' a prop of Inventory. 
+        <Inventory addFish={this.addFish} />
+
+And from addFishForm, we can pass that into the next component, addFishForm BUT we're passing a prop, not one of our own methods, so different syntax:
+        <AddFishForm addFish={this.props.addFish} />

@@ -10,7 +10,14 @@ class App extends React.Component {
     order: {},
   };
   addFish = (fish) => {
-    console.log("adding a fish");
+    // take a copy of existing state
+    const fishes = { ...this.state.fishes };
+    // ... = object spread aka copy of state. see also: deep clone
+    fishes[`fish${Date.now()}`] = fish;
+    // add our new fish to fishes variable
+    this.setState({
+      fishes: fishes, // overwrite the state fishes with our new copy of fishes
+    });
   };
   render() {
     return (

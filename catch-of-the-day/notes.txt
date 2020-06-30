@@ -176,4 +176,43 @@ Instead, we make a copy of state, do stuff to it, then set state to it after tha
 TODO understand object spread and deep clone better
 
 
+Lesson 14
+===========
 
+Lesson 15
+===========
+
+Mapping some content into 
+
+JSX doen't have logic, use vanilla JS
+
+  Get the keys from the fishes part of state
+
+  Object.keys: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+
+    {Object.keys(this.state.fishes)
+
+    Key is a built in react thing - Each item needs a unique key so React can properly update it. 
+    see also: https://reactjs.org/docs/lists-and-keys.html
+    
+  Since we're getting the keys with Object.keys we can just repurpose those as react keys (you could also just use array indecies if they were numbers)
+
+    {Object.keys(this.state.fishes).map((key) => (
+      <Fish key={key} />
+    ))}
+
+  And then we can *further* use those array keys to get the different parts out of the fishes part of the state object, like this:
+  
+  details={this.state.fishes[key]}
+
+  So all together:
+
+    {Object.keys(this.state.fishes).map((key) => (
+      <Fish key={key} details={this.state.fishes[key]} />
+    ))} 
+
+See also
+----------
+ES6 Destructuring!
+https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f
+  

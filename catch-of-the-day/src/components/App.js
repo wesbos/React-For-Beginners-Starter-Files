@@ -3,6 +3,7 @@ import Header from "./Header";
 import Inventory from "./Inventory";
 import Order from "./Order";
 import sampleFishes from "../sample-fishes";
+import Fish from "./Fish";
 
 class App extends React.Component {
   // state to get data from the the form Component
@@ -31,6 +32,11 @@ class App extends React.Component {
         <div className="menu">
           <Header tagline="derpaderp" quantity={400} cool="true" />
           {/* props being passed in, note that number props need curly braces */}
+          <ul className="fishes">
+            {Object.keys(this.state.fishes).map((key) => (
+              <Fish key={key} details={this.state.fishes[key]} />
+            ))}
+          </ul>
         </div>
         <Order />
         <Inventory

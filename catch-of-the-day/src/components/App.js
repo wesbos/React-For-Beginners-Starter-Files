@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "./Header";
 import Inventory from "./Inventory";
 import Order from "./Order";
+import sampleFishes from "../sample-fishes";
 
 class App extends React.Component {
   // state to get data from the the form Component
@@ -19,6 +20,11 @@ class App extends React.Component {
       fishes: fishes, // overwrite the state fishes with our new copy of fishes
     });
   };
+  loadSampleFishes = () => {
+    // console.log("loading sample");
+
+    this.setState({ fishes: sampleFishes });
+  };
   render() {
     return (
       <div className="catch-of-the-day">
@@ -27,7 +33,10 @@ class App extends React.Component {
           {/* props being passed in, note that number props need curly braces */}
         </div>
         <Order />
-        <Inventory addFish={this.addFish} />
+        <Inventory
+          addFish={this.addFish}
+          loadSampleFishes={this.loadSampleFishes}
+        />
       </div>
     );
   }

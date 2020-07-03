@@ -11,6 +11,7 @@ class App extends React.Component {
     fishes: {},
     order: {},
   };
+
   addFish = (fish) => {
     // take a copy of existing state
     const fishes = { ...this.state.fishes };
@@ -21,11 +22,21 @@ class App extends React.Component {
       fishes: fishes, // overwrite the state fishes with our new copy of fishes
     });
   };
+
   loadSampleFishes = () => {
     // console.log("loading sample");
-
     this.setState({ fishes: sampleFishes });
   };
+
+  addToOrder = (key) => {
+    // take a copy of state
+    const order = { ...this.state.order };
+    // add to the order or update the number
+    order[key] = order[key] + 1 || 1;
+    // call setState to update our state to order(in state) == order(my local variable).
+    this.setState({ order });
+  };
+
   render() {
     return (
       <div className="catch-of-the-day">
@@ -34,7 +45,13 @@ class App extends React.Component {
           {/* props being passed in, note that number props need curly braces */}
           <ul className="fishes">
             {Object.keys(this.state.fishes).map((key) => (
-              <Fish key={key} details={this.state.fishes[key]} />
+              <Fish
+                key={key}
+                fishNumber={key}
+                // passing the key lets each button have a prop it can use to pass back when its clicked
+                details={this.state.fishes[key]}
+                addToOrder={this.addToOrder}
+              />
             ))}
           </ul>
         </div>

@@ -12,10 +12,14 @@ class Fish extends React.Component {
         <img src={image} alt={image} />
         <h3 className="fish-name">
           {name}
-          <span classname="price">{formatPrice(price)}</span>
+          <span className="price">{formatPrice(price)}</span>
         </h3>
         <p>{desc}</p>
-        <button disabled={!isAvailable}>
+        <button
+          disabled={!isAvailable}
+          onClick={() => this.props.addToOrder(this.props.fishNumber)}
+          // ^^ use the addToOrder method we got as a prop and give it the key. Do not understand why this has to be wrapped in a function and not just be this.props.addToOrder(this.props.key)
+        >
           {isAvailable ? "Add to Order" : "Sold out"}
         </button>
       </li>

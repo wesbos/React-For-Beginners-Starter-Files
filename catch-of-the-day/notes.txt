@@ -52,9 +52,7 @@ and then in the component (outside the render function)
   Instead! Use *refs* to grab the value outta dom elemnet user is interacting with. Refs reference dom nodes.
 
   To make this work! Need to unnastand *binding* in React:
-  
-  React has *lifecycle events*. Things like componentDidMount()
-  You can do componentDidMount() {do some stuff} similar to how you do JQuery events after the document's loaded.
+
 
 So in order to reference a component from within itself, you can't just use this like with normal Javascript.
 
@@ -120,7 +118,8 @@ In the exercise, it's all the fish that are available at the store. When I updat
 
 Making this form a component so it's reusable 
 
-TODO Ways to decide what's a component and what's part of a larger component?
+XTODO Ways to decide what's a component and what's part of a larger component?
+- similar to functions, what's reusable elsewhere, how many damn files do you want, what does one task that's kinda self-contained 
 
 after we takee some input and geet it into a variablee, how does it get outta that component into state so accessible to other things.
 
@@ -216,3 +215,103 @@ See also
 ES6 Destructuring!
 https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f
   
+
+Lesson 16
+----------
+X_TODO Clarification on when a react component is a class vs. when it's just a constant - there're still props in header.js but it's declared as just a const. What is the trick a component will do that makes it a JS class and not a const?
+This is a question of Class component vs. Functional Components:
+https://itnext.io/react-component-class-vs-stateless-component-e3797c7d23ab
+
+(Stateless)Functional component is just a JS function that takes some args (props) and returns some things.
+
+Stateless = you can't reach this.state. Has no lifecycle events so can't use those as triggers for things. (more on that later)
+
+Class components are more like constructor functions - React makes copies of them, and most importantly here they have state. They take the same time to render but they *do* compile to a lot more JS so still a performance consideration. 
+
+Deciding between them is basically do you need state, lifecycle events or hooks? or do you need to just take in some stuff and spit some stuff out?
+
+MARK: Order of things in an application file:
+-----------------------------------------
+State
+Lifecycle events
+Custom stuff
+Render
+-----------------------------------------
+
+TODO: understand super 
+
+----------------
+
+Lifecycle events:
+
+https://reactjs.org/docs/state-and-lifecycle.html
+https://programmingwithmosh.com/javascript/react-lifecycle-methods/
+
+Mounting, update, unmounting - all component lifeycle events
+Render is a lifecycle method.(PS render is required to ONLY render things - be a pure function that doesn't also do things that are NOT rendering like updating state)
+
+componentDidUpdate(), componentWillUnmount() etc. are all lifecycle. Based on the whole idea that you're putting a buncha stuff in the dom and you need to also be destroying it when no longer needed so you're not crashing people's web browser with a dom element for every sprite that appeared in your video game and then disappeared, or every image they've ever scrolled past in your insta clone until they close the browser.
+
+----------------
+
+in JS console in browser: you can manually fire off a function by:
+
+$r.addToOrder('fish1');
+
+($r. is like the jQuery $)
+
+Telling which button is clicked:
+if you need access to the key, you have to pass it a second time as a prop
+
+So when we iterate through this.state.fishes and make a button for each:
+
+{Object.keys(this.state.fishes).map((key) => (
+        <Fish
+          key={key}
+          index={key}
+
+... we give it a key (for React to use) and we also give it that index prop so it can tell the function we assign to onClick what the thing is that was clicked.
+
+addToOrder function:
+  addToOrder = (key) => {
+    // take a copy of state
+    const order = { ...this.state.order };
+    // add to the order or update the number
+    order[key] = order[key] + 1 || 1;
+    // call setState to update our state to order(in state) == order(my local variable).
+    this.setState({ order })
+
+TODO: difference between +1 and ++ because ++ doesn't work here
+    
+
+Lesson 18
+-------------
+Firebase - hosts somehting like local storage. You hold something like inventory in there, and then it can be accessed from wherever. You don't hold something in there like the order itself, that's a job for local storage. (though I wonder if amazon keeps your cart in somehting like firebase so it's present for all your sessions across devices.)
+
+More about FirebaseApp and how it's kinda like expressjs:
+https://dev.to/farazamiruddin/react-firebase-add-firebase-to-a-react-app-4nc9
+
+Mirroring state to firebase. THis needs to happen on the react version of document.ready in jquery. Needs to happen only once the component is loaded on the page. 
+
+React has *lifecycle events*. Things like componentDidMount()
+You can do componentDidMount() {do some stuff} similar to how you do JQuery events after the document's loaded, the app is loaded etc..
+
+So once it's loaded:
+
+  componentDidMount() {
+    
+    const { params } = this.props.match; (keeps us from having to read all the props into variables, solid trick)
+    (refs are different in firebase than in react)
+
+    Anyway, we don't wanna sync the whole database because it may have stuff from other stores. So we give it this path in syncState then some config params, and the state of the fishes component as its state to sync.
+    PS: The arg going into base.syncState is using that `$derp`/derp concatenation method vs. +
+    
+    this.ref = base.syncState(`${params.storeId}/fishes`, {
+      context: this,
+      state: "fishes",
+    });
+  }
+
+Unmounting things!
+
+After we're listening for updates ot this one store with react, we never stop listening. And thats a memory leak. When we leave the store/close the app/visit a different store, we want to stop listenint to that channel so we're not consuming unnecessary resources. 

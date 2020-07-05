@@ -283,6 +283,13 @@ addToOrder function:
 
 TODO: difference between +1 and ++ because ++ doesn't work here
     
+Lesson 17 (oops skipped 17)
+---------------------------
+Use order state to display on page
+
+
+
+
 
 Lesson 18
 -------------

@@ -287,14 +287,20 @@ Lesson 17 (oops skipped 17)
 ---------------------------
 Use order state to display on page
 
+object spread: put everything from state into it. BUT you don't want ot just put your entire state in there, only send what data you need.
 
+Render function:
+antidote for having too much going on in a single component but not enough for separate components.
 
+You can totally make separate render functions inside a single component.
+
+Tricks: 
+
+iterating over something: array.map()
 
 
 Lesson 18
 -------------
-Firebase - hosts somehting like local storage. You hold something like inventory in there, and then it can be accessed from wherever. You don't hold something in there like the order itself, that's a job for local storage. (though I wonder if amazon keeps your cart in somehting like firebase so it's present for all your sessions across devices.)
-
 More about FirebaseApp and how it's kinda like expressjs:
 https://dev.to/farazamiruddin/react-firebase-add-firebase-to-a-react-app-4nc9
 
@@ -322,3 +328,5 @@ So once it's loaded:
 Unmounting things!
 
 After we're listening for updates ot this one store with react, we never stop listening. And thats a memory leak. When we leave the store/close the app/visit a different store, we want to stop listenint to that channel so we're not consuming unnecessary resources. 
+
+

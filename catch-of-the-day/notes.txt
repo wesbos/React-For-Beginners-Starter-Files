@@ -172,7 +172,23 @@ Instead, we make a copy of state, do stuff to it, then set state to it after tha
       fishes: fishes, // overwrite the state fishes with our new copy of fishes
     }
 
-TODO understand object spread and deep clone better
+Object spread and deep clone:
+
+Object spread:
+from: https://dmitripavlutin.com/object-rest-spread-properties-javascript/
+const cat = {legs: 4, sound: 'meow'};
+const dog = {...cat, sound: 'woof'};
+console.log(dog); // => { legs: 4, sounds: 'woof' }
+(so ...[object] = easy way to say 'copy all the stuff from that object to here)
+
+Deep Clone vs Shallow clone:
+
+https://medium.com/javascript-in-plain-english/how-to-deep-copy-objects-and-arrays-in-javascript-7c911359b089
+
+TODO: Read this further, needs review.
+
+
+
 
 
 Lesson 14
@@ -270,7 +286,7 @@ So when we iterate through this.state.fishes and make a button for each:
           key={key}
           index={key}
 
-... we give it a key (for React to use) and we also give it that index prop so it can tell the function we assign to onClick what the thing is that was clicked.
+... we give it a key (for React to use) and we also give it that index prop so it can tell the function we assign to onClick what the thing is that was clicked. (PS this Object.Keys)
 
 addToOrder function:
   addToOrder = (key) => {

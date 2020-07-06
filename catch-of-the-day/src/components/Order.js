@@ -6,9 +6,10 @@ class Order extends React.Component {
   renderOrder = (key) => {
     const fish = this.props.fishes[key];
     const count = this.props.order[key];
-    const isAvailable = fish.status === "available";
-    // const isAvailable = false;
-    // TODO: this syntax ^^ unfamiliar (Is setting variable isAvailable to the answer of whether fish.status === 'available')
+    const isAvailable = fish && fish.status === "available";
+
+    if (!fish) return null;
+    // This syntax ^^ Is setting variable isAvailable to the answer of whether fish exists and fish.status === 'available')
 
     if (!isAvailable) {
       return (

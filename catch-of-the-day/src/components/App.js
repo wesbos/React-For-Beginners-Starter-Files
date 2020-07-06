@@ -16,14 +16,29 @@ class App extends React.Component {
   // wait till app.js is loaded before we start talking to firebase
   componentDidMount() {
     const { params } = this.props.match;
-    // console.log("mounted");
+
+    // reinstate localStorage
+    const localStorageRef = localStorage.getItem(params.storeId);
+    if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+
     // refs different in firebase than in react
     //anyway, we don't wanna sync the whole database because it may have stuff from other stores. So we give it this path in syncState then some config params, and the state of the fishes component as its state to sync.
     this.ref = base.syncState(`${params.storeId}/fishes`, {
       context: this,
       state: "fishes",
     });
-    // and remember this is that easier concatenation method using `` (not '') vs.t +
+    // remember this is that easier concatenation method using `` (not '') vs. +
+  }
+
+  componentDidUpdate() {
+    // use the storeId as the key so we know that this is the key for this particular store.
+    // Remember that localStorage wants stings, not objects. We use JSONs.stringify to turn an object into a string before setItem().
+    localStorage.setItem(
+      this.props.match.params.storeId,
+      JSON.stringify(this.state.order)
+    );
   }
 
   // on leaving the page, or reloading the page, stop listening to whatever you were previously listening to:

@@ -289,7 +289,7 @@ So when we iterate through this.state.fishes and make a button for each:
 ... we give it a key (for React to use) and we also give it that index prop so it can tell the function we assign to onClick what the thing is that was clicked. (PS this Object.Keys)
 
 addToOrder function:
-  addToOrder = (key) => {
+  addToOrder = (key) => {w
     // take a copy of state
     const order = { ...this.state.order };
     // add to the order or update the number
@@ -320,7 +320,7 @@ Lesson 18
 More about FirebaseApp and how it's kinda like expressjs:
 https://dev.to/farazamiruddin/react-firebase-add-firebase-to-a-react-app-4nc9
 
-Mirroring state to firebase. THis needs to happen on the react version of document.ready in jquery. Needs to happen only once the component is loaded on the page. 
+Mirroring state to firebase. THis needs to happen on the react version of document.ready in jquery. Needs to happen only once the component is loaded on the page. s
 
 React has *lifecycle events*. Things like componentDidMount()
 You can do componentDidMount() {do some stuff} similar to how you do JQuery events after the document's loaded, the app is loaded etc..
@@ -346,3 +346,25 @@ Unmounting things!
 After we're listening for updates ot this one store with react, we never stop listening. And thats a memory leak. When we leave the store/close the app/visit a different store, we want to stop listenint to that channel so we're not consuming unnecessary resources. 
 
 
+Lesson 19
+----------------
+
+Remember that passing javascript objects isn't safe, and localStorage wants stings. We use JSONs.stringify to turn an object into a string before setItem().
+
+    localStorage.setItem(
+      this.props.match.params.storeId,
+      JSON.stringify(this.state.order)
+    );
+
+and then when we read it back from localStorage we use JSON.parse to get it back to an object:
+  if (localStorageRef) {
+      this.setState({ order: JSON.parse(localStorageRef) });
+    }
+
+Order of operations:
+Stuff comes outtta localStorage instantly, so we've got this FOUS kinda thing where the order briefly shows up as a list of all your fish.. and they're all unavailable. 
+
+'fish' doesn't exist until it comes from firebase (unless you're loading sample fishes) so to fix, we tell the order component to check if fish exists...
+    const isAvailable = fish && fish.status === "available";
+... and if fish deosn't exist, just spit out nothing in the order component, until state updates and fish exists and now there's an inventory to compare the order to.
+    if (!fish) return null;

@@ -368,3 +368,15 @@ Stuff comes outtta localStorage instantly, so we've got this FOUS kinda thing wh
     const isAvailable = fish && fish.status === "available";
 ... and if fish deosn't exist, just spit out nothing in the order component, until state updates and fish exists and now there's an inventory to compare the order to.
     if (!fish) return null;
+
+
+Lesson 20 
+-------------------------------
+This pattern keeps appearing and is important:
+        {Object.keys(this.props.fishes).map(fish => <EditFishForm />)}
+
+        Object.keys(this.props.fishes)
+        - The keys of the fishes array that our current component been passed as a prop
+
+        .map(fish => <EditFishForm />)
+        - Take each of the things in the array I run .map on, and call it fish, and pass it to EditFishForm as a prop.

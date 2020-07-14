@@ -380,3 +380,23 @@ This pattern keeps appearing and is important:
 
         .map(fish => <EditFishForm />)
         - Take each of the things in the array I run .map on, and call it fish, and pass it to EditFishForm as a prop.
+
+  computed property names, new in ES6
+  ------------------------------------
+  instead of doing: 
+  
+  handleNameChange = (event) => {
+    change the name and send to state
+  }
+  handlePriceChange = (event) => {
+    change the name and send to state
+  }
+  handleDescChange = (event) => {
+    change the name and send to state
+  }
+
+  we can use computed property names:
+    
+    [event.currentTarget.name]: event.currentTarget.value,
+
+... and now handle all those in one fukken line.

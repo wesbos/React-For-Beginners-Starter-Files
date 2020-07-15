@@ -185,8 +185,21 @@ Deep Clone vs Shallow clone:
 
 https://medium.com/javascript-in-plain-english/how-to-deep-copy-objects-and-arrays-in-javascript-7c911359b089
 
-TODO: Read this further, needs review.
+TODO: Object spread:
 
+
+Accessing state vs. props:
+-------------------------
+When we're in app.js, state lives here, so we access parts of it by copying state via object spread:
+    const fishes = {...this.state.fishes}
+
+When we're in a component, that data has to have been passed down via props, so we access it like this:
+    <button onClick={this.props.loadSampleFishes}>
+
+or if it's an array we need to loop over and pass each item to a copy of a component with some of its data as props:
+  {Object.keys(this.props.fishes).map((key) => (
+          <EditFishForm fish={this.props.fishes[key]} key={key} />
+        ))}
 
 
 
@@ -368,3 +381,36 @@ Stuff comes outtta localStorage instantly, so we've got this FOUS kinda thing wh
     const isAvailable = fish && fish.status === "available";
 ... and if fish deosn't exist, just spit out nothing in the order component, until state updates and fish exists and now there's an inventory to compare the order to.
     if (!fish) return null;
+
+
+Lesson 20 
+-------------------------------
+This pattern keeps appearing and is important:
+        {Object.keys(this.props.fishes).map(fish => <EditFishForm />)}
+
+        Object.keys(this.props.fishes)
+        - The keys of the fishes array that our current component been passed as a prop
+
+        .map(fish => <EditFishForm />)
+        - Take each of the things in the array I run .map on, and call it fish, and pass it to EditFishForm as a prop.
+
+  computed property names, new in ES6
+  ------------------------------------
+  instead of doing: 
+  
+  handleNameChange = (event) => {
+    change the name and send to state
+  }
+  handlePriceChange = (event) => {
+    change the name and send to state
+  }
+  handleDescChange = (event) => {
+    change the name and send to state
+  }
+
+  we can use computed property names:
+    
+    [event.currentTarget.name]: event.currentTarget.value,
+
+... and now handle all those in one fukken line.
+

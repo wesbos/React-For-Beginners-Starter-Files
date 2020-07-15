@@ -16,7 +16,6 @@ class App extends React.Component {
   // wait till app.js is loaded before we start talking to firebase
   componentDidMount() {
     const { params } = this.props.match;
-
     // reinstate localStorage
     const localStorageRef = localStorage.getItem(params.storeId);
     if (localStorageRef) {
@@ -58,6 +57,15 @@ class App extends React.Component {
     });
   };
 
+  updateFish = (key, updatedFish) => {
+    //take a copy of the current state (its state not props because this is where the state •lives*)
+    const fishes = { ...this.state.fishes };
+    // update that part of state
+    fishes[key] = updatedFish;
+    // set that to this.state
+    this.setState({ fishes });
+  };
+
   loadSampleFishes = () => {
     // console.log("loading sample");
     this.setState({ fishes: sampleFishes });
@@ -93,6 +101,7 @@ class App extends React.Component {
         <Order fishes={this.state.fishes} order={this.state.order} />
         <Inventory
           addFish={this.addFish}
+          updateFish={this.updateFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />

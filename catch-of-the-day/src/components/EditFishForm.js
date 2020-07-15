@@ -8,10 +8,8 @@ class EditFishForm extends React.Component {
       ...this.props.fish,
       [event.currentTarget.name]: event.currentTarget.value,
     };
+    this.props.updateFish(this.props.index, updatedFish);
     console.log(updatedFish);
-
-    // set some of its values to be the values that changed in the input field
-    // write that back to state
   };
   render() {
     return (

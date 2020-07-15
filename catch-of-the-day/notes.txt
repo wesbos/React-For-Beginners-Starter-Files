@@ -185,8 +185,21 @@ Deep Clone vs Shallow clone:
 
 https://medium.com/javascript-in-plain-english/how-to-deep-copy-objects-and-arrays-in-javascript-7c911359b089
 
-TODO: Read this further, needs review.
+TODO: Object spread:
 
+
+Accessing state vs. props:
+-------------------------
+When we're in app.js, state lives here, so we access parts of it by copying state via object spread:
+    const fishes = {...this.state.fishes}
+
+When we're in a component, that data has to have been passed down via props, so we access it like this:
+    <button onClick={this.props.loadSampleFishes}>
+
+or if it's an array we need to loop over and pass each item to a copy of a component with some of its data as props:
+  {Object.keys(this.props.fishes).map((key) => (
+          <EditFishForm fish={this.props.fishes[key]} key={key} />
+        ))}
 
 
 
@@ -400,3 +413,4 @@ This pattern keeps appearing and is important:
     [event.currentTarget.name]: event.currentTarget.value,
 
 ... and now handle all those in one fukken line.
+

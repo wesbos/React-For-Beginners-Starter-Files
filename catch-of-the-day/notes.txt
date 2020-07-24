@@ -418,3 +418,7 @@ Lesson 21
 ---------------------------
 Deleting items
 
+TODO: Why is my button on firing whenever the page loads (if I put an onClick handler and console log something it fires off for each instance of the button, not on click.s)
+
+TODO: And what is the {isAvailable} syntax on the button? It looks like it'd output a boolean, but how is that then fitting into the output of the return statement that it's into? Does it ... exit the function if that's false?
+

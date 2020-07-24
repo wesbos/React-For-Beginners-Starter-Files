@@ -80,6 +80,20 @@ class App extends React.Component {
     this.setState({ order });
   };
 
+  // removeFromOrder = (key) => {
+  //   const order = { ...this.state.order };
+  //   order[key] = null;
+  //   this.setState({ order });
+  // };
+  // not sure if this works
+
+  deleteFish = (key) => {
+    const fishes = { ...this.state.fishes };
+    // because of firebase, we need to set it to null
+    fishes[key] = null;
+    this.setState({ fishes });
+  };
+
   render() {
     return (
       <div className="catch-of-the-day">
@@ -102,6 +116,7 @@ class App extends React.Component {
         <Inventory
           addFish={this.addFish}
           updateFish={this.updateFish}
+          deleteFish={this.deleteFish}
           loadSampleFishes={this.loadSampleFishes}
           fishes={this.state.fishes}
         />

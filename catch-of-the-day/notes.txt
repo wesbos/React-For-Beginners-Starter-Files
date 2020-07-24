@@ -414,3 +414,7 @@ This pattern keeps appearing and is important:
 
 ... and now handle all those in one fukken line.
 
+Lesson 21
+---------------------------
+Deleting items
+

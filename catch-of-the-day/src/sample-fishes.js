@@ -1,6 +1,7 @@
 // This is just some sample data so you don't have to think of your own!
 const fishes = {
   fish1: {
+    id:1,
     name: "Pacific Halibut",
     image: "/images/hali.jpg",
     desc:
@@ -10,6 +11,7 @@ const fishes = {
   },
 
   fish2: {
+    id:2,
     name: "Lobster",
     image: "/images/lobster.jpg",
     desc:
@@ -19,6 +21,7 @@ const fishes = {
   },
 
   fish3: {
+    id: 3,
     name: "Sea Scallops",
     image: "/images/scallops.jpg",
     desc:
@@ -28,6 +31,7 @@ const fishes = {
   },
 
   fish4: {
+    id: 4,
     name: "Mahi Mahi",
     image: "/images/mahi.jpg",
     desc:
@@ -37,6 +41,7 @@ const fishes = {
   },
 
   fish5: {
+    id: 5,
     name: "King Crab",
     image: "/images/crab.jpg",
     desc:
@@ -46,6 +51,7 @@ const fishes = {
   },
 
   fish6: {
+    id: 6,
     name: "Atlantic Salmon",
     image: "/images/salmon.jpg",
     desc:
@@ -55,6 +61,7 @@ const fishes = {
   },
 
   fish7: {
+    id: 7,
     name: "Oysters",
     image: "/images/oysters.jpg",
     desc: "A soft plump oyster with a sweet salty flavor and a clean finish.",
@@ -63,6 +70,7 @@ const fishes = {
   },
 
   fish8: {
+    id: 8,
     name: "Mussels",
     image: "/images/mussels.jpg",
     desc:
@@ -72,6 +80,7 @@ const fishes = {
   },
 
   fish9: {
+    id: 9,
     name: "Jumbo Prawns",
     image: "/images/prawns.jpg",
     desc:

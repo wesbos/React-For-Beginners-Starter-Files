@@ -1,16 +1,11 @@
-export function formatPrice(cents) {
-  return (cents / 100).toLocaleString("en-US", {
+export const formatPrice = (cents) => (cents / 100).toLocaleString("en-US", {
     style: "currency",
     currency: "USD"
   });
-}
 
-export function rando(arr) {
-  return arr[Math.floor(Math.random() * arr.length)];
-}
+export const rando = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-export function slugify(text) {
-  return text
+export const slugify = (text) => text
     .toString()
     .toLowerCase()
     .replace(/\s+/g, "-")
@@ -18,9 +13,8 @@ export function slugify(text) {
     .replace(/--+/g, "-")
     .replace(/^-+/, "")
     .replace(/-+$/, "");
-}
 
-export function getFunName() {
+export const getFunName = () => {
   const adjectives = [
     "adorable",
     "beautiful",

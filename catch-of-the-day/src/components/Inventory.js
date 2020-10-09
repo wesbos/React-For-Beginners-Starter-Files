@@ -7,5 +7,5 @@ class Inventory extends React.Component {
         );
     }
 }
-{/* comment */}
+
 export default Inventory;

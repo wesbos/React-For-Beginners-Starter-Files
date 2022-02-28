@@ -5,14 +5,14 @@ tasks:
       npm install
     command: |
       echo 'Running the dev app'
-      export HMR_HOST=`gp url 3000`
-      export HOST=${HMR_HOST:8}
-      export PORT=443
+      # export HMR_HOST=`gp url 3000`
+      # export HOST=${HMR_HOST:8}
+      # export PORT=443
       cd catch-of-the-day
       npm run dev
 ports:
   - port: 3000
-    onOpen: open-browser
+    onOpen: open-preview
 github:
   prebuilds:
     master: true

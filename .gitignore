@@ -2,5 +2,6 @@ node_modules/
 *.zip
 .DS_Store
 .idea
+.vscode/*
 notes.md
 catch-of-the-day/build/

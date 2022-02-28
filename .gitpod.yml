@@ -5,6 +5,7 @@ tasks:
       npm install
     command: |
       echo 'Running the dev app'
+      cd catch-of-the-day
       npm run dev
 ports:
   - port: 3000

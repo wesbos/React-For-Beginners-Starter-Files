@@ -7,6 +7,7 @@ tasks:
       echo 'Running the dev app'
       export HMR_HOST=`gp url 3000`
       export WDS_SOCKET_HOST=${HMR_HOST:8}
+      export WDS_SOCKET_PORT=443
       cd catch-of-the-day
       npm run dev
 ports:

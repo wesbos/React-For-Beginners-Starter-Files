@@ -1,0 +1,10 @@
+tasks:
+  - init: |
+      echo 'TODO: build project'
+    command: |
+      echo 'TODO: start app'
+github:
+  prebuilds:
+    master: true
+    branches: true
+    pullRequests: true

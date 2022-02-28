@@ -1,8 +1,14 @@
 tasks:
   - init: |
-      echo 'TODO: build project'
+      echo 'Installing dependencies.'
+      cd catch-of-the-day
+      npm install
     command: |
-      echo 'TODO: start app'
+      echo 'Running the dev app'
+      npm run dev
+ports:
+  - port: 3000
+    onOpen: open-browser
 github:
   prebuilds:
     master: true

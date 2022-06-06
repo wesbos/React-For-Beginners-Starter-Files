@@ -1,0 +1,36 @@
+import React, { useRef } from 'react'
+
+export const AddFishForm = ({ addFish }) => {
+  const nameRef = useRef();
+  const priceRef = useRef();
+  const statusRef = useRef();
+  const descRef = useRef();
+  const imageRef = useRef();
+
+  const createFish = (event) => {
+    event.preventDefault();
+    const fish = {
+      name: nameRef.current.value,
+      price: parseFloat(priceRef.current.value),
+      status: statusRef.current.value,
+      desc: descRef.current.value,
+      image: imageRef.current.value
+    };
+    addFish(fish);
+    event.currentTarget.reset();
+  }
+
+  return (
+    <form className="fish-edit" onSubmit={createFish}>
+      <input ref={nameRef} type="text" name="name" placeholder="name" />
+      <input ref={priceRef} type="text" name="price" placeholder="price" />
+      <select ref={statusRef} name="status">
+        <option value="available">Fresh</option>
+        <option value="unavailable">Sold Out</option>
+      </select>
+      <textarea ref={descRef} placeholder="description" />
+      <input ref={imageRef} type="text" name="image" placeholder="image" />
+      <button type="submit">+ Add Fish</button>
+    </form>
+  )
+}

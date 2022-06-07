@@ -1,14 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { Header } from './Header';
 import { Order } from './Order';
 import { Inventory } from './Inventory';
 import sampleFishes from "../sample-fishes";
 import { Fish } from './Fish';
+import base from '../base';
 
-export const App = () => {
+export const App = (props) => {
   const [fishes, setFishes] = useState({});
   const [orders, setOrders] = useState({});
+  const storeId = props.match.params.storeId;
+
+  useEffect(() => {
+    console.log(fishes);
+    const ref = base.syncState(`${storeId}/fishes`, {
+      context: {
+        setState: ({ fishes }) => setFishes({ ...fishes }),
+        state: { fishes },
+      },
+      state: "fishes"
+    })
+    return () => {
+      base.removeBinding(ref);
+    }
+  }, []);
+
+  console.log(fishes);
 
   const addFish = fish => {
     setFishes({ ...fishes, fish });
@@ -34,7 +52,7 @@ export const App = () => {
           ))}
         </ul>
       </div>
-      <Order />
+      <Order fishes={fishes} orders={orders} />
       <Inventory addFish={addFish} loadSampleFishes={loadSampleFishes} />
     </div>
   )

@@ -13,18 +13,18 @@ export const App = (props) => {
   const storeId = props.match.params.storeId;
 
   useEffect(() => {
-    console.log(fishes);
     const ref = base.syncState(`${storeId}/fishes`, {
       context: {
         setState: ({ fishes }) => setFishes({ ...fishes }),
         state: { fishes },
       },
-      state: "fishes"
+      state: 'fishes'
     })
+
     return () => {
       base.removeBinding(ref);
     }
-  }, []);
+  }, [])
 
   console.log(fishes);
 

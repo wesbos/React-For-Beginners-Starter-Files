@@ -1,36 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import { Header } from './Header';
 import { Order } from './Order';
 import { Inventory } from './Inventory';
 import sampleFishes from "../sample-fishes";
 import { Fish } from './Fish';
-import base from '../base';
+import { firebaseApp } from '../base';
+import PropTypes from "prop-types";
 
 export const App = (props) => {
-  const [fishes, setFishes] = useState({});
-  const [orders, setOrders] = useState({});
   const storeId = props.match.params.storeId;
+  const [fishes, setFishes] = useState({});
+  const [orders, setOrders] = useState(localStorage.getItem(storeId) ? JSON.parse(localStorage.getItem(storeId)) : {});
+  const memorizedFishes = useMemo(() => fishes, [fishes]);
+  const memorizedOrders = useMemo(() => orders, [orders]);
 
   useEffect(() => {
-    const ref = base.syncState(`${storeId}/fishes`, {
-      context: {
-        setState: ({ fishes }) => setFishes({ ...fishes }),
-        state: { fishes },
-      },
-      state: 'fishes'
-    })
+    firebaseApp.database().ref(`${storeId}/fishes`).on('value', snapshot => {
+      if (snapshot.val()) {
+        setFishes(snapshot.val());
+      }
+    });
+  }, []);
 
-    return () => {
-      base.removeBinding(ref);
-    }
-  }, [])
+  useEffect(() => {
+    firebaseApp.database().ref(`${storeId}/fishes`).update(memorizedFishes);
+  }, [memorizedFishes]);
 
-  console.log(fishes);
+  useEffect(() => {
+    localStorage.setItem(storeId, JSON.stringify(memorizedOrders));
+  }, [memorizedOrders])
+
 
   const addFish = fish => {
-    setFishes({ ...fishes, fish });
+    const fishesCopy = { ...fishes };
+    fishesCopy[`fish${Date.now()}`] = fish;
+    setFishes(fishesCopy);
   };
+
+  const updateFish = (key, updatedFish) => {
+    const fishesCopy = { ...fishes };
+    fishesCopy[key] = updatedFish;
+    setFishes(fishesCopy);
+  };
+
+  const deleteFish = key => {
+    const fishesCopy = { ...fishes };
+    fishesCopy[key] = null;
+    setFishes(fishesCopy);
+    removeFromOrder(key);
+  }
 
   const loadSampleFishes = () => {
     setFishes(sampleFishes);
@@ -42,6 +61,12 @@ export const App = (props) => {
     setOrders(ordersCopy);
   };
 
+  const removeFromOrder = key => {
+    const ordersCopy = { ...orders };
+    delete ordersCopy[key];
+    setOrders(ordersCopy);
+  }
+
   return (
     <div className="catch-of-the-day">
       <div className="menu">
@@ -52,8 +77,22 @@ export const App = (props) => {
           ))}
         </ul>
       </div>
-      <Order fishes={fishes} orders={orders} />
-      <Inventory addFish={addFish} loadSampleFishes={loadSampleFishes} />
+      <Order
+        fishes={fishes}
+        orders={orders}
+        removeFromOrder={removeFromOrder}
+      />
+      <Inventory
+        fishes={fishes}
+        addFish={addFish}
+        updateFish={updateFish}
+        deleteFish={deleteFish}
+        loadSampleFishes={loadSampleFishes}
+      />
     </div>
   )
 }
+
+App.propTypes = {
+  match: PropTypes.object
+};

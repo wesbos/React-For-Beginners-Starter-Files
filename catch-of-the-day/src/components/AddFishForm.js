@@ -1,4 +1,5 @@
-import React, { useRef } from 'react'
+import React, { useRef } from 'react';
+import PropTypes from "prop-types";
 
 export const AddFishForm = ({ addFish }) => {
   const nameRef = useRef();
@@ -34,3 +35,7 @@ export const AddFishForm = ({ addFish }) => {
     </form>
   )
 }
+
+AddFishForm.propTypes = {
+  addFish: PropTypes.func.isRequired
+};

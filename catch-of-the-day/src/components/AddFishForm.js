@@ -12,13 +12,16 @@ export const AddFishForm = ({ addFish }) => {
     event.preventDefault();
     const fish = {
       name: nameRef.current.value,
-      price: parseFloat(priceRef.current.value),
+      price: priceRef.current.value.length > 0 ? parseFloat(priceRef.current.value) : 0,
       status: statusRef.current.value,
       desc: descRef.current.value,
       image: imageRef.current.value
     };
-    addFish(fish);
-    event.currentTarget.reset();
+    const isEmpty = Object.values(fish).some(x => x === null || x === "");
+    if (!isEmpty) {
+      addFish(fish);
+      event.currentTarget.reset();
+    }
   }
 
   return (

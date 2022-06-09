@@ -6,7 +6,8 @@ export const EditFishForm = ({ index, fish, updateFish, deleteFish }) => {
   const onChange = event => {
     const updatedFish = {
       ...fish,
-      [event.currentTarget.name]: event.currentTarget.value
+      [event.currentTarget.name]: event.currentTarget.name === "price" ?
+        (event.currentTarget.value.length > 0 ? parseFloat(event.currentTarget.value) : 0) : event.currentTarget.value
     }
     updateFish(index, updatedFish);
   }
@@ -14,7 +15,7 @@ export const EditFishForm = ({ index, fish, updateFish, deleteFish }) => {
   return (
     <div className="fish-edit" >
       <input type="text" name="name" placeholder="name" value={fish.name} onChange={onChange} />
-      <input type="text" name="price" placeholder="price" value={fish.price} onChange={onChange} />
+      <input type="string" name="price" placeholder="price" value={fish.price} onChange={onChange} />
       <select name="status" value={fish.status} onChange={onChange}>
         <option value="available">Fresh</option>
         <option value="unavailable">Sold Out</option>

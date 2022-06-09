@@ -88,6 +88,7 @@ export const App = (props) => {
         updateFish={updateFish}
         deleteFish={deleteFish}
         loadSampleFishes={loadSampleFishes}
+        storeId={storeId}
       />
     </div>
   )

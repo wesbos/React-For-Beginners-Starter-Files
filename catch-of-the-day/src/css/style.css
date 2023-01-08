@@ -270,16 +270,18 @@ header.top h1 {
 header.top h1 .ofThe {
   display: -webkit-box;
   display: flex;
-  font-size: 3rem;
+  font-size: 4rem;
   color: #f5a623;
+  margin-top: 25px;
   -webkit-box-pack: center;
           justify-content: center;
   -webkit-box-align: center;
-          align-items: center;
-  background: url("images/anchor.svg") center no-repeat;
-  background-size: cover;
+          
+  background: url("images/bag_transp.png") center no-repeat;
+  background-size: 140%;
   padding: 0 1rem;
 }
+
 header.top h1 .ofThe .of {
   padding-right: 2rem;
   position: relative;

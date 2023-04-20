@@ -129,10 +129,6 @@ ul.order
       display none
       line-height 1
       padding 0
-    &.total
-      font-weight 600
-      border-bottom 3px solid black
-      border-top 3px double black
     &.unavailable
       text-decoration line-through
       background lighten(red, 80%)
@@ -145,6 +141,13 @@ ul.order
       span
         display inline-block
         // transition all 0.5s
+.total
+  padding 2rem 0
+  font-size 1.4rem
+  border-bottom 3px solid black
+  border-top 3px double black
+  & strong
+    float: right
 
 .order-title
   text-align center
@@ -218,7 +221,7 @@ button, input[type=submit]
   border 1px solid black
   font-weight 600
   font-size 1.5rem
-  font-family 'Open Sans'
+  font-family 'Open Sans', sans-serif
   transition all 0.2s
   position relative
   z-index 2
